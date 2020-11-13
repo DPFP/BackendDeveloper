@@ -20,7 +20,6 @@ public class Atoi {
 
         while (index < s.length()) {
             if (s.charAt(index) <= 57 && s.charAt(index) >= 48) {
-                // 0 ?
                 digits[length] = Character.getNumericValue(s.charAt(index));
                 length++;
             } else if (s.charAt(index) == 45 && index == 0) {
@@ -36,19 +35,17 @@ public class Atoi {
         double result = 0.0;
         for (int i = 0; i < length; i++) {
             result = result + digits[i] * Math.pow(10, (length - i - 1));
-            if (result - Integer.MAX_VALUE > 0) {
-                result = Integer.MAX_VALUE;
-                break;
+        }
+
+        if (result - Integer.MAX_VALUE > 0) {
+            result = Integer.MAX_VALUE;
+            if (negative) {
+                result++;
             }
         }
 
         if (negative) {
-            // TODO still got one failing test t10
-            if (result == Integer.MAX_VALUE) {
-                result = result * (-1) - 1;
-            } else {
-                result = result * (-1);
-            }
+            result = result * (-1);
         }
 
         return (int) result;
@@ -67,19 +64,21 @@ public class Atoi {
         String t10 = "-2147483647";
 
         Atoi sol = new Atoi();
-        System.out.println(sol.myAtoi(t1));
-        System.out.println(sol.myAtoi(t2));
-        System.out.println(sol.myAtoi(t3));
-        System.out.println(sol.myAtoi(t4));
-        System.out.println(sol.myAtoi(t5));
-        System.out.println(sol.myAtoi(t6));
-        System.out.println(sol.myAtoi(t7));
-        System.out.println(sol.myAtoi(t8));
-        System.out.println(sol.myAtoi(t9));
-        System.out.println(sol.myAtoi(t10));
-        System.out.println();
+
         System.out.println(Integer.MAX_VALUE);
-        System.out.println(t5);
+        System.out.println();
         System.out.println(Integer.MIN_VALUE);
+
+        assert sol.myAtoi(t1) == 42 : "T1 faield";
+        assert sol.myAtoi(t2) == -42 : "T2 faield";
+        assert sol.myAtoi(t3) == 4193 : "T3 faield";
+        assert sol.myAtoi(t4) == 0 : "T4 faield";
+        assert sol.myAtoi(t5) == -2147483648 : "T5 faield";
+        assert sol.myAtoi(t6) == 2147483647 : "T6 faield";
+        assert sol.myAtoi(t7) == 0 : "T7 faield";
+        assert sol.myAtoi(t8) == 1 : "T8 faield";
+        assert sol.myAtoi(t9) == 1 : "T9 faield";
+        assert sol.myAtoi(t10) == -2147483647 : "T10 faield: " + sol.myAtoi(t10);
+
     }
 }
