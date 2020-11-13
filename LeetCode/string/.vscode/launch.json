@@ -1,0 +1,38 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - ReverseInteger",
+      "request": "launch",
+      "mainClass": "ReverseInteger",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
+      "name": "Debug (Launch) - Current File",
+      "request": "launch",
+      "mainClass": "${file}",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
+      "name": "Debug (Launch)-Atoi<string_2274663b>",
+      "request": "launch",
+      "mainClass": "Atoi",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
+      "name": "Debug (Launch)-ZigZag<string_2274663b>",
+      "request": "launch",
+      "mainClass": "ZigZag",
+      "projectName": "string_2274663b"
+    }
+  ]
+}
