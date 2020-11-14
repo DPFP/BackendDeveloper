@@ -6,6 +6,14 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - StrStr",
+      "request": "launch",
+      "mainClass": "StrStr",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - LongestCommonPrefix",
       "request": "launch",
       "mainClass": "LongestCommonPrefix",
