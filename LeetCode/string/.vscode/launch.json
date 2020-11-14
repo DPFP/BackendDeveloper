@@ -6,6 +6,14 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - RomanToInteger",
+      "request": "launch",
+      "mainClass": "RomanToInteger",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - ReverseInteger",
       "request": "launch",
       "mainClass": "ReverseInteger",
