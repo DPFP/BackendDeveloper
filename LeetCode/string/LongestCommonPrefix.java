@@ -1,5 +1,3 @@
-import java.io.StringBufferInputStream;
-
 public class LongestCommonPrefix {
 
     // idea: a~z - a~z - a~z ... ditionary (Trie-->Autocomplete) overkill ?
