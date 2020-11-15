@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - NextPermutation",
+      "request": "launch",
+      "mainClass": "NextPermutation",
+      "projectName": "string_2274663b"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - StrStr",
       "request": "launch",
       "mainClass": "StrStr",
