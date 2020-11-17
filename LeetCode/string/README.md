@@ -9,7 +9,7 @@ Problems:
 | 0014 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | Easy       | 2020-11-14 | 30mins.    |      |
 | 0028 | [Implement strStr()](https://leetcode.com/problems/implement-strstr/) | Easy       | 2020-11-14 | 15mins.    |      |
 | 0031 | [Next Permutation](https://leetcode.com/problems/next-permutation/) | Medium     | 2020-11-15 | 2 hrs      |      |
-|      |                                                              |            |            |            |      |
+| 0058 | [Length of Last word](https://leetcode.com/problems/length-of-last-word/) | Easy       | 2020-11-16 | 10mins.    |      |
 |      |                                                              |            |            |            |      |
 |      |                                                              |            |            |            |      |
 |      |                                                              |            |            |            |      |

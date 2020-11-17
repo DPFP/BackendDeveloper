@@ -6,6 +6,14 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - LengthOfLastWord",
+      "request": "launch",
+      "mainClass": "LengthOfLastWord",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - NextPermutation",
       "request": "launch",
       "mainClass": "NextPermutation",
