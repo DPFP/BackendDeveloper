@@ -10,7 +10,7 @@ Problems:
 | 0028 | [Implement strStr()](https://leetcode.com/problems/implement-strstr/) | Easy       | 2020-11-14 | 15mins.    |      |
 | 0031 | [Next Permutation](https://leetcode.com/problems/next-permutation/) | Medium     | 2020-11-15 | 2 hrs      |      |
 | 0058 | [Length of Last word](https://leetcode.com/problems/length-of-last-word/) | Easy       | 2020-11-16 | 10mins.    |      |
-|      |                                                              |            |            |            |      |
+| 0067 | [Add Binary](https://leetcode.com/problems/add-binary/)      | Easy       | 2020-11-16 | 42 mins +  |      |
 |      |                                                              |            |            |            |      |
 |      |                                                              |            |            |            |      |
 |      |                                                              |            |            |            |      |
@@ -27,13 +27,54 @@ Problems:
 
 https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/string/Java
 
-------
 
-# Java String Take away
+
+# Take away
+
+
+
+## Primitive Data Types
+
+| Data Type | Size    | Description                                                  |
+| :-------- | :------ | :----------------------------------------------------------- |
+| byte      | 1 byte  | Stores whole numbers from -128 to 127                        |
+| short     | 2 bytes | Stores whole numbers from -32,768 to 32,767                  |
+| int       | 4 bytes | Stores whole numbers from -2,147,483,648 to 2,147,483,647    |
+| long      | 8 bytes | Stores whole numbers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 |
+| float     | 4 bytes | Stores fractional numbers. Sufficient for storing 6 to 7 decimal digits |
+| double    | 8 bytes | Stores fractional numbers. Sufficient for storing 15 decimal digits |
+| boolean   | 1 bit   | Stores true or false values                                  |
+| char      | 2 bytes | Stores a single character/letter or ASCII values             |
 
 - Java String is Immutable; 
+
   - e.g.  `test = test.replace("a", "b");`  //assign value back to `test`
+
 - The **java.lang.Math.floor()** returns the double value that is less than or equal to the argument and is equal to the nearest mathematical integer.
+
+- You can parse any number string to Int/long with difference radix ` Integer.parseInt(x, radix)`
+
+  - e.g. `Integer.parseInt("1011", 2)` will parse the string as binary input value; 
+  - Note: For Integer It only able to handle Positive numbers;
+
+-  For parse super long string to number, try the two following methods: [ref](https://stackoverflow.com/questions/11860311/how-to-convert-binary-number-to-double-in-java)
+
+  - #1 
+
+    ```java
+    public static double toDouble(byte[] bytes) {
+         return ByteBuffer.wrap(bytes).getDouble();
+    }
+    ```
+
+  - #2
+
+    ```java
+    String text = "1100000110011101010111011000101011011000011111111111111111111110";
+    double doubleVal = Double.longBitsToDouble(new BigInteger(text, 2).longValue());
+    System.out.println(doubleVal);
+    ```
+
 - 
 
 
