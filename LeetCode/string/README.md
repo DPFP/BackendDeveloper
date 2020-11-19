@@ -1,27 +1,27 @@
 Problems:
 
-| No.  | Problem                                                      | Difficulty | Date       | Time Spent | Note |
-| ---- | ------------------------------------------------------------ | ---------- | ---------- | ---------- | ---- |
-| 0006 | [ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/) | Medium     | 2020-11-9  |            |      |
-| 0008 | [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) | Medium     | 2020-11-10 |            |      |
-| 0007 | [Revser Integer](https://leetcode.com/problems/reverse-integer/) | Easy       | 2020-11-12 |            |      |
-| 0013 | [Roman to Integer](https://leetcode.com/problems/roman-to-integer/) | Easy       | 2020-11-13 |            |      |
-| 0014 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | Easy       | 2020-11-14 | 30mins.    |      |
-| 0028 | [Implement strStr()](https://leetcode.com/problems/implement-strstr/) | Easy       | 2020-11-14 | 15mins.    |      |
-| 0031 | [Next Permutation](https://leetcode.com/problems/next-permutation/) | Medium     | 2020-11-15 | 2 hrs      |      |
-| 0058 | [Length of Last word](https://leetcode.com/problems/length-of-last-word/) | Easy       | 2020-11-16 | 10mins.    |      |
-| 0067 | [Add Binary](https://leetcode.com/problems/add-binary/)      | Easy       | 2020-11-16 | 42 mins +  |      |
-|      |                                                              |            |            |            |      |
-|      |                                                              |            |            |            |      |
-|      |                                                              |            |            |            |      |
-|      |                                                              |            |            |            |      |
-|      |                                                              |            |            |            |      |
-|      |                                                              |            |            |            |      |
-|      |                                                              |            |            |            |      |
-|      |                                                              |            |            |            |      |
-|      |                                                              |            |            |            |      |
-|      |                                                              |            |            |            |      |
-|      |                                                              |            |            |            |      |
+| No.  | Problem                                                      | Difficulty | Date       | Time Spent | Note            |
+| ---- | ------------------------------------------------------------ | ---------- | ---------- | ---------- | --------------- |
+| 0006 | [ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/) | Medium     | 2020-11-9  |            |                 |
+| 0008 | [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) | Medium     | 2020-11-10 |            |                 |
+| 0007 | [Revser Integer](https://leetcode.com/problems/reverse-integer/) | Easy       | 2020-11-12 |            |                 |
+| 0013 | [Roman to Integer](https://leetcode.com/problems/roman-to-integer/) | Easy       | 2020-11-13 |            |                 |
+| 0014 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | Easy       | 2020-11-14 | 30mins.    |                 |
+| 0028 | [Implement strStr()](https://leetcode.com/problems/implement-strstr/) | Easy       | 2020-11-14 | 15mins.    |                 |
+| 0031 | [Next Permutation](https://leetcode.com/problems/next-permutation/) | Medium     | 2020-11-15 | 2 hrs      |                 |
+| 0058 | [Length of Last word](https://leetcode.com/problems/length-of-last-word/) | Easy       | 2020-11-16 | 10mins.    |                 |
+| 0067 | [Add Binary](https://leetcode.com/problems/add-binary/)      | Easy       | 2020-11-16 | 2 hrs      | Refer. solution |
+|      |                                                              |            |            |            |                 |
+|      |                                                              |            |            |            |                 |
+|      |                                                              |            |            |            |                 |
+|      |                                                              |            |            |            |                 |
+|      |                                                              |            |            |            |                 |
+|      |                                                              |            |            |            |                 |
+|      |                                                              |            |            |            |                 |
+|      |                                                              |            |            |            |                 |
+|      |                                                              |            |            |            |                 |
+|      |                                                              |            |            |            |                 |
+|      |                                                              |            |            |            |                 |
 
 **String** related LeetCode Problems: 
 
@@ -75,7 +75,10 @@ https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/str
     System.out.println(doubleVal);
     ```
 
-- 
+- How to Convert ASCII to String conversion Using Java ?
+
+  - int a = 65;
+  - Character.toString(a);
 
 
 
