@@ -11,7 +11,7 @@ Problems:
 | 0031 | [Next Permutation](https://leetcode.com/problems/next-permutation/) | Medium     | 2020-11-15 | 2 hrs      |                 |
 | 0058 | [Length of Last word](https://leetcode.com/problems/length-of-last-word/) | Easy       | 2020-11-16 | 10mins.    |                 |
 | 0067 | [Add Binary](https://leetcode.com/problems/add-binary/)      | Easy       | 2020-11-16 | 2 hrs      | Refer. solution |
-|      |                                                              |            |            |            |                 |
+| 0125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | Easy       | 2020-11-19 | 15mins     |                 |
 |      |                                                              |            |            |            |                 |
 |      |                                                              |            |            |            |                 |
 |      |                                                              |            |            |            |                 |
@@ -80,7 +80,15 @@ https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/str
   - int a = 65;
   - Character.toString(a);
 
+- How to clean StringBuilder ? [Answer](https://www.javacodeexamples.com/java-stringbuilder-clear-example-how-to-empty-stringbuilder-stringbuffer/1535)
 
+- How to check if a characer is Alphanumeric ?
+
+  - ```java
+    Character.isLetter(c) ||Character.isDigit(c)
+    ```
+
+- 
 
 
 
