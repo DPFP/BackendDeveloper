@@ -13,7 +13,7 @@ Problems:
 | 0067 | [Add Binary](https://leetcode.com/problems/add-binary/)      | Easy       | 2020-11-16 | 2 hrs      | Refer. solution |
 | 0125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | Easy       | 2020-11-19 | 15mins     |                 |
 | 0151 | [Reverse words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) | Medium     | 2020-11-20 | 43mins     |                 |
-|      |                                                              |            |            |            |                 |
+| 0165 | [Compare Version numbers](https://leetcode.com/problems/compare-version-numbers/) | Medium     | 2020-11-21 | 1:44pm -   |                 |
 |      |                                                              |            |            |            |                 |
 |      |                                                              |            |            |            |                 |
 |      |                                                              |            |            |            |                 |
@@ -79,8 +79,13 @@ https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/str
 
   - int a = 65;
   - Character.toString(a);
+  - [bitwise operation](https://www.vojtechruzicka.com/bit-manipulation-java-bitwise-bit-shift-operations/);
 
 - How to clean StringBuilder ? [Answer](https://www.javacodeexamples.com/java-stringbuilder-clear-example-how-to-empty-stringbuilder-stringbuffer/1535)
+
+  - `new StringBuilder()` object creation is costly -- not recommened, especially not in the loop.
+  - `sb.delete(0,sb.length)` internally allocate new buffer, which is costly. 
+  - `sb.setLength(0)` consider the best choice* 
 
 - How to check if a characer is Alphanumeric ?
 
