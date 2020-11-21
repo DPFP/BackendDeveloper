@@ -12,7 +12,7 @@ Problems:
 | 0058 | [Length of Last word](https://leetcode.com/problems/length-of-last-word/) | Easy       | 2020-11-16 | 10mins.    |                 |
 | 0067 | [Add Binary](https://leetcode.com/problems/add-binary/)      | Easy       | 2020-11-16 | 2 hrs      | Refer. solution |
 | 0125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | Easy       | 2020-11-19 | 15mins     |                 |
-|      |                                                              |            |            |            |                 |
+| 0151 | [Reverse words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) | Medium     | 2020-11-20 | 43mins     |                 |
 |      |                                                              |            |            |            |                 |
 |      |                                                              |            |            |            |                 |
 |      |                                                              |            |            |            |                 |
@@ -88,6 +88,10 @@ https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/str
     Character.isLetter(c) ||Character.isDigit(c)
     ```
 
+- What's the different between StringBuilder and StringBuffer ? 
+  - [`StringBuffer`](http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html) is synchronized, [`StringBuilder`](http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html) is not. (Similar to `Vector` and `ArrayList`)
+- What's the different between `strip()` and `trim()`?
+  - `strip()` is "Unicode-aware" evolution of `trim()`.
 - 
 
 
