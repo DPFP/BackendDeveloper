@@ -6,6 +6,21 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - ReverseString",
+      "request": "launch",
+      "mainClass": "ReverseString",
+      "projectName": "string_2274663b"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - CompareVersionNumber",
+      "request": "launch",
+      "mainClass": "CompareVersionNumber",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - ReverseWordsInString",
       "request": "launch",
       "mainClass": "ReverseWordsInString",
