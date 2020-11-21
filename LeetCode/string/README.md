@@ -13,8 +13,8 @@ Problems:
 | 0067 | [Add Binary](https://leetcode.com/problems/add-binary/)      | Easy       | 2020-11-16 | 2 hrs      | Refer. solution |
 | 0125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | Easy       | 2020-11-19 | 15mins     |                 |
 | 0151 | [Reverse words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) | Medium     | 2020-11-20 | 43mins     |                 |
-| 0165 | [Compare Version numbers](https://leetcode.com/problems/compare-version-numbers/) | Medium     | 2020-11-21 | 1:44pm -   |                 |
-|      |                                                              |            |            |            |                 |
+| 0165 | [Compare Version numbers](https://leetcode.com/problems/compare-version-numbers/) | Medium     | 2020-11-21 | 62mins     |                 |
+| 0344 | [Reverse String](https://leetcode.com/problems/reverse-string/) | Easy       | 2020-11-21 | 12mins     | in-place O(1)   |
 |      |                                                              |            |            |            |                 |
 |      |                                                              |            |            |            |                 |
 |      |                                                              |            |            |            |                 |
