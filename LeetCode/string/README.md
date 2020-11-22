@@ -1,4 +1,4 @@
-Problems:
+**Problems**:
 
 | No.  | Problem                                                      | Difficulty | Date       | Time Spent | Note            |
 | ---- | ------------------------------------------------------------ | ---------- | ---------- | ---------- | --------------- |
@@ -15,7 +15,7 @@ Problems:
 | 0151 | [Reverse words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) | Medium     | 2020-11-20 | 43mins     |                 |
 | 0165 | [Compare Version numbers](https://leetcode.com/problems/compare-version-numbers/) | Medium     | 2020-11-21 | 62mins     |                 |
 | 0344 | [Reverse String](https://leetcode.com/problems/reverse-string/) | Easy       | 2020-11-21 | 12mins     | in-place O(1)   |
-|      |                                                              |            |            |            |                 |
+| 0345 | [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string/) | Easy       | 2020-11-22 | 32         |                 |
 |      |                                                              |            |            |            |                 |
 |      |                                                              |            |            |            |                 |
 |      |                                                              |            |            |            |                 |
@@ -93,7 +93,7 @@ https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/str
     Character.isLetter(c) ||Character.isDigit(c)
     ```
 
-- What's the different between StringBuilder and StringBuffer ? 
+- What's the different between **StringBuilder** and **StringBuffer** ? 
   - [`StringBuffer`](http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html) is synchronized, [`StringBuilder`](http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html) is not. (Similar to `Vector` and `ArrayList`)
 - What's the different between `strip()` and `trim()`?
   - `strip()` is "Unicode-aware" evolution of `trim()`.
@@ -121,4 +121,6 @@ E.g. 158476531 -- Steps
 4. Resort/Reverse everything from the right side of 5 --> 158513467 
 
 ![Next Permutation](https://leetcode.com/media/original_images/31_Next_Permutation.gif)
+
+
 

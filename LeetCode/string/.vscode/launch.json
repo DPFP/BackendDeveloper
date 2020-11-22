@@ -6,6 +6,14 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - ReverseVowelsInString",
+      "request": "launch",
+      "mainClass": "ReverseVowelsInString",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - ReverseString",
       "request": "launch",
       "mainClass": "ReverseString",
