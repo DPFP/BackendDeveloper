@@ -15,8 +15,8 @@
 | 0151 | [Reverse words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) | Medium     | 2020-11-20 | 43mins     |                 |
 | 0165 | [Compare Version numbers](https://leetcode.com/problems/compare-version-numbers/) | Medium     | 2020-11-21 | 62mins     |                 |
 | 0344 | [Reverse String](https://leetcode.com/problems/reverse-string/) | Easy       | 2020-11-21 | 12mins     | in-place O(1)   |
-| 0345 | [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string/) | Easy       | 2020-11-22 | 32         |                 |
-|      |                                                              |            |            |            |                 |
+| 0345 | [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string/) | Easy       | 2020-11-22 | 32mins     |                 |
+| 0387 | [First Unique character in a string](https://leetcode.com/problems/first-unique-character-in-a-string/submissions/) | Easy       | 2020-11-23 | 36mins     | Refer.solution  |
 |      |                                                              |            |            |            |                 |
 |      |                                                              |            |            |            |                 |
 |      |                                                              |            |            |            |                 |
@@ -97,6 +97,8 @@ https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/str
   - [`StringBuffer`](http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html) is synchronized, [`StringBuilder`](http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html) is not. (Similar to `Vector` and `ArrayList`)
 - What's the different between `strip()` and `trim()`?
   - `strip()` is "Unicode-aware" evolution of `trim()`.
+- How to increament HashMap<Character,Interger> count ? 
+  - `map.put(key, map.getOrDefault(key,0) + 1);`
 - 
 
 
