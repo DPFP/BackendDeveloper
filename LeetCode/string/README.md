@@ -17,7 +17,7 @@
 | 0344 | [Reverse String](https://leetcode.com/problems/reverse-string/) | Easy       | 2020-11-21 | 12mins     | in-place O(1)   |
 | 0345 | [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string/) | Easy       | 2020-11-22 | 32mins     |                 |
 | 0387 | [First Unique character in a string](https://leetcode.com/problems/first-unique-character-in-a-string/submissions/) | Easy       | 2020-11-23 | 36mins     | Refer.solution  |
-|      |                                                              |            |            |            |                 |
+| 0415 | [Add Strings](https://leetcode.com/problems/add-strings/)    | Easy       | 2020-11-24 | 30mins     |                 |
 |      |                                                              |            |            |            |                 |
 |      |                                                              |            |            |            |                 |
 |      |                                                              |            |            |            |                 |
@@ -99,7 +99,8 @@ https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/str
   - `strip()` is "Unicode-aware" evolution of `trim()`.
 - How to increament HashMap<Character,Interger> count ? 
   - `map.put(key, map.getOrDefault(key,0) + 1);`
-- 
+- How to get Numeric(int) value out of Char ? 
+  - `Character.getNumericValue('1')` ==>  1 (int)
 
 
 

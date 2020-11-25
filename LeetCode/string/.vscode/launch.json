@@ -6,6 +6,14 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - AddStrings",
+      "request": "launch",
+      "mainClass": "AddStrings",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - FirstUniqueCharacterInString",
       "request": "launch",
       "mainClass": "FirstUniqueCharacterInString",
