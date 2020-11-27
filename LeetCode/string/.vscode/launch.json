@@ -6,6 +6,22 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - AddBinary",
+      "request": "launch",
+      "mainClass": "AddBinary",
+      "projectName": "string_80b8f647",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - StringCompression",
+      "request": "launch",
+      "mainClass": "StringCompression",
+      "projectName": "string_80b8f647",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - StringCompression",
       "request": "launch",
       "mainClass": "StringCompression",

@@ -54,5 +54,5 @@ target/
 *.jar
 *.war
 *.ear
-LeetCode/string/.vscode/launch.json
-LeetCode/string/.vscode/launch.json
+.vscode
+!.vscode/launch.json

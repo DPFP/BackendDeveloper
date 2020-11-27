@@ -39,24 +39,31 @@ public class StringCompression {
     // LeetCode solution
     // Read and Write Heads(pointer)
     public int compressSol(char[] chars) {
-
+        return 0;
     }
 
     // Sol from discussion.
     public int compressBestSol(char[] chars) {
         int indexAns = 0, index = 0;
+
+        //loop all values 
         while (index < chars.length) {
             char currentChar = chars[index];
             int count = 0;
+
+            //calculate the count
             while (index < chars.length && chars[index] == currentChar) {
                 index++;
                 count++;
             }
             chars[indexAns++] = currentChar;
+
+            //apend the number 
             if (count != 1)
                 for (char c : Integer.toString(count).toCharArray())
                     chars[indexAns++] = c;
         }
+        
         return indexAns;
     }
 
