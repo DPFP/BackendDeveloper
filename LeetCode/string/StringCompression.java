@@ -32,10 +32,32 @@ public class StringCompression {
         }
 
         System.out.println(chars);
-
         // chars = sb.toString().toCharArray();
-
         return chars.length;
+    }
+
+    // LeetCode solution
+    // Read and Write Heads(pointer)
+    public int compressSol(char[] chars) {
+
+    }
+
+    // Sol from discussion.
+    public int compressBestSol(char[] chars) {
+        int indexAns = 0, index = 0;
+        while (index < chars.length) {
+            char currentChar = chars[index];
+            int count = 0;
+            while (index < chars.length && chars[index] == currentChar) {
+                index++;
+                count++;
+            }
+            chars[indexAns++] = currentChar;
+            if (count != 1)
+                for (char c : Integer.toString(count).toCharArray())
+                    chars[indexAns++] = c;
+        }
+        return indexAns;
     }
 
     public static void main(String[] args) {

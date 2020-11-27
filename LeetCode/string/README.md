@@ -18,7 +18,7 @@
 | 0345 | [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string/) | Easy       | 2020-11-22 | 32mins     |                              |
 | 0387 | [First Unique character in a string](https://leetcode.com/problems/first-unique-character-in-a-string/submissions/) | Easy       | 2020-11-23 | 36mins     | Refer.solution               |
 | 0415 | [Add Strings](https://leetcode.com/problems/add-strings/)    | Easy       | 2020-11-24 | 30mins     | (similar to 0067 add binary) |
-| 0443 | String Compression                                           | Medium     | 2020-11-25 |            |                              |
+| 0443 | String Compression                                           | Medium     | 2020-11-25 | 1+ hr      | refer solution               |
 |      |                                                              |            |            |            |                              |
 |      |                                                              |            |            |            |                              |
 |      |                                                              |            |            |            |                              |
