@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - RepeatedSubstringPattern",
+      "request": "launch",
+      "mainClass": "RepeatedSubstringPattern",
+      "projectName": "string_2274663b"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - AddBinary",
       "request": "launch",
       "mainClass": "AddBinary",
