@@ -38,6 +38,6 @@ public class RepeatedSubstringPattern {
 
     public static void main(String[] args) {
         RepeatedSubstringPattern sol = new RepeatedSubstringPattern();
-        sol.repeatedSubstringPatternSol("abcabc");
+        assert sol.repeatedSubstringPatternSol("abcabc") ==  true : "T1 Failed";
     }
 }
