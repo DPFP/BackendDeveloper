@@ -20,7 +20,7 @@
 | 0415 | [Add Strings](https://leetcode.com/problems/add-strings/)    | Easy       | 2020-11-24 | 30mins     | (similar to 0067 add binary)              |
 | 0443 | [String Compression](https://leetcode.com/problems/string-compression/) | Medium     | 2020-11-25 | 1+ hr      | refer solution                            |
 | 0459 | [Repeated substring pattern](https://leetcode.com/problems/repeated-substring-pattern/) | Easy       | 2020-11-27 | 23 mins    | refer solution (similar CTCI problem 1.9) |
-| 0819 | [Most common words](https://leetcode.com/problems/most-common-word/) | Easy       | 2020-11-28 |            |                                           |
+| 0819 | [Most common words](https://leetcode.com/problems/most-common-word/) | Easy       | 2020-11-28 | 30mins     | brute force solution                      |
 |      |                                                              |            |            |            |                                           |
 
 **String** related LeetCode Problems: 
@@ -121,6 +121,20 @@ https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/str
   - #1, Using Two arrays;
   - #2, ArraysUtils.remove() from Apache Commons pacakge;
   - #3, Using for loop to shift element from the index that need be removed; 
+  
+- How to grab word out of string by using regex ? 
+
+  - ```java
+            Pattern p = Pattern.compile("[a-zA-Z]+");
+            Matcher m = p.matcher(paragraph.toLowerCase());
+    
+            while (m.find()) {
+                count.put(m.group(), count.getOrDefault(m.group(), 0) + 1);
+                // System.out.println(m.group());
+            }
+    ```
+
+    
 
 
 
