@@ -20,8 +20,8 @@
 | 0415 | [Add Strings](https://leetcode.com/problems/add-strings/)    | Easy       | 2020-11-24 | 30mins     | (similar to 0067 add binary)              |
 | 0443 | [String Compression](https://leetcode.com/problems/string-compression/) | Medium     | 2020-11-25 | 1+ hr      | refer solution                            |
 | 0459 | [Repeated substring pattern](https://leetcode.com/problems/repeated-substring-pattern/) | Easy       | 2020-11-27 | 23 mins    | refer solution (similar CTCI problem 1.9) |
-| 0521 | [Longest uncommon subsequence I](https://leetcode.com/problems/longest-uncommon-subsequence-i/) | Easy       | 2020-11-29 |            |                                           |
-| 0541 |                                                              |            |            |            |                                           |
+| 0521 | [Longest uncommon subsequence I](https://leetcode.com/problems/longest-uncommon-subsequence-i/) | Easy       | 2020-11-29 | 30mins     | refer solution                            |
+| 0541 | [Reverse String II](https://leetcode.com/problems/reverse-string-ii/) | Easy       | 2020-11-30 | 35mins     |                                           |
 | 0557 |                                                              |            |            |            |                                           |
 | 0680 |                                                              |            |            |            |                                           |
 | 0686 |                                                              |            |            |            |                                           |
@@ -138,7 +138,20 @@ https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/str
             }
     ```
 
-    
+- How to reverse String in Java ?
+
+  - #1 StringBuilder/StringBuffer --> sb.reverse(); 
+  - #2  Collections.reverse(charArray);
+  - #3 Convert to Byte[] pr Char[] then loop through (good for in-place reverse to save memory);
+
+- Java `subString(begin, end)`  method note.
+
+  - **Parameters:**
+    - **beginIndex** the beginning index, <u>inclusive</u>.
+    - **endIndex** the ending index, <u>exclusive</u>.
+  - e.g. "hamb**urge**r".substring(4, 8) returns "urge" 
+
+- 
 
 
 
@@ -162,6 +175,60 @@ E.g. 158476531 -- Steps
 4. Resort/Reverse everything from the right side of 5 --> 158513467 
 
 ![Next Permutation](https://leetcode.com/media/original_images/31_Next_Permutation.gif)
+
+
+
+**Longest Uncommon Subsequence**
+
+#1 brute force solution from the site 
+
+```java
+public class Solution {
+    public int findLUSlength(String a, String b) {
+        HashMap < String, Integer > map = new HashMap < > ();
+        for (String s: new String[] {a, b}) {
+            for (int i = 0; i < (1 << s.length()); i++) {
+                String t = "";
+                //Not quite understand the following 3 lines of code 
+                for (int j = 0; j < s.length(); j++) {
+                    if (((i >> j) & 1) != 0)
+                        t += s.charAt(j);
+                }
+                if (map.containsKey(t))
+                    map.put(t, map.get(t) + 1);
+                else
+                    map.put(t, 1);
+            }
+        }
+        int res = -1;
+        for (String s: map.keySet()) {
+            if (map.get(s) == 1)
+                res = Math.max(res, s.length());
+        }
+        return res;
+    }
+}
+```
+
+#2 Simple Solution
+
+Simple analysis of this problem can lead to an easy solution.
+
+These three cases are possible with string a*a* and b*b*:-
+
+- a=b -->  return -1 
+- Length(a) = length(b) -->either one 
+- Length(a) != length(b) --> longer one 
+
+```java
+public class Solution {
+    public int findLUSlength(String a, String b) {
+        if (a.equals(b))
+            return -1;
+        return Math.max(a.length(), b.length());
+    }
+}
+```
 
 
 
