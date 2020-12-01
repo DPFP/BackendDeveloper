@@ -26,15 +26,26 @@ public class LongestUncommonSubsequence {
         } else {
             return -1;
         }
+    }
 
+    // Best Solution
+    public int findLUSlengthBest(String a, String b) {
+        if (a.equals(b)) {
+            return -1;
+        }
+        return Math.max(a.length(), b.length());
     }
 
     public static void main(String[] args) {
+        String s = "abc";
+        System.out.println(1 << s.length());
+
         LongestUncommonSubsequence sol = new LongestUncommonSubsequence();
         assert sol.findLUSlength("abc", "efg") == 3 : "T1 failed";
         assert sol.findLUSlength("aaa", "aaa") == -1 : "T2 failed";
         assert sol.findLUSlength("aaa", "bbb") == 3 : "T3 failed";
-        //TODO failed case
+        // TODO failed case
         assert sol.findLUSlength("aefawfawfawfaw", "aefawfeawfwafwaef") == 4 : "T4 failed";
+
     }
 }
