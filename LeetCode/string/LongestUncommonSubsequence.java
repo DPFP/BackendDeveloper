@@ -46,6 +46,5 @@ public class LongestUncommonSubsequence {
         assert sol.findLUSlength("aaa", "bbb") == 3 : "T3 failed";
         // TODO failed case
         assert sol.findLUSlength("aefawfawfawfaw", "aefawfeawfwafwaef") == 4 : "T4 failed";
-
     }
 }
