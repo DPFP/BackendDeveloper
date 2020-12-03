@@ -1,31 +1,38 @@
 **Problems**:
 
-| No.  | Problem                                                      | Difficulty | Date       | Time Spent | Note                                             |
-| ---- | ------------------------------------------------------------ | ---------- | ---------- | ---------- | ------------------------------------------------ |
-| 0006 | [ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/) | Medium     | 2020-11-9  |            |                                                  |
-| 0008 | [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) | Medium     | 2020-11-10 |            |                                                  |
-| 0007 | [Revser Integer](https://leetcode.com/problems/reverse-integer/) | Easy       | 2020-11-12 |            |                                                  |
-| 0013 | [Roman to Integer](https://leetcode.com/problems/roman-to-integer/) | Easy       | 2020-11-13 |            |                                                  |
-| 0014 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | Easy       | 2020-11-14 | 30mins.    |                                                  |
-| 0028 | [Implement strStr()](https://leetcode.com/problems/implement-strstr/) | Easy       | 2020-11-14 | 15mins.    |                                                  |
-| 0031 | [Next Permutation](https://leetcode.com/problems/next-permutation/) | Medium     | 2020-11-15 | 2 hrs      |                                                  |
-| 0058 | [Length of Last word](https://leetcode.com/problems/length-of-last-word/) | Easy       | 2020-11-16 | 10mins.    |                                                  |
-| 0067 | [Add Binary](https://leetcode.com/problems/add-binary/)      | Easy       | 2020-11-16 | 2 hrs      | Refer. solution                                  |
-| 0125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | Easy       | 2020-11-19 | 15mins     |                                                  |
-| 0151 | [Reverse words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) | Medium     | 2020-11-20 | 43mins     |                                                  |
-| 0165 | [Compare Version numbers](https://leetcode.com/problems/compare-version-numbers/) | Medium     | 2020-11-21 | 62mins     |                                                  |
-| 0344 | [Reverse String](https://leetcode.com/problems/reverse-string/) | Easy       | 2020-11-21 | 12mins     | in-place O(1)                                    |
-| 0345 | [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string/) | Easy       | 2020-11-22 | 32mins     |                                                  |
-| 0387 | [First Unique character in a string](https://leetcode.com/problems/first-unique-character-in-a-string/submissions/) | Easy       | 2020-11-23 | 36mins     | Refer.solution                                   |
-| 0415 | [Add Strings](https://leetcode.com/problems/add-strings/)    | Easy       | 2020-11-24 | 30mins     | (similar to 0067 add binary)                     |
-| 0443 | [String Compression](https://leetcode.com/problems/string-compression/) | Medium     | 2020-11-25 | 1+ hr      | refer solution                                   |
-| 0459 | [Repeated substring pattern](https://leetcode.com/problems/repeated-substring-pattern/) | Easy       | 2020-11-27 | 23 mins    | refer solution (similar CTCI problem 1.9)        |
-| 0521 | [Longest uncommon subsequence I](https://leetcode.com/problems/longest-uncommon-subsequence-i/) | Easy       | 2020-11-29 | 30mins     | refer solution                                   |
-| 0541 | [Reverse String II](https://leetcode.com/problems/reverse-string-ii/) | Easy       | 2020-11-30 | 35mins     |                                                  |
-| 0557 | [Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/) | Easy       | 2020-12-1  | 14mins     | brute force (memory usage could be improved)     |
-| 0680 | [Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/) | Easy       | 2020-12-1  | 11mins     | Time limit exceed, need to find better solution. |
-| 0686 |                                                              |            |            |            |                                                  |
-| 0819 | [Most common words](https://leetcode.com/problems/most-common-word/) | Easy       | 2020-11-28 | 30mins     | brute force solution                             |
+| No.  | Problem                                                      | Difficulty | Date       | Time Spent | Note                                                         |
+| ---- | ------------------------------------------------------------ | ---------- | ---------- | ---------- | ------------------------------------------------------------ |
+| 0006 | [ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/) | Medium     | 2020-11-9  |            |                                                              |
+| 0008 | [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) | Medium     | 2020-11-10 |            |                                                              |
+| 0007 | [Revser Integer](https://leetcode.com/problems/reverse-integer/) | Easy       | 2020-11-12 |            |                                                              |
+| 0013 | [Roman to Integer](https://leetcode.com/problems/roman-to-integer/) | Easy       | 2020-11-13 |            |                                                              |
+| 0014 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | Easy       | 2020-11-14 | 30mins.    |                                                              |
+| 0028 | [Implement strStr()](https://leetcode.com/problems/implement-strstr/) | Easy       | 2020-11-14 | 15mins.    |                                                              |
+| 0031 | [Next Permutation](https://leetcode.com/problems/next-permutation/) | Medium     | 2020-11-15 | 2 hrs      |                                                              |
+| 0058 | [Length of Last word](https://leetcode.com/problems/length-of-last-word/) | Easy       | 2020-11-16 | 10mins.    |                                                              |
+| 0067 | [Add Binary](https://leetcode.com/problems/add-binary/)      | Easy       | 2020-11-16 | 2 hrs      | Refer. solution                                              |
+| 0125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | Easy       | 2020-11-19 | 15mins     |                                                              |
+| 0151 | [Reverse words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) | Medium     | 2020-11-20 | 43mins     |                                                              |
+| 0165 | [Compare Version numbers](https://leetcode.com/problems/compare-version-numbers/) | Medium     | 2020-11-21 | 62mins     |                                                              |
+| 0344 | [Reverse String](https://leetcode.com/problems/reverse-string/) | Easy       | 2020-11-21 | 12mins     | in-place O(1)                                                |
+| 0345 | [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string/) | Easy       | 2020-11-22 | 32mins     |                                                              |
+| 0387 | [First Unique character in a string](https://leetcode.com/problems/first-unique-character-in-a-string/submissions/) | Easy       | 2020-11-23 | 36mins     | Refer.solution                                               |
+| 0415 | [Add Strings](https://leetcode.com/problems/add-strings/)    | Easy       | 2020-11-24 | 30mins     | (similar to 0067 add binary)                                 |
+| 0443 | [String Compression](https://leetcode.com/problems/string-compression/) | Medium     | 2020-11-25 | 1+ hr      | refer solution                                               |
+| 0459 | [Repeated substring pattern](https://leetcode.com/problems/repeated-substring-pattern/) | Easy       | 2020-11-27 | 23 mins    | refer solution (similar CTCI problem 1.9)                    |
+| 0521 | [Longest uncommon subsequence I](https://leetcode.com/problems/longest-uncommon-subsequence-i/) | Easy       | 2020-11-29 | 30mins     | refer solution                                               |
+| 0541 | [Reverse String II](https://leetcode.com/problems/reverse-string-ii/) | Easy       | 2020-11-30 | 35mins     |                                                              |
+| 0557 | [Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/) | Easy       | 2020-12-1  | 14mins     | brute force (memory usage could be improved)                 |
+| 0680 | [Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/) | Easy       | 2020-12-1  | 11mins     | Time limit exceed, need to find better solution. [refer to solution] |
+| 0686 |                                                              |            |            |            |                                                              |
+| 0819 | [Most common words](https://leetcode.com/problems/most-common-word/) | Easy       | 2020-11-28 | 30mins     | brute force solution                                         |
+| 0824 |                                                              |            |            |            |                                                              |
+| 0859 |                                                              |            |            |            |                                                              |
+| 1081 |                                                              |            |            |            |                                                              |
+| 1169 |                                                              |            |            |            |                                                              |
+| 1309 |                                                              |            |            |            |                                                              |
+| 1316 |                                                              |            |            |            |                                                              |
+| 1324 |                                                              |            |            |            |                                                              |
 
 **String** related LeetCode Problems: 
 
@@ -151,7 +158,12 @@ https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/str
     - **endIndex** the ending index, <u>exclusive</u>.
   - e.g. "hamb**urge**r".substring(4, 8) returns "urge" 
 
-- 
+- What is the difference between `CharSequence` and `String` ?
+
+  - `CharSequence` --> interface;
+    - Does not make any guarantees about whether the sequence is mutable or not. 
+  - `String` --> implementing `CharSequence`; 
+  - ![img](https://i.stack.imgur.com/PIFk9.png)
 
 
 
