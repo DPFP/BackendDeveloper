@@ -24,7 +24,7 @@
 | 0541 | [Reverse String II](https://leetcode.com/problems/reverse-string-ii/) | Easy       | 2020-11-30 | 35mins     |                                                              |
 | 0557 | [Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/) | Easy       | 2020-12-1  | 14mins     | brute force (memory usage could be improved)                 |
 | 0680 | [Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/) | Easy       | 2020-12-1  | 11mins     | Time limit exceed, need to find better solution. [refer to solution] |
-| 0686 |                                                              |            |            |            |                                                              |
+| 0686 | [Repeated String match](https://leetcode.com/problems/repeated-string-match/) | Medium     | 2020-12-3  | 43mins     | Time Limit Exceeded ~ ~~                                     |
 | 0819 | [Most common words](https://leetcode.com/problems/most-common-word/) | Easy       | 2020-11-28 | 30mins     | brute force solution                                         |
 | 0824 |                                                              |            |            |            |                                                              |
 | 0859 |                                                              |            |            |            |                                                              |
