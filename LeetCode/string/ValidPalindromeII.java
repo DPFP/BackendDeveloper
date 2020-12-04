@@ -25,6 +25,7 @@ public class ValidPalindromeII {
     // better explain
     // https://www.geeksforgeeks.org/remove-character-string-make-palindrome/
     public boolean isPalindromeRange(String s, int l, int r) {
+        // this can be change to while loop
         for (int k = l; k <= l + (r - l) / 2; k++) {
             if (s.charAt(k) != s.charAt(r - k + l))
                 return false;
@@ -34,8 +35,11 @@ public class ValidPalindromeII {
 
     public boolean validPalindrome(String s) {
         for (int i = 0; i < s.length() / 2; i++) {
+            // move cloer to the center
             if (s.charAt(i) != s.charAt(s.length() - 1 - i)) {
                 int j = s.length() - 1 - i;
+                // i +1 --> left pointer move to right
+                // j - 1 --> right pointer move to left
                 return (isPalindromeRange(s, i + 1, j) || isPalindromeRange(s, i, j - 1));
             }
         }
