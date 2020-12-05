@@ -7,14 +7,15 @@ public class RepeatedStringMatch {
 
     // Time Limit Exceeded
     public int repeatedStringMatch(String a, String b) {
+        StringBuilder sb = new StringBuilder(a);
+        int time = 1;
+
         if (a.contains(b)) {
-            return 1;
+            return time;
         }
 
-        int time = 1;
-        StringBuilder sb = new StringBuilder(a);
-
-        while (!sb.toString().contains(b) && time < Math.max(a.length(), b.length())) {
+        int limit = Math.max(countUniqueCharacters(a), countUniqueCharacters(b));
+        while (!sb.toString().contains(b) && time < limit + 1 || sb.length() < b.length()) {
             sb.append(a);
             time++;
         }
@@ -26,11 +27,17 @@ public class RepeatedStringMatch {
         return time;
     }
 
+    public int countUniqueCharacters(String input) {
+        return Math.toIntExact(input.chars().distinct().count());
+    }
+
     public static void main(String[] args) {
         RepeatedStringMatch sol = new RepeatedStringMatch();
-        // 13 mintues
+        assert sol.repeatedStringMatch("bb", "bbbbbbb") == 4 : "T7 Failed";
         assert sol.repeatedStringMatch("a", "aa") == 2 : "T6 Failed";
+
         assert sol.repeatedStringMatch("abcd", "cdabcdab") == 3 : "T1 Failed";
+
         assert sol.repeatedStringMatch("a", "a") == 1 : "T2 Failed";
         assert sol.repeatedStringMatch("abc", "wxyz") == -1 : "T3 Failed";
         assert sol.repeatedStringMatch("aa", "a") == 1 : "T4 Failed";

@@ -24,7 +24,7 @@
 | 0541 | [Reverse String II](https://leetcode.com/problems/reverse-string-ii/) | Easy       | 2020-11-30 | 35mins     |                                                              |
 | 0557 | [Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/) | Easy       | 2020-12-1  | 14mins     | brute force (memory usage could be improved)                 |
 | 0680 | [Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/) | Easy       | 2020-12-1  | 11mins     | Time limit exceed, need to find better solution. [refer to solution] |
-| 0686 | [Repeated String match](https://leetcode.com/problems/repeated-string-match/) | Medium     | 2020-12-3  | 43mins     | Time Limit Exceeded ~ ~~                                     |
+| 0686 | [Repeated String match](https://leetcode.com/problems/repeated-string-match/) | Medium     | 2020-12-3  | 43mins     | Passed with bad performance                                  |
 | 0819 | [Most common words](https://leetcode.com/problems/most-common-word/) | Easy       | 2020-11-28 | 30mins     | brute force solution                                         |
 | 0824 |                                                              |            |            |            |                                                              |
 | 0859 |                                                              |            |            |            |                                                              |
@@ -164,6 +164,18 @@ https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/str
     - Does not make any guarantees about whether the sequence is mutable or not. 
   - `String` --> implementing `CharSequence`; 
   - ![img](https://i.stack.imgur.com/PIFk9.png)
+  
+- How to count unique characters in String ? [ref](https://stackoverflow.com/questions/22597527/counting-unique-characters-in-a-string-given-by-the-user/22597587#22597587)
+
+  - ```java
+    public static long countUniqueCharacters(String input) {
+        return input.chars()
+                .distinct()
+                .count();
+    }
+    ```
+
+  - long to int ==> `Math.toIntExact(long)`; 
 
 
 
