@@ -38,32 +38,35 @@ public class BuddyStrings {
         return String.valueOf(ch);
     }
 
-    // 2nd approach
+    // 2nd approach -- Time limit still exceeded
     public boolean buddyStrings(String A, String B) {
+        // #1 not possible
         if (A.length() != B.length()) {
             return false;
         }
 
-        String temp = A;
-
         if (A.equalsIgnoreCase(B)) {
-            // swap
-            // compare
-        } else {
-            for (int i = 0; i < A.length(); i++) {
-                for (int j = i + 1; j < A.length(); j++) {
-                    // Swap
-                    if (A.charAt(i) != A.charAt(j)) {
-                        temp = swap(A, i, j);
-                    }
-                    if (A.equalsIgnoreCase(B)) {
-                        return true;
-                    }
-                }
+            // #2 if there is same (duplicate char)
+            Set<Character> count = new HashSet<>();
+            for (char c : A.toCharArray()) {
+                count.add(c);
             }
-            // compare
+            return count.size() < A.length();
         }
 
+        //#3 swap the difference one
+        String temp = A;
+        for (int i = 0; i < A.length(); i++) {
+            for (int j = i + 1; j < A.length(); j++) {
+                // Swap
+                if (A.charAt(i) != A.charAt(j)) {
+                    temp = swap(A, i, j);
+                }
+                if (temp.equalsIgnoreCase(B)) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -125,14 +128,14 @@ public class BuddyStrings {
     public static void main(String[] args) {
         BuddyStrings sol = new BuddyStrings();
 
-        assert sol.buddyStringsTLE("abab", "abab") == true : "T6 failed";
-
-        assert sol.buddyStringsTLE("ab", "ab") == false : "T0 failed";
-        assert sol.buddyStringsTLE("abc", "abc") == false : "T1 failed";
-        assert sol.buddyStringsTLE("ab", "ba") == true : "T2 failed";
-        assert sol.buddyStringsTLE("aa", "aa") == true : "T3 failed";
-        assert sol.buddyStringsTLE("aaaaaaabc", "aaaaaaacb") == true : "T4 failed";
-        assert sol.buddyStringsTLE("b", "aa") == false : "T5 failed";
+        assert sol.buddyStrings("ab", "ba") == true : "T2 failed";
+        assert sol.buddyStrings("ab", "ab") == false : "T0 failed";
+        assert sol.buddyStrings("abc", "abc") == false : "T1 failed";
+        assert sol.buddyStrings("aa", "aa") == true : "T3 failed";
+        
+        assert sol.buddyStrings("aaaaaaabc", "aaaaaaacb") == true : "T4 failed";
+        assert sol.buddyStrings("b", "aa") == false : "T5 failed";
+        assert sol.buddyStrings("abab", "abab") == true : "T6 failed";
 
     }
 }

@@ -282,8 +282,8 @@ public class Solution {
 **BuddyStrings**
 
 - Tips: 
-  If `A.length() != B.length()`: no possible swap
-- If `A == B`, we need swap two same characters. Check is **duplicated char** in `A`. 
+  - If `A.length() != B.length()`: no possible swap
+  - If `A == B`, we need swap two same characters. Check is **duplicated char** in `A`. 
   - As long as there is duplicate char in the string count[char] > 1 
-- In other cases, we find index for `A[i] != B[i]`. There should be only 2 diffs and it's our one swap.
+  - In other cases, we find index for `A[i] != B[i]`. There should be only 2 diffs and it's our one swap.
 
