@@ -54,21 +54,19 @@ public class BuddyStrings {
             return count.size() < A.length();
         }
 
-        //#3 swap the difference one
-        String temp = A;
-        for (int i = 0; i < A.length(); i++) {
-            for (int j = i + 1; j < A.length(); j++) {
-                // Swap
-                if (A.charAt(i) != A.charAt(j)) {
-                    temp = swap(A, i, j);
-                }
-                if (temp.equalsIgnoreCase(B)) {
-                    return true;
-                }
+        // #3 -- refer to the best solution;
+        List<Integer> dif = new ArrayList<>();
+        for (int i = 0; i < A.length(); ++i) {
+            if (A.charAt(i) != B.charAt(i)) {
+                dif.add(i);
             }
         }
-        return false;
+        // there were two char that is able to swap; Don't care about other char;
+        return dif.size() == 2 && A.charAt(dif.get(0)) == B.charAt(dif.get(1))
+                && A.charAt(dif.get(1)) == B.charAt(dif.get(0));
+
     }
+    // #3 swap the difference one
 
     // LC official solution
     public boolean buddyStringsSol(String A, String B) {
@@ -132,10 +130,9 @@ public class BuddyStrings {
         assert sol.buddyStrings("ab", "ab") == false : "T0 failed";
         assert sol.buddyStrings("abc", "abc") == false : "T1 failed";
         assert sol.buddyStrings("aa", "aa") == true : "T3 failed";
-        
+
         assert sol.buddyStrings("aaaaaaabc", "aaaaaaacb") == true : "T4 failed";
         assert sol.buddyStrings("b", "aa") == false : "T5 failed";
         assert sol.buddyStrings("abab", "abab") == true : "T6 failed";
-
     }
 }
