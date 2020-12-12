@@ -29,7 +29,7 @@
 | 0824  | [Goat latin](https://leetcode.com/problems/goat-latin/)      | Easy       | 2020-12-5  | 23mins     | Use of HashSet                                               |                         | "Pig Latin"                                                  |                                                              |
 | 0859* | [Buddy Strings](https://leetcode.com/problems/buddy-strings/) | Easy       | 2020-12-5  | 67mins+    | 3 scenarios   [Tips below]                                   |                         |                                                              | not sure where to start - refer to solution                  |
 | 1081  | [Smallest subsequence of distinct characters](https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/) | Medium     | 2020-12-8  |            | 1, smallest subsequence<br />2, contains all distinct <br />Use Stack | How to keep the order ? | [316](https://leetcode.com/problems/remove-duplicate-letters/) | refer to solution.                                           |
-| 1169  | [Invalid transactions](https://leetcode.com/problems/invalid-transactions/) | Medium     | 2020-12-10 |            |                                                              |                         |                                                              |                                                              |
+| 1169  | [Invalid transactions](https://leetcode.com/problems/invalid-transactions/) | Medium     | 2020-12-10 | 50mins +   | hashMap + linkedList                                         |                         |                                                              |                                                              |
 | 1309  |                                                              |            |            |            |                                                              |                         |                                                              |                                                              |
 | 1316  |                                                              |            |            |            |                                                              |                         |                                                              |                                                              |
 | 1324  |                                                              |            |            |            |                                                              |                         |                                                              |                                                              |
@@ -198,7 +198,10 @@ https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/str
 
 - How to swap character in String ? 
 
-  - 
+- What is **LinkedHashMap** ? 
+
+  - It is the same as HashMap with an additional feature that it **maintains insertion order**. 
+    - For example, when we run the code with a HashMap, we get a different order of elements.
 
 
 
