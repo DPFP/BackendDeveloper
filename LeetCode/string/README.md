@@ -202,6 +202,29 @@ https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/str
 
   - It is the same as HashMap with an additional feature that it **maintains insertion order**. 
     - For example, when we run the code with a HashMap, we get a different order of elements.
+  
+- How to handle `java.util.ConcurrentModificationException` ? 
+
+  - Essentially, the *ConcurrentModificationException* is used to **fail-fast when something we are iterating on is modified.** [[ref](https://www.baeldung.com/java-concurrentmodificationexception)]
+
+  - Two options: [from [SOF](https://stackoverflow.com/a/8104702/3233111)] 
+
+    - Create a list of values you wish to remove, *adding* to that list within the loop, then call `originalList.removeAll(valuesToRemove)` at the end
+
+    - Use the `remove()` method on the iterator itself. Note that this means you can't use the enhanced for loop.
+
+    - e.g. 
+
+      ```java
+      List<String> list = new ArrayList<String>();
+      ...
+      for (Iterator<String> iterator = list.iterator(); iterator.hasNext(); ) {
+          String value = iterator.next();
+          if (value.length() > 5) {
+              iterator.remove();
+          }
+      }
+      ```
 
 
 
