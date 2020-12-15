@@ -82,7 +82,7 @@ public class InvalidTransactions {
         return null;
     }
 
-    // online solution
+    // online solution (C: I had similar approach, failed to implement.)
     // Time: O(transactions.length^2), worst case is when all transactions have the
     // same name and amounts are <=1000, for each we iterate through every
     // transaction
