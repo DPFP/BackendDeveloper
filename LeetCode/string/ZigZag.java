@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class ZigZag {
 
     // Official Solution
@@ -89,12 +92,81 @@ class ZigZag {
         return null;
     }
 
+    // LeetCode official solution #1
+    // Approach 1: Sort by Row
+    public String convertSolNoOne(String s, int numRows) {
+
+        if (numRows == 1) {
+            return s;
+        }
+
+        List<StringBuilder> rows = new ArrayList<>();
+        for (int i = 0; i < Math.min(numRows, s.length()); i++) {
+            rows.add(new StringBuilder());
+        }
+
+        int curRow = 0;
+        boolean goingDown = false;
+
+        for (char c : s.toCharArray()) {
+            rows.get(curRow).append(c);
+
+            // interesting part on when to switch direction
+            if (curRow == 0 || curRow == numRows - 1) {
+                goingDown = !goingDown;
+            }
+
+            // move up or down
+            curRow += goingDown ? 1 : -1;
+        }
+
+        StringBuilder ret = new StringBuilder();
+
+        // actuall don't need care about space.
+        for (StringBuilder row : rows) {
+            ret.append(row);
+        }
+        return ret.toString();
+    }
+
+    // LeetCode official solution #1
+    // Approach 2: Visit by Row
+    public String convertSolNoTwo(String s, int numRows) {
+
+        if (numRows == 1) {
+            return s;
+        }
+
+        StringBuilder ret = new StringBuilder();
+        int n = s.length();
+        int cycleLen = 2 * numRows - 2;
+
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j + i < n; j += cycleLen) {
+                ret.append(s.charAt(j + i));
+                if (i != 0 && i != numRows - 1 && j + cycleLen - i < n) {
+                    ret.append(s.charAt(j + cycleLen - i));
+                }
+            }
+        }
+        return ret.toString();
+    }
+
+    // 2nd try 2020-12-18
+    public String convert2nd(String s, int numRows) {
+        // #1 convert S to ZigZag based on numRows
+
+        // #2 convert ZigZag to String
+
+        return null;
+    }
+
     public static void main(String[] args) {
         String s = "PAYPALISHIRING";
         int numRows = 3;
+
         ZigZag solution = new ZigZag();
         String convert = solution.convertMySolution(s, numRows);
         System.out.println(convert);
-        System.out.println(4 % 4);
     }
 }
