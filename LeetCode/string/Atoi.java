@@ -1,14 +1,14 @@
 public class Atoi {
     // https://leetcode.com/problems/string-to-integer-atoi/
 
-    public int myAtoi(String s) {
+    // First BF approach
+    public int myAtoiBF(String s) {
         if (s.isEmpty() || s.trim().isEmpty()) {
             return 0;
         } else {
+            // trim lending white space
             s = s.stripLeading();
         }
-
-        // trim lending white space
 
         // 0 ~ 9 --> 48 ~ 57
         // + --> 43, - --> 45, . --> 46
@@ -49,6 +49,12 @@ public class Atoi {
         }
 
         return (int) result;
+    }
+
+    // second approach
+    public int myAtoi(String s) {
+
+        return 0;
     }
 
     public static void main(String[] args) {
