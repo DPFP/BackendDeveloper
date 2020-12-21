@@ -205,7 +205,7 @@ https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/str
   - It is the same as HashMap with an additional feature that it **maintains insertion order**. 
     - For example, when we run the code with a HashMap, we get a different order of elements.
   
-- How to handle `java.util.ConcurrentModificationException` ? 
+- How to handle `java.util.ConcurrentModificationException` ? ([ref](https://www.journaldev.com/378/java-util-concurrentmodificationexception))
 
   - Essentially, the *ConcurrentModificationException* is used to **fail-fast when something we are iterating on is modified.** [[ref](https://www.baeldung.com/java-concurrentmodificationexception)]
 
@@ -227,6 +227,8 @@ https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/str
           }
       }
       ```
+    
+  - More about Iterator [here](https://www.journaldev.com/13460/java-iterator) 
   
 - How to remove trailing whitespaces from String ([ref](https://howtodoinjava.com/java/string/trim-remove-trailing-spaces/))
 

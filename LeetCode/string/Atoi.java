@@ -54,20 +54,30 @@ public class Atoi {
     // second approach
     public int myAtoi(String s) {
 
+        // #1 trim leading whitespace
+        if (s.isEmpty() || s.trim().isEmpty()) {
+            return 0;
+        } else {
+            s = s.stripLeading();
+        }
+
+        // #2 +, - &
+        boolean sign = false;
+
+        for (int index = 0; index < s.length(); index++) {
+            if (s.charAt(index) == 45 && index == 0) {
+                sign = true;
+            } else if (s.charAt(index) == 43 && index == 0) {
+                sign = false;
+            }
+        }
+
         return 0;
     }
 
     public static void main(String[] args) {
         String t1 = "42";
         String t2 = "-42";
-        String t3 = "4193 with words";
-        String t4 = "words and 987";
-        String t5 = "-91283472332";
-        String t6 = "91283472332";
-        String t7 = "-+12"; // 0
-        String t8 = "+1"; // 1
-        String t9 = "1+1"; // 1
-        String t10 = "-2147483647";
 
         Atoi sol = new Atoi();
 
@@ -77,14 +87,14 @@ public class Atoi {
 
         assert sol.myAtoi(t1) == 42 : "T1 faield";
         assert sol.myAtoi(t2) == -42 : "T2 faield";
-        assert sol.myAtoi(t3) == 4193 : "T3 faield";
-        assert sol.myAtoi(t4) == 0 : "T4 faield";
-        assert sol.myAtoi(t5) == -2147483648 : "T5 faield";
-        assert sol.myAtoi(t6) == 2147483647 : "T6 faield";
-        assert sol.myAtoi(t7) == 0 : "T7 faield";
-        assert sol.myAtoi(t8) == 1 : "T8 faield";
-        assert sol.myAtoi(t9) == 1 : "T9 faield";
-        assert sol.myAtoi(t10) == -2147483647 : "T10 faield: " + sol.myAtoi(t10);
+        assert sol.myAtoi("4193 with words") == 4193 : "T3 faield";
+        assert sol.myAtoi("words and 987") == 0 : "T4 faield";
+        assert sol.myAtoi("-91283472332") == -2147483648 : "T5 faield";
+        assert sol.myAtoi("91283472332") == 2147483647 : "T6 faield";
+        assert sol.myAtoi("-+12") == 0 : "T7 faield";
+        assert sol.myAtoi("+1") == 1 : "T8 faield";
+        assert sol.myAtoi("1+1") == 1 : "T9 faield";
+        assert sol.myAtoi("-2147483647") == -2147483647 : "T10 faield: ";
 
     }
 }
