@@ -51,28 +51,84 @@ public class Atoi {
         return (int) result;
     }
 
-    // second approach
-    public int myAtoi(String s) {
+    // second approach mimic online solution
+    public int myAtoi(String str) {
 
         // #1 trim leading whitespace
-        if (s.isEmpty() || s.trim().isEmpty()) {
+        if (str.isEmpty() || str.trim().isEmpty()) {
             return 0;
         } else {
-            s = s.stripLeading();
+            str = str.stripLeading();
         }
 
-        // #2 +, - &
-        boolean sign = false;
+        int sign = 1, start = 0, len = str.length();
+        long sum = 0;
 
-        for (int index = 0; index < s.length(); index++) {
-            if (s.charAt(index) == 45 && index == 0) {
-                sign = true;
-            } else if (s.charAt(index) == 43 && index == 0) {
-                sign = false;
+        // #2 +, - &
+        if (str.charAt(0) == 45) { // -
+            sign = -1;
+            start++;
+        } else if (str.charAt(0) == 43) { // +
+            sign = 1;
+            start++;
+        }
+
+        for (int i = start; i < len; i++) {
+            // check if next number still an number
+            if (!Character.isDigit(str.charAt(i))) {
+                return (int) sum * sign;
+            }
+            // key step on shift the number to left
+            sum = sum * 10 + str.charAt(i) - '0';
+
+            // capture edge case
+            if (sign == 1 && sum > Integer.MAX_VALUE) {
+                return Integer.MAX_VALUE;
+            }
+            if (sign == -1 && (-1) * sum < Integer.MIN_VALUE) {
+                return Integer.MIN_VALUE;
             }
         }
 
-        return 0;
+        return (int) sum * sign;
+    }
+
+    // online solution
+    public int atoi(String str) {
+
+        if (str == null || str.length() == 0)
+            return 0;//
+
+        str = str.trim();
+
+        char firstChar = str.charAt(0);
+
+        int sign = 1, start = 0, len = str.length();
+        long sum = 0;
+
+        if (firstChar == '+') {
+            sign = 1;
+            start++;
+        } else if (firstChar == '-') {
+            sign = -1;
+            start++;
+        }
+
+        for (int i = start; i < len; i++) {
+            if (!Character.isDigit(str.charAt(i))) {
+                return (int) sum * sign;
+            }
+            // key step on shift the number to left
+            sum = sum * 10 + str.charAt(i) - '0';
+            if (sign == 1 && sum > Integer.MAX_VALUE) {
+                return Integer.MAX_VALUE;
+            }
+            if (sign == -1 && (-1) * sum < Integer.MIN_VALUE) {
+                return Integer.MIN_VALUE;
+            }
+        }
+
+        return (int) sum * sign;
     }
 
     public static void main(String[] args) {
