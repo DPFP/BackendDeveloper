@@ -6,6 +6,93 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - PrintWordsVertically",
+      "request": "launch",
+      "mainClass": "PrintWordsVertically",
+      "projectName": "string_2274663b"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - DistinctEchoSubstrings",
+      "request": "launch",
+      "mainClass": "DistinctEchoSubstrings",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - LeetCode1309",
+      "request": "launch",
+      "mainClass": "LeetCode1309",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - InvalidTransactions",
+      "request": "launch",
+      "mainClass": "InvalidTransactions",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - SmallestSubsequenceofDistinctCharacters",
+      "request": "launch",
+      "mainClass": "SmallestSubsequenceofDistinctCharacters",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - BuddyStrings",
+      "request": "launch",
+      "mainClass": "BuddyStrings",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - GoatLatin",
+      "request": "launch",
+      "mainClass": "GoatLatin",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - RepeatedStringMatch",
+      "request": "launch",
+      "mainClass": "RepeatedStringMatch",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - ValidPalindromeII",
+      "request": "launch",
+      "mainClass": "ValidPalindromeII",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - ReverseStringII",
+      "request": "launch",
+      "mainClass": "ReverseStringII",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - LongestUncommonSubsequence",
+      "request": "launch",
+      "mainClass": "LongestUncommonSubsequence",
+      "projectName": "string_2274663b",
+      "vmArgs": "-enableassertions"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - RepeatedSubstringPattern",
       "request": "launch",
       "mainClass": "RepeatedSubstringPattern",
