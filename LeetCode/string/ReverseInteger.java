@@ -1,5 +1,7 @@
 public class ReverseInteger {
-    public int reverse(int x) {
+
+    // brute force
+    public int reverseBF(int x) {
         if (x == 0) {
             return 0;
         }
@@ -31,9 +33,32 @@ public class ReverseInteger {
         return result;
     }
 
+    // 2nd try
+    public int reverse(int x) {
+        int result = 0;
+        long reversed = 0L;
+
+        // #1 if it single digit return;
+        if (x < 10) {
+            return x;
+        }
+        // #2 if reversed number it within Integer.MAX
+
+        // #3 if reversed number it larger than Integer.MAX
+        if (reversed > Integer.MAX_VALUE) {
+            return 0;
+        }
+
+        return result;
+    }
+
     public static void main(String[] args) {
         ReverseInteger sol = new ReverseInteger();
-        assert sol.reverse(0) == 0 : "Failed 100";
+
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Integer.MIN_VALUE);
+
+        assert sol.reverse(0) == 0 : "Failed 0";
         assert sol.reverse(2147483647) == 0 : "Failed 2147483647 ";
         assert sol.reverse(-2147483647) == 0 : "Failed -2147483647";
         assert sol.reverse(100) == 1 : "Failed 100";
