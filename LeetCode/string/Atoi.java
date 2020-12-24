@@ -52,34 +52,34 @@ public class Atoi {
     }
 
     // second approach mimic online solution
-    public int myAtoi(String str) {
+    public int myAtoi(String s) {
 
         // #1 trim leading whitespace
-        if (str.isEmpty() || str.trim().isEmpty()) {
+        if (s.isEmpty() || s.trim().isEmpty()) {
             return 0;
         } else {
-            str = str.stripLeading();
+            s = s.stripLeading();
         }
 
-        int sign = 1, start = 0, len = str.length();
+        int sign = 1, start = 0, len = s.length();
         long sum = 0;
 
         // #2 +, - &
-        if (str.charAt(0) == 45) { // -
+        if (s.charAt(0) == 45) { // -
             sign = -1;
             start++;
-        } else if (str.charAt(0) == 43) { // +
+        } else if (s.charAt(0) == 43) { // +
             sign = 1;
             start++;
         }
 
         for (int i = start; i < len; i++) {
             // check if next number still an number
-            if (!Character.isDigit(str.charAt(i))) {
+            if (!Character.isDigit(s.charAt(i))) {
                 return (int) sum * sign;
             }
             // key step on shift the number to left
-            sum = sum * 10 + str.charAt(i) - '0';
+            sum = sum * 10 + s.charAt(i) - '0';
 
             // capture edge case
             if (sign == 1 && sum > Integer.MAX_VALUE) {
