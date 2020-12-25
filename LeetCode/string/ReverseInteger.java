@@ -35,21 +35,36 @@ public class ReverseInteger {
 
     // 2nd try
     public int reverse(int x) {
-        int result = 0;
+        int result = 0, sign = 1;
         long reversed = 0L;
 
+        if (x < 0) {
+            sign = -1;
+        }
+
         // #1 if it single digit return;
-        if (x < 10) {
+        if (x < 10 && x > -10) {
             return x;
         }
-        // #2 if reversed number it within Integer.MAX
 
-        // #3 if reversed number it larger than Integer.MAX
+        String xs = Integer.toString(x);
+        if (sign == -1) {
+            xs = xs.substring(1, xs.length());
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = xs.length() - 1; i >= 0; i--) {
+            sb.append(xs.charAt(i));
+        }
+        reversed = Long.parseLong(sb.toString());
+
+        // #2 if reversed number it larger than Integer.MAX
         if (reversed > Integer.MAX_VALUE) {
             return 0;
         }
-
-        return result;
+        // #3 if reversed number it within Integer.MAX
+        result = (int) reversed;
+        return result * sign;
     }
 
     public static void main(String[] args) {
@@ -58,6 +73,7 @@ public class ReverseInteger {
         System.out.println(Integer.MAX_VALUE);
         System.out.println(Integer.MIN_VALUE);
 
+        assert sol.reverse(-2147483648) == 0 : "Failed 0";
         assert sol.reverse(0) == 0 : "Failed 0";
         assert sol.reverse(2147483647) == 0 : "Failed 2147483647 ";
         assert sol.reverse(-2147483647) == 0 : "Failed -2147483647";
