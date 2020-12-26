@@ -4,7 +4,7 @@ import java.util.Map;
 public class RomanToInteger {
 
     // bf way;
-    public int romanToInt(String s) {
+    public int romanToIntBF(String s) {
         if (s.trim().length() < 1 && s.trim().length() > 15) {
             return 0;
         }
@@ -44,6 +44,13 @@ public class RomanToInteger {
         }
 
         return result;
+    }
+
+    // second try
+    // Goal improve the performance
+    public int romanToInt(String s) {
+
+        return 0;
     }
 
     public static void main(String[] args) {
