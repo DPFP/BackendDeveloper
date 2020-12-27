@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - RomanToInteger",
+      "request": "launch",
+      "mainClass": "RomanToInteger",
+      "projectName": "string_80b8f647"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - PrintWordsVertically",
       "request": "launch",
       "mainClass": "PrintWordsVertically",
