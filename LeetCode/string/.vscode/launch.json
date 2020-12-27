@@ -9,7 +9,8 @@
       "name": "CodeLens (Launch) - RomanToInteger",
       "request": "launch",
       "mainClass": "RomanToInteger",
-      "projectName": "string_80b8f647"
+      "projectName": "string_80b8f647",
+      "vmArgs": "-enableassertions"
     },
     {
       "type": "java",
