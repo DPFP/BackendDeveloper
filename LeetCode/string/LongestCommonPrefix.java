@@ -1,7 +1,7 @@
 public class LongestCommonPrefix {
 
     // idea: a~z - a~z - a~z ... ditionary (Trie-->Autocomplete) overkill ?
-    public String longestCommonPrefix(String[] strs) {
+    public String longestCommonPrefixBF(String[] strs) {
         StringBuilder result = new StringBuilder();
 
         if (strs.length < 1) {
@@ -35,6 +35,17 @@ public class LongestCommonPrefix {
 
         System.out.println(result.toString());
         return result.toString();
+    }
+
+    // second try memory usage could be improved
+    public String longestCommonPrefix(String[] strs) {
+
+        // #1 probably still need start with the shortest string
+
+        // #2 loop through each string and check against the shortest break right away
+        // if find discrepancy
+
+        return "";
     }
 
     public static void main(String[] args) {
