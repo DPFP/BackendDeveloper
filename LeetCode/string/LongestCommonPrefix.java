@@ -53,10 +53,14 @@ public class LongestCommonPrefix {
         if (strs.length == 0) {
             return "";
         }
+        // get the first word as prefix
         String prefix = strs[0];
         for (int i = 1; i < strs.length; i++)
+            // compare the value
             while (strs[i].indexOf(prefix) != 0) {
+                // remove last character from the prefix
                 prefix = prefix.substring(0, prefix.length() - 1);
+                // no common string was found
                 if (prefix.isEmpty())
                     return "";
             }
