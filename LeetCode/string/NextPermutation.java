@@ -1,7 +1,8 @@
 public class NextPermutation {
 
     // The replacement must be in place and use only constant extra memory.
-    public void nextPermutation(int[] nums) {
+    // BF Solution
+    public void nextPermutationBF(int[] nums) {
         // print original
         for (int i : nums) {
             System.out.print(i + " ");
@@ -63,6 +64,13 @@ public class NextPermutation {
         }
         System.out.println();
         System.out.println("-----------");
+    }
+
+    // 2nd try
+    public void nextPermutation(int[] nums) {
+        // #1 if it can be shifted --> shift *next* greater permutation of numbers
+
+        // #2 if ti can't be shifted --> sort in ascending order
     }
 
     public static void main(String[] args) {
