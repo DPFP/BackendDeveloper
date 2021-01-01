@@ -21,19 +21,18 @@ public class NextPermutation {
                     break;
                 }
             }
-            // System.out.println(aiIndex);
 
+            // Step 2 if found the aiIndex --
             if (aiIndex > -1) {
-                // Step 2
                 int diff = Integer.MAX_VALUE;
                 for (int i = aiIndex; i < nums.length; i++) {
                     temp = nums[i] - nums[aiIndex];
                     if (temp > 0 && temp <= diff) {
+                        // seek the next number ajIndex with smallest diff
                         diff = temp;
                         ajIndex = i;
                     }
                 }
-                // System.out.println(ajIndex);
 
                 // Step 3 -- Swap ai & aj
                 temp = nums[aiIndex];
@@ -41,7 +40,6 @@ public class NextPermutation {
                 nums[ajIndex] = temp;
 
                 // Step 4 -- Reverse evertying after aiIndex;
-
                 // Note: Have to do this (nums.length - aiIndex) / 2
                 // otherwise it reverse back to the original order r
                 for (int i = aiIndex + 1; i < (nums.length - aiIndex) / 2 + aiIndex + 1; i++) {
@@ -49,7 +47,9 @@ public class NextPermutation {
                     nums[i] = nums[nums.length - i + aiIndex];
                     nums[nums.length - i + aiIndex] = temp;
                 }
+
             } else {
+                // it already sorted
                 for (int i = 0; i < nums.length / 2; i++) {
                     temp = nums[i];
                     nums[i] = nums[nums.length - i - 1];
@@ -66,12 +66,41 @@ public class NextPermutation {
         System.out.println("-----------");
     }
 
-    // 2nd try
+    // 2nd try ref to
+    // https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order
     public void nextPermutation(int[] nums) {
         // #1 if it can be shifted --> shift *next* greater permutation of numbers
 
         // #2 if ti can't be shifted --> sort in ascending order
     }
+
+    // online solution
+    public void nextPermutationSol(int[] A) {
+        if (A == null || A.length <= 1)
+            return;
+        int i = A.length - 2;
+        while (i >= 0 && A[i] >= A[i + 1])
+            i--; // Find 1st id i that breaks descending order
+        if (i >= 0) { // If not entirely descending
+            int j = A.length - 1; // Start from the end
+            while (A[j] <= A[i])
+                j--; // Find rightmost first larger id j
+            swap(A, i, j); // Switch i and j
+        }
+        reverse(A, i + 1, A.length - 1); // Reverse the descending sequence
+    }
+
+    public void swap(int[] A, int i, int j) {
+        int tmp = A[i];
+        A[i] = A[j];
+        A[j] = tmp;
+    }
+
+    public void reverse(int[] A, int i, int j) {
+        while (i < j)
+            swap(A, i++, j--);
+    }
+    // online solution
 
     public static void main(String[] args) {
         // 3, 1, 2 --> 3,2,1 ?
@@ -88,7 +117,7 @@ public class NextPermutation {
 
         NextPermutation sol = new NextPermutation();
 
-        sol.nextPermutation(n1);
+        sol.nextPermutationBF(n1);
         sol.nextPermutation(n2);
         sol.nextPermutation(n3);
         sol.nextPermutation(n4);
