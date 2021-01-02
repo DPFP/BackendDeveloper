@@ -1,12 +1,21 @@
 public class LengthOfLastWord {
 
-    public int lengthOfLastWord(String s) {
+    // 1st try
+    public int lengthOfLastWordBF(String s) {
         if (s.isBlank()) {
             return 0;
         }
 
         String[] listOfWords = s.split(" ");
         return listOfWords[listOfWords.length - 1].length();
+    }
+
+    // online best solution
+    public int lengthOfLastWord(String s) {
+        if (s.isBlank()) {
+            return 0;
+        }
+        return s.trim().length() - s.trim().lastIndexOf(" ") - 1;
     }
 
     public static void main(String[] args) {
