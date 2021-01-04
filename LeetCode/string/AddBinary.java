@@ -1,7 +1,8 @@
 
 public class AddBinary {
 
-    public String addBinary(String a, String b) {
+    // refer to solution
+    public String addBinarySol(String a, String b) {
         // 1 <= a.length, b.length <= 104
         if (a.isBlank() || b.isBlank()) {
             return null;
@@ -69,6 +70,20 @@ public class AddBinary {
         return sb.reverse().toString();
     }
 
+    // 2nd try
+    // Given two binary strings a and b, return their sum as a binary string.
+    // 1 <= a.length, b.length <= 104
+    public String addBinary(String a, String b) {
+        String result = "";
+
+        // #1, starting from right.
+
+        // #2, if 1 & 1 --> carryOver = 1, remain = 0
+        // #3, how to handle carryover addition ?
+
+        return result;
+    }
+
     public static void main(String[] args) {
         AddBinary sol = new AddBinary();
 
@@ -83,13 +98,13 @@ public class AddBinary {
         String t7 = "10100000100100110110010000010101111011011001101110111111111101000000101111001110001111100001101";
         String t8 = "110101001011101110001111100110001010100001101011101010000011011011001011101111001100000011011110011";
 
-        // assert sol.addBinary(t1, t2).equalsIgnoreCase("1") : "T1 failed";
-        // assert sol.addBinary(t1, t3).equalsIgnoreCase("100") : "T2 failed";
-        // assert sol.addBinary(t2, t3).equalsIgnoreCase("11") : "T3 failed";
-        // assert sol.addBinary(t3, t4).equalsIgnoreCase("101") : "T4 failed";
-        // assert sol.addBinary(t5, t6).equalsIgnoreCase("10101") : "T4 failed";
-        // assert sol.addBinary(t7, t8).equalsIgnoreCase("10101") : "T4 failed";
-        assert sol.addBinary(t3, t31).equalsIgnoreCase("10000") : "T4 failed";
+        assert sol.addBinary(t1, t2).equalsIgnoreCase("1") : "T1 failed";
+        assert sol.addBinary(t1, t3).equalsIgnoreCase("100") : "T2 failed";
+        assert sol.addBinary(t2, t3).equalsIgnoreCase("11") : "T3 failed";
+        assert sol.addBinary(t3, t4).equalsIgnoreCase("101") : "T4 failed";
+        assert sol.addBinary(t5, t6).equalsIgnoreCase("10101") : "T5 failed";
+        // assert sol.addBinary(t7, t8).equalsIgnoreCase("10101") : "T6 failed";
+        assert sol.addBinary(t3, t31).equalsIgnoreCase("10000") : "T7 failed";
 
     }
 
