@@ -2,7 +2,8 @@ public class ValidPalindrome {
 
     // considering only alphanumeric characters and ignoring cases.
     // empty string as valid palindrome
-    public boolean isPalindrome(String s) {
+    // Runtime 42.85% , Memory 95%
+    public boolean isPalindromeFirst(String s) {
         if (s.isEmpty()) {
             return true;
         }
@@ -16,6 +17,12 @@ public class ValidPalindrome {
         }
         // reverse & compare
         return sb.toString().equalsIgnoreCase(sb.reverse().toString());
+    }
+
+    //
+    public boolean isPalindrome(String s) {
+
+        return false;
     }
 
     public static void main(String[] args) {
