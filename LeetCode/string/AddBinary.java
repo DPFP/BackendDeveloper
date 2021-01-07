@@ -82,7 +82,7 @@ public class AddBinary {
 
         // #3, how to handle carryover addition ?
 
-        return result;
+        return null;
     }
 
     // online discussion solution
