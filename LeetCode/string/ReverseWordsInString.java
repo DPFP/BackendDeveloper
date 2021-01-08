@@ -1,20 +1,22 @@
+import java.util.Arrays;
+import java.util.Collections;
+
 public class ReverseWordsInString {
 
-    public String reverseWords(String s) {
+
+    //BF solution 
+    public String reverseWordsBF(String s) {
         if (s.isBlank()) {
             return s;
         }
 
-        s = s.strip();
-        s = s.replaceAll("\\s{2,}", " ");
-
+        s = s.strip().replaceAll("\\s{2,}", " ");
         String[] inputArray = s.split(" ");
 
         s = "";
         for (int i = inputArray.length - 1; i >= 0; i--) {
             s += inputArray[i] + " ";
         }
-        // System.out.println(s);
         return s.trim();
     }
 
@@ -32,6 +34,21 @@ public class ReverseWordsInString {
     }
 
     // TODO reduce memeory usage (not using String array)
+
+
+    
+    //online solution simple 
+    public String reverseWords(String s) {
+        String[] words = s.trim().split(" +");
+        Collections.reverse(Arrays.asList(words));
+
+        return String.join(" ", words);
+    }
+
+
+
+   
+
 
     public static void main(String[] args) {
         ReverseWordsInString sol = new ReverseWordsInString();
