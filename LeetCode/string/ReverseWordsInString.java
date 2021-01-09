@@ -3,8 +3,7 @@ import java.util.Collections;
 
 public class ReverseWordsInString {
 
-
-    //BF solution 
+    // BF solution
     public String reverseWordsBF(String s) {
         if (s.isBlank()) {
             return s;
@@ -35,20 +34,14 @@ public class ReverseWordsInString {
 
     // TODO reduce memeory usage (not using String array)
 
-
-    
-    //online solution simple 
+    // online solution simple
     public String reverseWords(String s) {
+        // " +" means at least one space (could be more)
         String[] words = s.trim().split(" +");
         Collections.reverse(Arrays.asList(words));
 
         return String.join(" ", words);
     }
-
-
-
-   
-
 
     public static void main(String[] args) {
         ReverseWordsInString sol = new ReverseWordsInString();
