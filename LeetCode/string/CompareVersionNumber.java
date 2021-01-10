@@ -52,6 +52,8 @@ public class CompareVersionNumber {
         int longest = Math.max(levels1.length, levels2.length);
 
         for (int i = 0; i < longest; i++) {
+            // this how it saved memory. if length > i, that meanst this level do have
+            // value. otherwise 0
             Integer v1 = i < levels1.length ? Integer.parseInt(levels1[i]) : 0;
             Integer v2 = i < levels2.length ? Integer.parseInt(levels2[i]) : 0;
 
