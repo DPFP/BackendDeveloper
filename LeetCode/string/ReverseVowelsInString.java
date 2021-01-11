@@ -4,6 +4,7 @@ import java.util.Set;
 
 class ReverseVowelsInString {
 
+    // Brute Force solution
     public String reverseVowels(String s) {
         if (s.trim().length() <= 1) {
             return s;
