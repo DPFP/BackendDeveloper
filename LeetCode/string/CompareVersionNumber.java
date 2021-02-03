@@ -2,7 +2,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CompareVersionNumber {
-    public int compareVersion(String version1, String version2) {
+
+    // BF approach -- memory usage could be improved
+    public int compareVersionBF(String version1, String version2) {
         if (version1.isEmpty() || version2.isEmpty()) {
             return 0;
         }
@@ -36,6 +38,34 @@ public class CompareVersionNumber {
         return 0;
     }
 
+    // 2nd try to minimize memory
+    public int compareVersion(String version1, String version2) {
+
+        return 0;
+    }
+
+    // Online simple solution
+    public int compareVersionOS(String version1, String version2) {
+        String[] levels1 = version1.split("\\.");
+        String[] levels2 = version2.split("\\.");
+
+        int longest = Math.max(levels1.length, levels2.length);
+
+        for (int i = 0; i < longest; i++) {
+            // this how it saved memory. if length > i, that meanst this level do have
+            // value. otherwise 0
+            Integer v1 = i < levels1.length ? Integer.parseInt(levels1[i]) : 0;
+            Integer v2 = i < levels2.length ? Integer.parseInt(levels2[i]) : 0;
+
+            int compare = v1.compareTo(v2);
+            if (compare != 0) {
+                return compare;
+            }
+        }
+
+        return 0;
+    }
+
     public static void main(String[] args) {
         String t11 = "version1 = \"1.01\"";
         String t12 = "version2 = \"1.001\"";
@@ -53,6 +83,7 @@ public class CompareVersionNumber {
         String t52 = "version2 = \"7.5.3\"";
 
         CompareVersionNumber sol = new CompareVersionNumber();
+
         assert sol.compareVersion(t11, t12) == 0 : "T1 Failed";
         assert sol.compareVersion(t21, t22) == 0 : "T2 Failed";
         assert sol.compareVersion(t31, t32) == -1 : "T3 Failed";

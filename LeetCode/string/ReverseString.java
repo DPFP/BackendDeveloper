@@ -2,7 +2,7 @@ public class ReverseString {
 
     // Do not allocate extra space for another array, you must do this by modifying
     // the input array in-place with O(1) extra memory.
-    public void reverseString(char[] s) {
+    public void reverseStringBF(char[] s) {
         char temp;
         for (int i = 0; i < s.length / 2; i++) {
             temp = s[s.length - 1 - i];
@@ -11,6 +11,21 @@ public class ReverseString {
         }
 
         System.out.println(s);
+    }
+
+    // online simple solution
+    public String reverseString(String s) {
+        char[] word = s.toCharArray();
+        int i = 0;
+        int j = s.length() - 1;
+        while (i < j) {
+            char temp = word[i];
+            word[i] = word[j];
+            word[j] = temp;
+            i++;
+            j--;
+        }
+        return new String(word);
     }
 
     public static void main(String[] args) {
