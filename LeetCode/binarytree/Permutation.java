@@ -38,7 +38,7 @@ public class Permutation {
 
     public static void main(String[] args) {
         Permutation sol = new Permutation();
-        int[] test1 = { 1, 2, 3 };
+        int[] test1 = { 1, 2, 3, 4 };
         sol.permute(test1);
     }
 }

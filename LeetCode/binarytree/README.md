@@ -4,7 +4,7 @@
 | ---- | --------------------------------------------------------- | ---------- | -------- | ---------- | ------------------- | -------------- | --------------- | ------------------------------------------------ |
 | 105  | Construct Binary Tree from Preorder and Inorder Traversal | Medium     | 2021-2-2 |            |                     |                |                 |                                                  |
 | 94   | *Binary Tree Inorder Traversal*                           | Medium     | 2021-2-3 | 15 minutes | understand the tree | recurssion     |                 | it pretty easy after understand the tree concept |
-|      |                                                           |            |          |            |                     |                |                 |                                                  |
+| 51   | N Queens                                                  | Hard       | 2021-2-9 |            |                     |                |                 |                                                  |
 |      |                                                           |            |          |            |                     |                |                 |                                                  |
 |      |                                                           |            |          |            |                     |                |                 |                                                  |
 |      |                                                           |            |          |            |                     |                |                 |                                                  |
@@ -40,7 +40,7 @@ Tree Traverse [Tutorial](https://www.geeksforgeeks.org/tree-traversals-inorder-p
 
 
 
-#105 Tips:
+**#105 Tips**:
 
 The basic idea is here:
 Say we have 2 arrays, PRE and IN.
@@ -78,3 +78,6 @@ public TreeNode helper(int preStart, int inStart, int inEnd, int[] preorder, int
 }
 ```
 
+
+
+#51 - N Queens 
