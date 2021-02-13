@@ -1,30 +1,59 @@
 import java.util.LinkedList;
 import java.util.List;
 
+import jdk.javadoc.internal.doclets.toolkit.resources.doclets;
+
 public class Leetcode51 {
     // N Queens
     // The n-queens puzzle is the problem of placing n queens on an n x n
     // chessboard such that no two queens attack each other.
 
-    List<List<String>> result = new LinkedList<>();
+    List<List<String>> results = new LinkedList<>();
 
     public List<List<String>> solveNQueens(int n) {
-        List<String> track = new LinkedList<>();
+        LinkedList<String> track = new LinkedList<>();
 
-        // initialized result
+        // initialized matrix
+        List<String> result = new LinkedList<>();
         for (int i = 0; i < n; i++) {
-            List<String> dots = new LinkedList<>();
+            StringBuilder sb = new StringBuilder();
             for (int j = 0; j < n; j++) {
-                dots.add(".");
+                sb.append(".");
             }
-            result.add(dots);
+            result.add(sb.toString());
         }
+        results.add(result);
+        //
 
-        System.out.println(result);
-        return result;
+        backTrack(track, n);
+
+        System.out.println(results);
+        return results;
     }
 
-    void backTrack(List<String> track, int n) {
+    void backTrack(LinkedList<String> track, int n) {
+        // exit condition
+        if (track.size() == n) {
+            results.add(new LinkedList<>(track));
+            return;
+        }
+
+        // ???
+        for (int i = 0; i < n; i++) {
+            // check if it legal
+            if (isValid()) {
+                // do something
+            }
+
+            // pick next step
+
+            // next level
+            backTrack(track, n);
+
+            // remove last step
+            track.removeLast();
+
+        }
 
     }
 

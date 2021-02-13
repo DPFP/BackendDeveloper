@@ -4,7 +4,7 @@
 | ---- | --------------------------------------------------------- | ---------- | -------- | ---------- | ------------------- | -------------- | --------------- | ------------------------------------------------ |
 | 105  | Construct Binary Tree from Preorder and Inorder Traversal | Medium     | 2021-2-2 |            |                     |                |                 |                                                  |
 | 94   | *Binary Tree Inorder Traversal*                           | Medium     | 2021-2-3 | 15 minutes | understand the tree | recurssion     |                 | it pretty easy after understand the tree concept |
-| 51   | N Queens                                                  | Hard       | 2021-2-9 |            |                     |                |                 |                                                  |
+| 51   | N Queens                                                  | Hard       | 2021-2-9 |            | back-tracking       |                |                 |                                                  |
 |      |                                                           |            |          |            |                     |                |                 |                                                  |
 |      |                                                           |            |          |            |                     |                |                 |                                                  |
 |      |                                                           |            |          |            |                     |                |                 |                                                  |
@@ -80,4 +80,5 @@ public TreeNode helper(int preStart, int inStart, int inEnd, int[] preorder, int
 
 
 
-#51 - N Queens 
+**#51 - N Queens** Tips
+
