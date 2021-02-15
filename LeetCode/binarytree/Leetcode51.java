@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Vector;
 
 import jdk.javadoc.internal.doclets.toolkit.resources.doclets;
 
@@ -11,55 +12,79 @@ public class Leetcode51 {
     List<List<String>> results = new LinkedList<>();
 
     public List<List<String>> solveNQueens(int n) {
-        LinkedList<String> track = new LinkedList<>();
-
         // initialized matrix
-        List<String> result = new LinkedList<>();
+        LinkedList<String> board = new LinkedList<>();
         for (int i = 0; i < n; i++) {
             StringBuilder sb = new StringBuilder();
             for (int j = 0; j < n; j++) {
                 sb.append(".");
             }
-            result.add(sb.toString());
+            board.add(sb.toString());
         }
-        results.add(result);
-        //
 
-        backTrack(track, n);
+        backTrack(board, 0);
 
         System.out.println(results);
         return results;
     }
 
-    void backTrack(LinkedList<String> track, int n) {
+    void backTrack(LinkedList<String> board, int row) {
         // exit condition
-        if (track.size() == n) {
-            results.add(new LinkedList<>(track));
+        if (board.size() == row) {
+            results.add(new LinkedList<>(board));
             return;
         }
 
-        // ???
-        for (int i = 0; i < n; i++) {
+        int n = board.get(row).length();
+
+        for (int col = 0; col < n; col++) {
             // check if it legal
-            if (isValid()) {
-                // do something
+            if (!isValid(board, row, col)) {
+                continue;
             }
 
             // pick next step
+            board.set(row, replaceChar(board.get(row), 'Q', col));
 
             // next level
-            backTrack(track, n);
+            backTrack(board, row + 1);
 
             // remove last step
-            track.removeLast();
-
+            board.set(row, replaceChar(board.get(row), '.', col));
         }
 
     }
 
-    boolean isValid() {
+    public String replaceChar(String str, char ch, int index) {
+        return str.substring(0, index) + ch + str.substring(index + 1);
+    }
 
-        return false;
+    boolean isValid(LinkedList<String> board, int row, int col) {
+        /* Can we place Queeon at board[row][col] */
+        int n = board.size();
+
+        // check col
+        for (int i = 0; i < n; i++) {
+            if (board.get(i).charAt(col) == 'Q') {
+                return false;
+            }
+        }
+
+        // check top right
+        for (int i = row - 1, j = col + 1; i >= 0 && j < n; i--, j++) {
+            if (board.get(i).charAt(j) == 'Q') {
+                return false;
+            }
+        }
+
+        // check top left
+        for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
+            if (board.get(i).charAt(j) == 'Q') {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public static void main(String[] args) {
