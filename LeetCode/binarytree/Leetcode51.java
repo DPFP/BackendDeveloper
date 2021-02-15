@@ -14,8 +14,10 @@ public class Leetcode51 {
     public List<List<String>> solveNQueens(int n) {
         // initialized matrix
         LinkedList<String> board = new LinkedList<>();
+        StringBuilder sb = new StringBuilder();
+
         for (int i = 0; i < n; i++) {
-            StringBuilder sb = new StringBuilder();
+            sb.setLength(0);
             for (int j = 0; j < n; j++) {
                 sb.append(".");
             }
@@ -24,7 +26,7 @@ public class Leetcode51 {
 
         backTrack(board, 0);
 
-        System.out.println(results);
+        // System.out.println(results);
         return results;
     }
 
