@@ -39,4 +39,12 @@ public class TreeNode {
             System.out.println(root.val);
         }
     }
+
+    int countNode(TreeNode root) {
+        // base case
+        if (root == null)
+            return 0;
+        // 自己加上子树的节点数就是整棵树的节点数
+        return 1 + countNode(root.left) + countNode(root.right);
+    }
 }
