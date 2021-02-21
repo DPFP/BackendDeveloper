@@ -1,7 +1,10 @@
+import apple.laf.JRSUIUtils.Tree;
+
 public class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
+    TreeNode next = null; // for leetcode 116
 
     TreeNode() {
     }
@@ -16,6 +19,13 @@ public class TreeNode {
         this.right = right;
     }
 
+    TreeNode(int val, TreeNode left, TreeNode right, TreeNode next) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+        this.next = next;
+    }
+
     void preorderTraverse(TreeNode root) {
         if (root != null) {
             System.out.println(root.val);
@@ -28,6 +38,14 @@ public class TreeNode {
         if (root != null) {
             inorderTravers(root.left);
             System.out.println(root.val);
+            inorderTravers(root.right);
+        }
+    }
+
+    void inorderTraversNext(TreeNode root) {
+        if (root != null) {
+            inorderTravers(root.left);
+            System.out.println(root.next.val);
             inorderTravers(root.right);
         }
     }
