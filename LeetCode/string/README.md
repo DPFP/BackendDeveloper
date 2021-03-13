@@ -119,7 +119,7 @@ https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/str
 
 - What's the different between **StringBuilder** and **StringBuffer** ? 
 
-  - [`StringBuffer`](http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html) is synchronized, [`StringBuilder`](http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html) is not. (Similar to `Vector` and `ArrayList`)
+  - [`StringBuffer`](http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html) is **synchronized**, [`StringBuilder`](http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html) is not. (Similar to the differences betwee `Vector` and `ArrayList`)
 
 - What's the different between `strip()` and `trim()`?
 
@@ -247,7 +247,8 @@ https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/tree/master/str
     System.out.println(trimmedString2);
     ```
 
-  - 
+
+
 
 
 
