@@ -2,11 +2,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Permutation {
+
     List<List<Integer>> res = new LinkedList<>();
 
     List<List<Integer>> permute(int[] nums) {
-        LinkedList<Integer> track = new LinkedList<>();
-        backtrack(nums, track);
+        LinkedList<Integer> temp = new LinkedList<>();
+        backtrack(nums, temp);
 
         // print the result
         System.out.println(res);
@@ -14,24 +15,24 @@ public class Permutation {
         return res;
     }
 
-    private void backtrack(int[] nums, LinkedList<Integer> track) {
+    private void backtrack(int[] nums, LinkedList<Integer> temp) {
         // trigger exit condition (one permutation found)
-        if (track.size() == nums.length) {
-            res.add(new LinkedList<>(track));
+        if (temp.size() == nums.length) {
+            res.add(new LinkedList<>(temp));
             return;
         }
 
         for (int i = 0; i < nums.length; i++) {
             // exclude the path already visited
-            if (track.contains(nums[i])) { // O(N)
+            if (temp.contains(nums[i])) { // O(N)
                 continue;
             }
             // make choice for next path
-            track.add(nums[i]);
+            temp.add(nums[i]);
             // move to next level
-            backtrack(nums, track);
+            backtrack(nums, temp);
             // cancel previous choice
-            track.removeLast();
+            temp.removeLast();
 
         }
     }
