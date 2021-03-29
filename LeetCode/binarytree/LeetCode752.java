@@ -1,6 +1,7 @@
-import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Set;
 
 public class LeetCode752 {
 
@@ -39,9 +40,19 @@ public class LeetCode752 {
     }
 
     int openLock(String[] deadends,String target) {
+        Set<String> deads = new HashSet<>();
+        Set<String> visited = new HashSet<>();
+
+        for(String s: deadends){
+            deads.add(s);
+        }
+
         //BFS 
         Queue<String> q = new LinkedList<>();
+
         q.offer("0000");
+        visited.add("0000");
+
         int step = 0;
 
         while (!q.isEmpty()) {
@@ -50,28 +61,36 @@ public class LeetCode752 {
                 String cur = q.poll();
 
                 //#3, add limitaion 
-                if(Arrays.asList(deadends).contains(cur)){
+                if(deads.contains(cur)){
                     continue;
                 }
 
-                if(cur.equalsIgnoreCase(target)){
+                // to see if you get the target 
+                if(cur.equals(target)){
                     System.out.println(cur);
                     System.out.println(step);
                     return step; 
                 }
                 
+                //add near by nodes
                 for(int j=0; j<4 ; j++){
                     String up = plusOne(cur, j);
+                    if(!visited.contains(up)){
+                        q.offer(up);
+                        visited.add(up);
+                    }
                     String down = minusOne(cur, j);
-                    q.offer(up);
-                    q.offer(down);
+                    if(!visited.contains(down)){
+                        q.offer(down);
+                        visited.add(down);
+                    }
                 }
             }
             //#2, count steps 
             step++;
         }
         System.out.println("Not feasible");
-        return - 1;
+        return -1;
     }
 
     public static void main(String[] args) {
