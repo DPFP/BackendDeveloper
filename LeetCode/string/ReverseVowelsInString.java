@@ -42,6 +42,37 @@ class ReverseVowelsInString {
         return sb.toString();
     }
 
+    //Coplit's solution - O(n) time and O(1) space (2021-7-13)
+    public String reverseVowels2(String s) {
+        if (s.trim().length() <= 1) {
+            return s;
+        }
+        char[] charArray = s.toCharArray();
+        int i = 0;
+        int j = charArray.length - 1;
+        while (i < j) {
+            while (i < j && !isVowel(charArray[i])) {
+                i++;
+            }
+            while (i < j && !isVowel(charArray[j])) {
+                j--;
+            }
+            if (i < j) {
+                charArray[i] = charArray[j];
+                charArray[j] = charArray[i];
+                i++;
+                j--;
+            }   
+        }
+        return new String(charArray);
+    }
+
+
+    private boolean isVowel(char c) {
+        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
+    }
+    
+
     public static void main(String[] args) {
         ReverseVowelsInString sol = new ReverseVowelsInString();
 
