@@ -1,4 +1,3 @@
-import org.graalvm.compiler.core.common.alloc.Trace;
 
 public class LeetCode116 {
     // Populate each next pointer to point to its next right node. If there is no
