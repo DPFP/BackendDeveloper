@@ -54,7 +54,7 @@ public class Sept2nd {
         List<TreeNode> result = sol.generateTrees(3);
         for (TreeNode node : result) {
             node.preorderTraverse(node);
-            System.out.println("-------------");
+            System.out.println("");
         }
     }
 }

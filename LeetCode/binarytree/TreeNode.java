@@ -27,7 +27,8 @@ public class TreeNode {
 
     void preorderTraverse(TreeNode root) {
         if (root != null) {
-            System.out.println(root.val);
+            System.out.print(root.val);
+            System.out.print(" ");
             preorderTraverse(root.left);
             preorderTraverse(root.right);
         }
