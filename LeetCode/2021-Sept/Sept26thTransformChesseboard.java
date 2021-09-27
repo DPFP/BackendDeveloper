@@ -1,6 +1,8 @@
 public class Sept26thTransformChesseboard {
 
     public int movesToChessboard(int[][] board) {
+        // https://www.cnblogs.com/grandyang/p/9053705.html
+        // https://massivealgorithms.blogspot.com/2019/03/leetcode-782-transform-to-chessboard.html
         int N = board.length, colToMove = 0, rowToMove = 0, rowOneCnt = 0, colOneCnt = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
