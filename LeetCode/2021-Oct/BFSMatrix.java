@@ -6,6 +6,7 @@ public class BFSMatrix {
     static final int COL = 4;
 
     // Direction vectors
+    // (-1,0) up; (0,1) right; (1,0) down; (0,-1) left
     static int dRow[] = { -1, 0, 1, 0 };
     static int dCol[] = { 0, 1, 0, -1 };
 
@@ -37,8 +38,8 @@ public class BFSMatrix {
 
             q.remove();
 
-            // go to adjacent cells
-            for (int i = 0; i < ROW; i++) {
+            // go to adjacent cells - check for direction
+            for (int i = 0; i < 4; i++) { // has to be 4 --> four direction
                 int adjx = x + dRow[i];
                 int adjy = y + dCol[i];
 
