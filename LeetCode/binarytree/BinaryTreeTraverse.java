@@ -67,13 +67,41 @@ public class BinaryTreeTraverse {
         Stack<TreeNode> stack = new Stack<>();
 
         while (root != null || !stack.empty()) {
-            while (root != null) { // stack could be empty;
+            // get everything from left node;
+            while (root != null) {
                 stack.push(root);
                 root = root.left;
             }
             root = stack.pop(); // left
             res.add(root.val); // root
             root = root.right; // right
+        }
+        return res;
+    }
+
+    void postOrderTraversalR(TreeNode root, List<Integer> res) {
+        if (root != null) {
+            postOrderTraversalR(root.left, res);
+            postOrderTraversalR(root.right, res);
+            res.add(root.val);
+        }
+    }
+
+    List<Integer> postOrderTraversalI(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+
+        while (!stack.empty()) {
+            root = stack.pop();
+            res.add(0, root.val); // O(n), if use LinkedList it will be O(1)
+
+            if (root.left != null) {
+                stack.push(root.left);
+            }
+            if (root.right != null) {
+                stack.push(root.right);
+            }
         }
         return res;
     }
