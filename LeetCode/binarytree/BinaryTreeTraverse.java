@@ -94,6 +94,8 @@ public class BinaryTreeTraverse {
 
         while (!stack.empty()) {
             root = stack.pop();
+
+            // always added to the front
             res.add(0, root.val); // O(n), if use LinkedList it will be O(1)
 
             if (root.left != null) {
@@ -104,5 +106,16 @@ public class BinaryTreeTraverse {
             }
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.right = new TreeNode(2);
+        root.right.left = new TreeNode(3);
+
+        BinaryTreeTraverse sol = new BinaryTreeTraverse();
+        for (int i : sol.postOrderTraversalI(root)) {
+            System.out.print(i + " ");
+        }
     }
 }
