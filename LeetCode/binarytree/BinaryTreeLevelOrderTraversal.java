@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -21,25 +20,25 @@ public class BinaryTreeLevelOrderTraversal {
         }
 
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        res.add(Arrays.asList(root.val));
+        queue.offer(root);
 
         while (!queue.isEmpty()) {
-            TreeNode current = queue.poll();
-            List<Integer> curLevel = new ArrayList<>();
-            if (current.left != null) {
-                curLevel.add(current.left.val);
-                queue.add(current.left);
-            }
-            if (current.right != null) {
-                curLevel.add(current.right.val);
-                queue.add(current.right);
-            }
-            if (curLevel.size() > 0) {
-                res.add(curLevel);
-            }
-        }
+            List<Integer> curLevel = new LinkedList<>();
+            int levelNum = queue.size(); // 1
 
+            for (int i = 0; i < levelNum; i++) { // what current in queue need be process
+                TreeNode current = queue.poll(); // -- or remove();
+                curLevel.add(current.val);
+
+                if (current.left != null) {
+                    queue.offer(current.left); // ++
+                }
+                if (current.right != null) {
+                    queue.offer(current.right); // ++
+                }
+            }
+            res.add(curLevel);
+        }
         return res;
     }
 
