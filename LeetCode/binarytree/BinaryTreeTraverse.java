@@ -3,6 +3,26 @@ import java.util.List;
 import java.util.Stack;
 
 public class BinaryTreeTraverse {
+    private int answer;
+
+    // top-down appraoch
+    void findTheMaxDepthTopDown(TreeNode root, int depth) {
+        if (root == null) {
+            return;
+        }
+
+        if (root.left == null && root.right == null) {
+            answer = Math.max(answer, depth);
+        }
+
+        findTheMaxDepthTopDown(root.left, depth + 1);
+        findTheMaxDepthTopDown(root.right, depth + 1);
+    }
+
+    void findTheMaxDepthBottomUp(TreeNode root) {
+
+    }
+
     public List<Integer> preorderTraversal(TreeNode root) {
         // root.val
         // root.left
@@ -117,5 +137,10 @@ public class BinaryTreeTraverse {
         for (int i : sol.postOrderTraversalI(root)) {
             System.out.print(i + " ");
         }
+
+        // test max depth
+        sol.answer = 0;
+        sol.findTheMaxDepthTopDown(root, 0);
+        System.out.println(sol.answer);
     }
 }
