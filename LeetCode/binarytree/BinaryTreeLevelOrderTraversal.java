@@ -42,8 +42,8 @@ public class BinaryTreeLevelOrderTraversal {
         return res;
     }
 
-    // LeetCode 104 - Easy
-    public int maxDepth(TreeNode root) {
+    // LeetCode 104 - Easy -- Iteratively
+    public int maxDepthI(TreeNode root) {
         int depth = 0;
         if (root == null) {
             return depth;
@@ -67,9 +67,29 @@ public class BinaryTreeLevelOrderTraversal {
             }
             depth++;
         }
-
         return depth;
+    }
 
+    // LeetCode 104 - Easy -- Recursively
+    public int maxDepthR(TreeNode root) {
+        findTheMaxDepthTopDown(root, 1);
+        return answer;
+    }
+
+    // top-down appraoch
+    private int answer;
+
+    void findTheMaxDepthTopDown(TreeNode root, int depth) {
+        if (root == null) {
+            return;
+        }
+
+        if (root.left == null && root.right == null) {
+            answer = Math.max(answer, depth);
+        }
+
+        findTheMaxDepthTopDown(root.left, depth + 1);
+        findTheMaxDepthTopDown(root.right, depth + 1);
     }
 
 }
