@@ -19,6 +19,7 @@ public class BinaryTreeTraverse {
         findTheMaxDepthTopDown(root.right, depth + 1);
     }
 
+    // bottom-up approach
     void findTheMaxDepthBottomUp(TreeNode root) {
 
     }
