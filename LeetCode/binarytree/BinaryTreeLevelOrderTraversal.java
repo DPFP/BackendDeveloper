@@ -42,4 +42,34 @@ public class BinaryTreeLevelOrderTraversal {
         return res;
     }
 
+    // LeetCode 104 - Easy
+    public int maxDepth(TreeNode root) {
+        int depth = 0;
+        if (root == null) {
+            return depth;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            int level = queue.size(); // noticed this part that getting the queue.size();
+            // you can't replace level with queue.size(); --> as the queue size will be
+            // change within the for loop
+            for (int i = 0; i < level; i++) {
+                TreeNode current = queue.poll();
+                if (current.left != null) {
+                    queue.offer(current.left);
+                }
+                if (current.right != null) {
+                    queue.offer(current.right);
+                }
+            }
+            depth++;
+        }
+
+        return depth;
+
+    }
+
 }
