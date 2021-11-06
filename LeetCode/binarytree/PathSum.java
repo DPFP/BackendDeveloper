@@ -3,23 +3,11 @@ public class PathSum {
         if (root == null) {
             return false;
         }
-        if (root.val == targetSum) {
+        if (root.left == null && root.right == null && targetSum - root.val == 0) {
             return true;
         }
 
-        return isTarget(root, 0, targetSum);
+        return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
     }
 
-    private boolean isTarget(TreeNode root, int sum, int targetSum) {
-        if (root == null) {
-            return sum == targetSum;
-        }
-
-        sum += root.val;
-        isTarget(root.left, sum, targetSum);
-        isTarget(root.right, sum, targetSum);
-
-        // what should the return be ?
-        return sum == targetSum;
-    }
 }
