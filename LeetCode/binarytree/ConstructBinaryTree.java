@@ -82,7 +82,7 @@ public class ConstructBinaryTree {
 
     int pPreorder; // position preorderr
 
-    // recursive method
+    // recursive method I
     // TODO didn't work :(
     private TreeNode buildTreeForPreAndIn(int[] preorder, int[] inorder, TreeNode end) {
         if (pPreorder > preorder.length - 1) {
@@ -107,6 +107,9 @@ public class ConstructBinaryTree {
 
         return buildTreeForPreAndIn(preorder, inorder, null);
     }
+
+    // recursive method II
+
     // Construct Binary Tree from Inorder and Preorder Traversal End
 
     public static void main(String[] args) {
