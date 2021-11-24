@@ -19,6 +19,24 @@ public class ValidateBST {
         return true;
     }
 
+    // Failed on CASE [-2147483648,-2147483648]
+    // -2^31 <= Node.val <= 2^31 - 1
+    public boolean isValidBSTR(TreeNode root) {
+        return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean isValidBST(TreeNode root, int min, int max) {
+        if (root == null) {
+            return true;
+        }
+
+        if (root.val < min || root.val > max) {
+            return false;
+        }
+
+        return isValidBST(root.left, min, root.val - 1) && isValidBST(root.right, root.val + 1, max);
+    }
+
     public static void main(String[] args) {
 
     }
