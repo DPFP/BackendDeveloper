@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class July2nd {
+public class FindClosestElements {
     // Given a sorted integer array arr, two integers k and x, return the k closest
     // integers to x in the array. The result should also be sorted in ascending
     // order. [inclusion]
@@ -80,7 +80,7 @@ public class July2nd {
         int[] test5 = { 1, 1, 1, 10, 10, 10 };
         int[] test6 = { 0, 1, 1, 1, 2, 3, 6, 7, 8, 9 };
 
-        July2nd sol = new July2nd();
+        FindClosestElements sol = new FindClosestElements();
 
         // System.out.println(sol.findClosestElements(test1, 4, 3));
 

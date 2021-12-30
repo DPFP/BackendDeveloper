@@ -1,5 +1,3 @@
-import java.util.Stack;
-
 public class BinaryTreeFromPreOrderAndInOrder {
 
     // Construct Binary Tree from Inorder and Preorder Traversal
@@ -41,6 +39,18 @@ public class BinaryTreeFromPreOrderAndInOrder {
     int pPre;
     int pIn;
 
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        if (preorder.length < 0 || inorder.length < 0) {
+            return null;
+        }
+
+        pPre = 0;
+        pIn = 0;
+
+        // return the helper method - recursively;
+        return buildTree(preorder, inorder, null);
+    }
+
     private TreeNode buildTree(int[] pre, int[] in, TreeNode end) {
         if (pPre >= pre.length) { // do i need check pIn ?
             return null;
@@ -49,6 +59,7 @@ public class BinaryTreeFromPreOrderAndInOrder {
         // get the current preOrderNode and then move on to next index ->
         TreeNode root = new TreeNode(pre[pPre++]);
 
+        // From left-right-root (post-order construction)
         // there is left sub-tree
         if (in[pIn] != root.val) {
             root.left = buildTree(pre, in, root);
@@ -64,55 +75,7 @@ public class BinaryTreeFromPreOrderAndInOrder {
 
         return root;
     }
-
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
-        if (preorder.length < 0 || inorder.length < 0) {
-            return null;
-        }
-
-        pPre = 0;
-        pIn = 0;
-
-        // return the helper method - recursively;
-        return buildTree(preorder, inorder, null);
-    }
-
     // Construct Binary Tree from Inorder and Preorder Traversal End
-
-    // iterative solution - begin
-    // https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/discuss/34807/Java-iterative-solution-with-explanation
-    public TreeNode buildTreeIterative(int[] inorder, int[] postorder) {
-        if (inorder.length == 0 || postorder.length == 0)
-            return null;
-        int ip = inorder.length - 1;
-        int pp = postorder.length - 1;
-
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        TreeNode prev = null;
-        TreeNode root = new TreeNode(postorder[pp]);
-        stack.push(root);
-        pp--;
-
-        while (pp >= 0) {
-            while (!stack.isEmpty() && stack.peek().val == inorder[ip]) {
-                prev = stack.pop();
-                ip--;
-            }
-            TreeNode newNode = new TreeNode(postorder[pp]);
-            if (prev != null) {
-                prev.left = newNode;
-            } else if (!stack.isEmpty()) {
-                TreeNode currTop = stack.peek();
-                currTop.right = newNode;
-            }
-            stack.push(newNode);
-            prev = null;
-            pp--;
-        }
-
-        return root;
-    }
-    // iterative solution - end
 
     public static void main(String[] args) {
         BinaryTreeFromPostOrderAndInOrder sol = new BinaryTreeFromPostOrderAndInOrder();

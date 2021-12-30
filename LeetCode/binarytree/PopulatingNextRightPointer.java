@@ -110,6 +110,7 @@ public class PopulatingNextRightPointer {
     // Recurssive Solution from 2021/2/21 submission (similar to LC #2 appraoch
     // which is iterative solution)
     // probably is the eaiest understand solution so far
+    // (with combination of the tree graph)
     public Node connect3(Node root) {
         if (root == null) {
             return root;

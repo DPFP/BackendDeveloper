@@ -9,12 +9,14 @@ public class CountUnivalSubtrees {
     }
 
     // Method #1
+    // Post-order traverse
     public boolean isUnivalSubTrees(TreeNode root) {
+        // base case
         if (root == null) {
             return true;
         }
 
-        // leaf nodes
+        // leaf nodes - base case
         if (root.left == null && root.right == null) {
             count++;
             return true;
@@ -25,12 +27,12 @@ public class CountUnivalSubtrees {
         boolean isLeftUnivalued = isUnivalSubTrees(root.left);
         boolean isRightUnivalued = isUnivalSubTrees(root.right);
 
-        // 3
+        // Step 3 - base case
         if (!isLeftUnivalued || !isRightUnivalued) {
             return false;
         }
 
-        // 4
+        // Step 4 - check other conditions
         if (root.left != null && root.right == null) {
             if (root.val == root.left.val) {
                 count++;
