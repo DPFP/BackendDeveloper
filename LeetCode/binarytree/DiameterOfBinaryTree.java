@@ -34,6 +34,7 @@ public class DiameterOfBinaryTree {
         // key point: have to count both left + right
         max = Math.max(max, left + right);
 
+        // why still need do this part ? This is the actual depth of each node
         return Math.max(left, right) + 1;
     }
 }
