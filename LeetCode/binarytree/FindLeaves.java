@@ -55,13 +55,14 @@ public class FindLeaves {
         int leftHeight = getHeight(root.left);
         int rightHeight = getHeight(root.right);
 
-        // post-order traverse
+        // post-order traverse to get the actual height
+        // from leave (height 0,1,2 --> root level)
         int currHeight = Math.max(leftHeight, rightHeight) + 1;
 
+        // start from leave - height 0 -> add the most outer layer of leaves
         if (this.solution.size() == currHeight) {
             this.solution.add(new ArrayList<>());
         }
-
         this.solution.get(currHeight).add(root.val);
 
         // Missing this step --
