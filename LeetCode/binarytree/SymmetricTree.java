@@ -5,10 +5,12 @@ import java.util.Stack;
 public class SymmetricTree {
 
     // LC 101. Symmetric Tree recursively
+    // https://leetcode.com/problems/symmetric-tree/
     public boolean isSymmetricR(TreeNode root) {
         if (root == null) {
             return false;
         }
+
         return isMirror(root.left, root.right);
     }
 
@@ -16,9 +18,12 @@ public class SymmetricTree {
         if (left == null || right == null) {
             return left == right;
         }
+
+        // Neither of them are null
         if (left.val != right.val) {
             return false;
         }
+
         // here is the key to the mirror !!!
         return isMirror(left.left, right.right) && isMirror(left.right, right.left);
     }
@@ -48,9 +53,10 @@ public class SymmetricTree {
                 return false;
             }
 
-            // Does the order matter ? Probably not;
+            // Does the order matter ? Yes
             queue.offer(left.left);
             queue.offer(right.right);
+
             queue.offer(left.right);
             queue.offer(right.left);
         }
