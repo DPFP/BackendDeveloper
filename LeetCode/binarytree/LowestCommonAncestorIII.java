@@ -63,6 +63,16 @@ public class LowestCommonAncestorIII {
         return a;
     }
 
+    // another really good solution
+    public Node lowestCommonAncestor4(Node p, Node q) {
+        final Set<Node> set = new HashSet<>();
+        while (p != null && set.add(p))
+            p = p.parent;
+        while (q != null && !set.contains(q))
+            q = q.parent;
+        return q;
+    }
+
 }
 
 class Node {
