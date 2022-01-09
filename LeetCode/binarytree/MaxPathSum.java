@@ -92,6 +92,7 @@ public class MaxPathSum {
         }
         // Do I even need BFS or DFS is good enough ?
         oneSideMax(root);
+
         return max;
     }
 
