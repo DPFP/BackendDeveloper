@@ -54,6 +54,7 @@ public class LowestCommonAncestorIII {
     // Genius solution
     // Exactly the same problem with 160
     // the concept of two runners on the circle track.
+    // https://leetcode.com/problems/intersection-of-two-linked-lists/discuss/49785/Java-solution-without-knowing-the-difference-in-len!/165648
     public Node lowestCommonAncestor3(Node p, Node q) {
         Node a = p, b = q;
         while (a != b) {
@@ -61,6 +62,16 @@ public class LowestCommonAncestorIII {
             b = b == null ? p : b.parent;
         }
         return a;
+    }
+
+    // another really good solution
+    public Node lowestCommonAncestor4(Node p, Node q) {
+        final Set<Node> set = new HashSet<>();
+        while (p != null && set.add(p))
+            p = p.parent;
+        while (q != null && !set.contains(q))
+            q = q.parent;
+        return q;
     }
 
 }
