@@ -125,7 +125,7 @@ public class DistanceK {
     // https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/discuss/143798/1ms-beat-100-simple-Java-dfs-with(without)-hashmap-including-explanation
     Map<TreeNode, Integer> map = new HashMap<>();
 
-    public List<Integer> distanceK(TreeNode root, TreeNode target, int K) {
+    public List<Integer> distanceK3(TreeNode root, TreeNode target, int K) {
         List<Integer> res = new LinkedList<>();
         find(root, target);
         dfs(root, target, K, map.get(root), res);
