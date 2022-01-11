@@ -26,9 +26,14 @@ public class JavaComparator {
 
         // have to have <Player> class implements the "Comparable" interface
         // otherwise will getting a compiler time error
+        Collections.sort(fbt);
+        System.out.println("after sorting by ranking(default): " + fbt);
+
+        // or you can actually passing a comparator
+        // (if you don't/won't able to modify the data class)
         Collections.sort(fbt, byAge);
 
-        System.out.println("Before sorting: " + fbt);
+        System.out.println("after sorting by age (cutom Comparator): " + fbt);
     }
 }
 
