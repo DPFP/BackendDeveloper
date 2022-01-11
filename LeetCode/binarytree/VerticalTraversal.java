@@ -85,13 +85,20 @@ public class VerticalTraversal {
     int maxX = 0; // right
 
     public List<List<Integer>> verticalTraversal2(TreeNode root) {
+        // pre-order traverse to populate the Map & min/max
         helper(root, 0, 0);
+        // after the loop, everthing we need will be save to the map;
 
+        // then we just need to loop through find the result we need;
         List<List<Integer>> vertical = new ArrayList<>();
 
+        // i -- col index (left to right)
         for (int i = minX; i <= maxX; i++) {
             List<Integer> level = new ArrayList<>();
+            // loop to get all the treeMap keySet (col from left to right)
             for (int key : map.get(i).keySet()) {
+                // then get row for each level(col)
+                // "key" --> top to bottom
                 while (!(map.get(i).get(key)).isEmpty()) {
                     level.add(map.get(i).get(key).poll());
                 }
@@ -113,6 +120,8 @@ public class VerticalTraversal {
         map.get(x).putIfAbsent(y, new PriorityQueue<Integer>());
         map.get(x).get(y).add(node.val);
 
+        // here is the key part. y-vertical always move down. (+1)
+        // x move left -1, x move right +1
         helper(node.left, x - 1, y + 1);
         helper(node.right, x + 1, y + 1);
     }
