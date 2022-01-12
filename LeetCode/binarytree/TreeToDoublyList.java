@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class TreeToDoublyList {
 
     // 426. Convert Binary Search Tree to Sorted Doubly Linked List
@@ -23,6 +25,7 @@ public class TreeToDoublyList {
     }
 
     // Solution from Labuladong
+    // recursive
     public Node treeToDoublyList2(Node root) {
         if (root == null) {
             return root;
@@ -59,5 +62,38 @@ public class TreeToDoublyList {
         rightTail.right = leftHead;
 
         return leftHead;
+    }
+
+    // Java Iterative solution
+    // this one seems a little bit easier to understand
+    public Node treeToDoublyList3(Node root) {
+        if (root == null) {
+            return root;
+        }
+        Node dummy = new Node(0);
+        Node prev = dummy;
+        Stack<Node> stack = new Stack<>();
+        Node curr = root;
+
+        while (!stack.isEmpty() || curr != null) {
+            while (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            }
+
+            curr = stack.pop();
+            // start with dummy-head (prev) -> cur
+            prev.right = curr;
+            // dummy head (pre) <- cur
+            curr.left = prev;
+            // move on to next pair (curr) & (curr.right)
+            prev = curr;
+            curr = curr.right;
+        }
+
+        dummy.right.left = prev;
+        prev.right = dummy.right;
+
+        return dummy.right;
     }
 }
