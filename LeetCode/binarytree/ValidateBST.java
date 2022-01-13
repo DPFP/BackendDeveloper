@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class ValidateBST {
 
     // https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
@@ -35,6 +37,73 @@ public class ValidateBST {
         }
 
         return isValidBST(root.left, min, root.val - 1) && isValidBST(root.right, root.val + 1, max);
+    }
+
+    // working solution
+    public boolean isValidBST3(TreeNode root) {
+        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    private boolean isValidBST(TreeNode root, long min, long max) {
+        if (root == null) {
+            return true;
+        }
+
+        if (root.val > min && root.val < max) {
+            return isValidBST(root.left, min, root.val) && isValidBST(root.right, root.val, max);
+        } else {
+            return false;
+        }
+    }
+
+    // solution from LC official
+    // use the BST with InOrder traverse
+    private Integer prev;
+
+    public boolean isValidBST4(TreeNode root) {
+        prev = null;
+        return inOrder(root);
+    }
+
+    private boolean inOrder(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+
+        if (!inOrder(root.left)) {
+            return false;
+        }
+
+        if (prev != null && root.val <= prev) {
+            return false;
+        }
+
+        prev = root.val;
+
+        return inOrder(root.right);
+    }
+
+    // Iterative solution
+    // The template is worth to learn
+    // https://leetcode.com/problems/validate-binary-search-tree/discuss/32112/Learn-one-iterative-inorder-traversal-apply-it-to-multiple-tree-questions-(Java-Solution)
+    public boolean isValidBST5(TreeNode root) {
+        if (root == null)
+            return true;
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode pre = null;
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
+                // keep moving all the way to left from current root
+                stack.push(root);
+                root = root.left;
+            }
+            root = stack.pop();
+            if (pre != null && root.val <= pre.val)
+                return false;
+            pre = root;
+            root = root.right;
+        }
+        return true;
     }
 
     public static void main(String[] args) {

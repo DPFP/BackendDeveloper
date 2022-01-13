@@ -30,6 +30,8 @@ public class RecoverTree {
             // fill the second spot
             second = root;
         }
+
+        // set current root to prev for next iteration of comparsion
         prev = root;
 
         traverse(root.right);

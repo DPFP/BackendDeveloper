@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 public class BinaryTreeLevelOrderTraversal {
     /**
@@ -92,4 +93,28 @@ public class BinaryTreeLevelOrderTraversal {
         findTheMaxDepthTopDown(root.right, depth + 1);
     }
 
+    // Use stack Iteratively (模版)
+    // https://leetcode.com/problems/validate-binary-search-tree/discuss/32112/Learn-one-iterative-inorder-traversal-apply-it-to-multiple-tree-questions-(Java-Solution)
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        while (root != null || !stack.empty()) {
+            // left
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            // parent
+            root = stack.pop();
+            list.add(root.val);
+
+            // right
+            root = root.right;
+
+        }
+        return list;
+    }
 }
