@@ -27,6 +27,7 @@ public class BinaryTreeSerialize {
             return;
         }
 
+        // make sure append(SP)
         sb.append(root.val).append(SP);
 
         preOrder(root.left, sb);
