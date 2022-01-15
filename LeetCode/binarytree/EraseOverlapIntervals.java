@@ -48,33 +48,31 @@ public class EraseOverlapIntervals {
         return count;
     }
 
-
-    //Tried again on 1/14/2022
-    //85.99%  & 51.78% --> a little improvement over yesterday
+    // Tried again on 1/14/2022
+    // 85.99% & 51.78% --> a little improvement over yesterday
     public int eraseOverlapIntervals2(int[][] intervals) {
         int len = intervals.length;
-        
+
         return len - scheduledIntervals(intervals);
     }
-    
-    private int scheduledIntervals(int[][] intervals){
+
+    private int scheduledIntervals(int[][] intervals) {
         int x_end = 0;
-        int count = 1; //always will have one interval 
-        
-        //sort the Interval by it ending asceding 
-        Arrays.sort(intervals, (a,b)->Integer.compare(a[1],b[1]));
-        
-        //start 
-        x_end = intervals[0][1]; 
-        
-        for(int[] interval : intervals){
-            if(x_end <= interval[0]){
+        int count = 1; // always will have one interval
+
+        // sort the Interval by it ending asceding
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[1], b[1]));
+
+        // start
+        x_end = intervals[0][1];
+
+        for (int[] interval : intervals) {
+            if (x_end <= interval[0]) {
                 count++;
                 x_end = interval[1];
             }
         }
-        
+
         return count;
     }
-}
 }
