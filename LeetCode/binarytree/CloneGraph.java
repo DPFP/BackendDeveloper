@@ -48,7 +48,7 @@ public class CloneGraph {
         return newNode;
     }
 
-    // Working example
+    // BFS - fully Working example
     public Node cloneGraph2(Node node) {
         if (node == null) {
             return null;
@@ -76,6 +76,34 @@ public class CloneGraph {
                 // add the new "Nodes" to the previous (cur) node;
                 visited.get(cur.val).neighbors.add(visited.get(n.val));
             }
+        }
+
+        return newNode;
+    }
+
+    // DFS - recursive
+
+    private HashMap<Integer, Node> map = new HashMap<>();
+
+    public Node cloneGraph3(Node node) {
+        return clone(node);
+    }
+
+    private Node clone(Node node) {
+        if (node == null) {
+            return node;
+        }
+
+        if (map.containsKey(node.val)) {
+            return map.get(node.val);
+        }
+
+        Node newNode = new Node(node.val, new ArrayList<Node>());
+        map.put(newNode.val, newNode);
+
+        for (Node neighbor : node.neighbors) {
+            // recurisive add node
+            newNode.neighbors.add(clone(neighbor));
         }
 
         return newNode;
