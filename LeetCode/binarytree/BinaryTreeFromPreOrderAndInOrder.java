@@ -141,8 +141,9 @@ public class BinaryTreeFromPreOrderAndInOrder {
         // moving from [left -> <- rootIndex - 1]
         root.left = helper(preStart + 1, inStart, inIndex - 1, preorder, inorder);
         // moving from [rootIndex + 1 -> <- right] C: basically, excluded all those
-        // element from left
-        root.right = helper(preStart + inIndex - inStart + 1, inIndex + 1, inEnd, preorder, inorder);
+        // element from left. (C: re-arrange the parameter make it a little easier to
+        // understand the differences between left & right)
+        root.right = helper(preStart + 1 + inIndex - inStart, inIndex + 1, inEnd, preorder, inorder);
         return root;
     }
 
