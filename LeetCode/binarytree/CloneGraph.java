@@ -57,8 +57,8 @@ public class CloneGraph {
         Node newNode = new Node(node.val);
 
         // Need use a map instead of HashSet
+        // This is used to keep track of newNode in map
         Map<Integer, Node> visited = new HashMap<>();
-        // also put the newNode in the map;
         visited.put(newNode.val, newNode);
 
         Queue<Node> q = new LinkedList<>();
@@ -73,7 +73,7 @@ public class CloneGraph {
                     q.offer(n);
                 }
                 // C: here is the key I missing --
-                // add the new "Nodes" to the previous (cur) node;
+                // add the new "neighbors" to the newNode (cur) node;
                 visited.get(cur.val).neighbors.add(visited.get(n.val));
             }
         }

@@ -20,7 +20,8 @@ public class TopKFrequent {
         // desceding order
         // you can actually pass the Map.get() into.comparator
         PriorityQueue<Integer> pq = new PriorityQueue<>(k, (a, b) -> Integer.compare(map.get(a), map.get(b)));
-        // vs , should be identical ?
+        // vs below , should be identical ? The following not gonna work , because it
+        // wasn't compare the map !!! 1/15
         PriorityQueue<Integer> pq2 = new PriorityQueue<>(k, (a, b) -> Integer.compare(a, b));
 
         for (Integer key : map.keySet()) {
