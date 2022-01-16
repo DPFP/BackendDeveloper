@@ -4,6 +4,7 @@ import java.util.Queue;
 public class MaxDepth {
     // 104. Maximum Depth of Binary Tree
     // https://leetcode.com/problems/maximum-depth-of-binary-tree/
+    // Key: post-order traverse (from bottom-up)
 
     // 2022-01-04 worked solution:
     public int maxDepth(TreeNode root) {
