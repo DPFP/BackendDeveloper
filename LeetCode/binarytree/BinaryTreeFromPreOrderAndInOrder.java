@@ -142,7 +142,8 @@ public class BinaryTreeFromPreOrderAndInOrder {
         root.left = helper(preStart + 1, inStart, inIndex - 1, preorder, inorder);
         // moving from [rootIndex + 1 -> <- right] C: basically, excluded all those
         // element from left. (C: re-arrange the parameter make it a little easier to
-        // understand the differences between left & right)
+        // understand the differences between left & right) --
+        // Why " -inStart " ??? Because that is where the previous thread pointer at ?
         root.right = helper(preStart + 1 + inIndex - inStart, inIndex + 1, inEnd, preorder, inorder);
         return root;
     }
