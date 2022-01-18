@@ -23,11 +23,13 @@ public class EncodeandDecodeStrings {
     public List<String> decode(String s) {
         List<String> res = new ArrayList<>();
 
-        // here is the index
+        // here is the index.
+        // C: so, instead of "Two pointer", this is the one pointer
         int i = 0;
 
         while (i < s.length()) {
-            int slash = s.indexOf('/', i);
+            // key is this part, get the index of slash
+            int slash = s.indexOf('/', i); // why there is the i ? From Index
             int size = Integer.valueOf(s.substring(i, slash));
 
             // move the index;
