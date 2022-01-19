@@ -12,25 +12,26 @@ public class LongestRepeatingCharacterReplacement {
     public int characterReplacement(String s, int k) {
         int len = s.length();
         int[] count = new int[26]; // map for counting all 26 chars
-        int start = 0; // leftPointer
-        // maxCount = largest count of a single, unique character in the current window
-        int maxCount = 0;
+        int maxCount = 0; // largest count of a single, unique character in the current window
+
         int maxLength = 0;
 
+        int start = 0; // leftPointer --> keep moving right to decrease the window size
         // end ==> rightPointer, keep moving to the right to increase the window size
         for (int end = 0; end < len; end++) {
             // increase the account for "cur character"
-            maxCount = Math.max(maxCount, ++count[s.charAt(end) - 'A']);
+            maxCount = Math.max(maxCount, ++count[s.charAt(end) - 'A']); // ++count vs count++ ?
 
             // sliding window -- windo is not valid, move the leftPointer to right &
             // decrease count. Shrink the window size.
-            // C: this is reversed than the original video tutorial have shown
+            // Validated windowSize - maxFre <= k ==> valid window otherwise shrink like the
+            // following
+            // (end-start+1) = size of the current window
             if (end - start + 1 - maxCount > k) {
                 count[s.charAt(start) - 'A']--;
                 start++;
             }
 
-            // end-start+1 = size of the current window
             maxLength = Math.max(maxLength, end - start + 1);
         }
 
