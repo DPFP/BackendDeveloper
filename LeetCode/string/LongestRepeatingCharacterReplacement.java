@@ -10,13 +10,14 @@ public class LongestRepeatingCharacterReplacement {
     // https://leetcode.com/problems/longest-repeating-character-replacement/discuss/91271/Java-12-lines-O(n)-sliding-window-solution-with-explanation
     // sliding window
     public int characterReplacement(String s, int k) {
-        int len = s.length();
         int[] count = new int[26]; // map for counting all 26 chars
-        int maxCount = 0; // largest count of a single, unique character in the current window
 
+        int maxCount = 0; // largest count of a single, unique character in the current window
         int maxLength = 0;
 
         int start = 0; // leftPointer --> keep moving right to decrease the window size
+        int len = s.length();
+
         // end ==> rightPointer, keep moving to the right to increase the window size
         for (int end = 0; end < len; end++) {
             // increase the account for "cur character"
@@ -27,7 +28,7 @@ public class LongestRepeatingCharacterReplacement {
             // Validated windowSize - maxFre <= k ==> valid window otherwise shrink like the
             // following
             // (end-start+1) = size of the current window
-            if (end - start + 1 - maxCount > k) {
+            if (end - start + 1 - maxCount > k) { // ==> (end - start ) => (k + maxCount)
                 count[s.charAt(start) - 'A']--;
                 start++;
             }
@@ -44,6 +45,7 @@ public class LongestRepeatingCharacterReplacement {
         int max = 0;
         int start = 0;
         int[] count = new int[128];
+
         for (int end = 0; end < s.length(); end++) {
             // only keep track of the top frequency value
             max = Math.max(max, ++count[s.charAt(end)]);
