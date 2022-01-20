@@ -25,9 +25,12 @@ public class ReverseLinkedList {
         ListNode prev = null;
         ListNode curr = head; // current node
         while (curr != null) {
-            ListNode nextTemp = curr.next; // next node
-            curr.next = prev; // reverse the link
-            prev = curr; // move prev to curr
+            // 1, save the next node (because we gonna break the link)
+            ListNode nextTemp = curr.next;
+            // 2, break/reverse the link -
+            // point the next node to previous node (null at the begining)
+            curr.next = prev;
+            prev = curr; // move prev to curr node
             curr = nextTemp; // move curr to next
         }
         return prev;

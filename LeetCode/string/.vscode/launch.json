@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch PacificAtlanticWaterFlow",
+      "request": "launch",
+      "mainClass": "PacificAtlanticWaterFlow",
+      "projectName": "string_2274663b"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - RomanToInteger",
       "request": "launch",
       "mainClass": "RomanToInteger",
