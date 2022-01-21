@@ -22,6 +22,7 @@ public class PalindromicSubstrings {
         int len = s.length();
         int res = 0;
 
+        // here is the key to check the palindrome
         while (left >= 0 && right < len && s.charAt(left) == s.charAt(right)) {
             res += 1;
             left--;
@@ -61,5 +62,16 @@ public class PalindromicSubstrings {
         }
 
         return res;
+    }
+
+    public static void main(String[] args) {
+        char a = 'a';
+        char b = 'a';
+
+        Character c = 'c';
+        Character d = 'c';
+
+        System.out.println(a == b);
+        System.out.println(c.equals(d));
     }
 }

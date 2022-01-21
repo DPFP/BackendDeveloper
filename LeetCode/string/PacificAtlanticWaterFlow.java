@@ -125,22 +125,25 @@ public class PacificAtlanticWaterFlow {
         boolean[][] pacificReachable = new boolean[numRows][numCols];
         boolean[][] atlanticReachable = new boolean[numRows][numCols];
 
-        // Loop through each cell adjacent to the oceans and start a DFS
+        // Loop through each cell adjacent to the oceans and start a DFS.
+        // C: same idea from NeedCode --> go from Ocean to Land.
         for (int i = 0; i < numRows; i++) {
-            dfs(i, 0, pacificReachable);
-            dfs(i, numCols - 1, atlanticReachable);
+            dfs(i, 0, pacificReachable); // left-most col (pacific)
+            dfs(i, numCols - 1, atlanticReachable); // right-most col (atlantic)
         }
 
         for (int i = 0; i < numCols; i++) {
-            dfs(0, i, pacificReachable);
-            dfs(numRows - 1, i, atlanticReachable);
+            dfs(0, i, pacificReachable); // top-most row (Pacific)
+            dfs(numRows - 1, i, atlanticReachable); // bottom-most row (atlantic)
         }
+        // To this point, we know every node's "reachables" info
 
         // Find all cells that can reach both oceans
         List<List<Integer>> commonCells = new ArrayList<>();
         for (int i = 0; i < numRows; i++) {
             for (int j = 0; j < numCols; j++) {
                 if (pacificReachable[i][j] && atlanticReachable[i][j]) {
+                    // This is something new for me
                     commonCells.add(List.of(i, j));
                 }
             }
@@ -148,10 +151,13 @@ public class PacificAtlanticWaterFlow {
         return commonCells;
     }
 
+    // use this DFS to populated the two "reachables"
     private void dfs(int row, int col, boolean[][] reachable) {
         // This cell is reachable, so mark it
         reachable[row][col] = true;
 
+        // have to include everything in the loop, otherwise will getting
+        // indexOutOfBounary exception after dir. because of line 177 check
         for (int[] dir : DIRECTIONS) { // Check all 4 directions
             int newRow = row + dir[0];
             int newCol = col + dir[1];
