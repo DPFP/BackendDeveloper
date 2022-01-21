@@ -26,6 +26,36 @@ public class ValidPalindrome {
         return actual.equals(rev);
     }
 
+    // 2022-1-22 (worest runtime so far using two pointer )
+    public boolean isPalindrome3(String s) {
+        // 1st, remove all nun alph values;
+        // 2nd, determine if it even or odd
+        // 3rd check the palindrome
+
+        // s.replaceAll("[^A-Za-z0-9]", "")
+        s = s.replaceAll("[^A-Za-z0-9]", "").toLowerCase();
+        int len = s.length();
+
+        if (len % 2 == 0) {
+            return check(len / 2 - 1, len / 2, s);
+        } else {
+            return check(len / 2, len / 2, s);
+        }
+    }
+
+    private boolean check(int left, int right, String s) {
+        while (left >= 0 && right < s.length()) {
+            if (s.charAt(left) == s.charAt(right)) {
+                left--;
+                right++;
+                continue;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         ValidPalindrome sol = new ValidPalindrome();
         String t1 = "aba";
@@ -35,5 +65,9 @@ public class ValidPalindrome {
         assert sol.isPalindrome(t1) == true : "T1 Failed";
         assert sol.isPalindrome(t2) == true : "T2 Failed";
         assert sol.isPalindrome(t3) == false : "T3 Failed";
+
+        System.out.println(3 / 2);
+        System.out.println(5 / 2);
+        System.out.println("amanaplanacanalpanama".length());
     }
 }
