@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -59,5 +60,38 @@ public class GroupAnagrams {
         }
         // 26 char long string ;
         return new String(code);
+    }
+
+    // similar appraoch but more concise
+    public List<List<String>> groupAnagrams3(String[] strs) {
+        if (strs == null || strs.length == 0)
+            return new ArrayList<>();
+        Map<String, List<String>> map = new HashMap<>();
+        for (String s : strs) {
+            char[] ca = new char[26];
+            for (char c : s.toCharArray())
+                ca[c - 'a']++;
+            String keyStr = String.valueOf(ca);
+            if (!map.containsKey(keyStr))
+                map.put(keyStr, new ArrayList<>());
+            map.get(keyStr).add(s);
+        }
+        return new ArrayList<>(map.values());
+    }
+
+    // even better soltution
+    public List<List<String>> groupAnagrams4(String[] strs) {
+        if (strs == null || strs.length == 0)
+            return new ArrayList<>();
+        Map<String, List<String>> map = new HashMap<>();
+        for (String s : strs) {
+            char[] ca = s.toCharArray();
+            Arrays.sort(ca); // key is here. (maybe too much overhead?)
+            String keyStr = String.valueOf(ca);
+            if (!map.containsKey(keyStr))
+                map.put(keyStr, new ArrayList<>());
+            map.get(keyStr).add(s);
+        }
+        return new ArrayList<>(map.values());
     }
 }
