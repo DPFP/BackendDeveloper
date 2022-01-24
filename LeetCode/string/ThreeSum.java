@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class ThreeSum {
 
@@ -48,16 +50,15 @@ public class ThreeSum {
         }
 
         List<List<Integer>> res = new LinkedList<>();
-
         // first let sort nums
         Arrays.sort(nums);
-
-        // let us two-pointer
         int len = nums.length;
 
-        for (int i = 0; i < len - 2; i++) {
+        for (int i = 0; i < len - 2; i++) { // notice len - 2
             // strangely, add the next 3 lines, made the solution even worse ?
             if (nums[i] > 0) {
+                // isn't should be using continue (to skp the current loop, instead of break)
+                // tried both "continue" & "break", both worked ?
                 break;
             }
             if (i == 0 || (i > 0 && nums[i] != nums[i - 1])) {
@@ -88,6 +89,65 @@ public class ThreeSum {
                 }
             }
         }
+        return res;
+    }
+
+    // 2nd try on 1/23
+    public List<List<Integer>> threeSum3(int[] nums) {
+        if (nums.length < 3) {
+            return new ArrayList<>();
+        }
+        // one + TwoSum
+
+        // first sort the array
+        Arrays.sort(nums);
+
+        List<List<Integer>> res = new LinkedList<>();
+        int len = nums.length;
+
+        // for(int i=0;i < len; i++){
+        for (int i = 0; i < len - 2; i++) { // notice len - 2
+            int first = nums[i];
+
+            // skip the currently round
+            if (first > 0) {
+                // break or continue ? ; both worked (it should be continue)
+                continue;
+            }
+
+            if (i == 0 || (i > 0 && first != nums[i - 1])) { //// skip the duplicatae element ?
+                // int left = 0; //should this be i ? Yes
+                int left = i + 1; // grab next after i
+                int right = len - 1;
+
+                // twoSum target
+                int twoSum = 0 - first;
+
+                while (left < right) {
+                    if (nums[left] + nums[right] < twoSum) {
+                        left++;
+                    } else if (nums[left] + nums[right] > twoSum) {
+                        right--;
+                    } else { // found twoSum
+                             // get one result;
+                             // res.add(List.of(i, numsleft, right)); need get the actual value, not just the
+                             // index
+                        res.add(List.of(first, nums[left], nums[right]));
+
+                        // missing the following parts
+                        while (left < right && nums[left] == nums[left + 1]) { // if next from left is the same, skip
+                            left++;
+                        }
+                        while (left < right && nums[right] == nums[right - 1]) { // if next from right is the same, skip
+                            right--;
+                        }
+                        // move on to next pair (after we already find one pair value)
+                        left++;
+                        right--;
+                    }
+                } // end while
+            } // end if check
+        } // end for
 
         return res;
     }

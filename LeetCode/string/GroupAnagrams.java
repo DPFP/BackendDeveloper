@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -59,7 +60,7 @@ public class GroupAnagrams {
             code[delta]++;
         }
         // 26 char long string ;
-        return new String(code);
+        return new String(code); // noticed here, it have to be "new String(code)"
     }
 
     // similar appraoch but more concise
@@ -93,5 +94,38 @@ public class GroupAnagrams {
             map.get(keyStr).add(s);
         }
         return new ArrayList<>(map.values());
+    }
+
+    // retry on 1/23
+    public List<List<String>> groupAnagrams5(String[] strs) {
+        // the key is about encoding the string
+        List<List<String>> res = new LinkedList<>();
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        for (String word : strs) {
+            String key = encode5(word);
+
+            map.putIfAbsent(key, new LinkedList<>());
+            map.get(key).add(word);
+        }
+
+        for (String key : map.keySet()) {
+            res.add(map.get(key));
+        }
+
+        return res;
+    }
+
+    private String encode5(String word) {
+        char[] code = new char[26];
+
+        for (char c : word.toCharArray()) {
+            code[c - 'a']++;
+        }
+
+        // return code.toString(); //can't do code.toString() --> hashCode must be
+        // different in this case
+        return new String(code);
     }
 }

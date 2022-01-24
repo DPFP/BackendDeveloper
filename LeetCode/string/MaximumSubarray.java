@@ -5,11 +5,14 @@ public class MaximumSubarray {
     // great solution with explain (Similar to buy sell stock)
     // Kadane's algorithm
     // https://leetcode.com/problems/maximum-subarray/discuss/20211/Accepted-O(n)-solution-in-java
+    // utlized the "preFixSum" --> find Max
     public static int maxSubArray5(int[] nums) {
         int max = nums[0];
         int localMax = nums[0];
 
+        // notice start i = 1;
         for (int i = 1; i < nums.length; i++) {
+            // localMax + nums[i] --> preFixSum
             localMax = Math.max(localMax + nums[i], nums[i]);
             max = Math.max(max, localMax);
         }
@@ -121,5 +124,19 @@ public class MaximumSubarray {
         }
 
         return max;
+    }
+
+    public static void main(String[] args) {
+        int[] t1 = { 1, 2, 3, 4 };
+        int[] t1PreFixSum = new int[t1.length];
+
+        int preFix = t1[0];
+        // calculate preFixSum
+        for (int i = 1; i < t1.length; i++) {
+            t1PreFixSum[i] = preFix;
+            preFix = preFix + t1[i];
+            System.out.println(preFix);
+        }
+
     }
 }

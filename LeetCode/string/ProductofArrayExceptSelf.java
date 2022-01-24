@@ -49,8 +49,38 @@ public class ProductofArrayExceptSelf {
             // the left, res[4])
             res[i] = res[i] * fix;
 
-            // key - calculate the postfix product
+            // key - calculate the postfix product for next round to use (essetially skip
+            // nums[len-1] -> as it default to 1)
             fix = fix * nums[i];
+        }
+
+        return res;
+    }
+
+    // re-did 1/23
+    public int[] productExceptSelf4(int[] nums) {
+        // left preFix product & right preFix product
+
+        int len = nums.length;
+        int[] res = new int[len];
+
+        int pre = 1;
+        // res[0] = nums[0];
+
+        // notice it start from 0
+        // for(int i=1; i < len ; i++){
+        for (int i = 0; i < len; i++) {
+            // res[i] = pre * nums[i-1];
+            // pre = res[i];
+            res[i] = pre; // pre default is 1 (index -1)
+            pre = pre * nums[i]; // calculate for next round;
+            // System.out.print(res[i] + " ");
+        }
+
+        pre = 1; // index len
+        for (int i = len - 1; i >= 0; i--) {
+            res[i] = res[i] * pre; // preFix * postFix ==> final result;
+            pre = pre * nums[i]; // postFix result for the previous value;
         }
 
         return res;

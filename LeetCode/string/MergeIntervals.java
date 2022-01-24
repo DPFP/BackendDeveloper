@@ -55,6 +55,8 @@ public class MergeIntervals {
             if (curr[0] <= last[1]) {
                 // find which end is bigger; e.g. [1,5] & [2,4] or [1,3] & [3,5]
                 last[1] = Math.max(last[1], curr[1]);
+                // notice here didn't add new int[] to the list (as curr already been merged to
+                // pre/last)
             } else {
                 res.add(curr);
             }
@@ -64,7 +66,7 @@ public class MergeIntervals {
     }
 
     // similar approach
-    public int[][] merge(int[][] intervals) {
+    public int[][] merge3(int[][] intervals) {
         if (intervals.length <= 1)
             return intervals;
 
@@ -73,6 +75,7 @@ public class MergeIntervals {
 
         List<int[]> result = new ArrayList<>();
         int[] newInterval = intervals[0];
+
         result.add(newInterval);
 
         for (int[] interval : intervals) {
@@ -85,5 +88,38 @@ public class MergeIntervals {
         }
 
         return result.toArray(new int[result.size()][]);
+    }
+
+    // re-try on 1/23
+    public int[][] merge4(int[][] intervals) {
+        // first sort the array by start. and then check the end with next
+
+        // List<int[]> res = new LinkedList<>();
+        LinkedList<int[]> res = new LinkedList<>();
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+
+        // missing
+        res.add(intervals[0]);
+        // missing
+
+        // for(int i=1; i<intervals.length; i++){
+        for (int i = 0; i < intervals.length; i++) {
+            int[] curr = intervals[i];
+            // initial intervals[0]
+            int[] pre = res.getLast();
+
+            // there is overlapping with previous
+            if (curr[0] <= pre[1]) {
+                // int[] interval = new int[2];
+                // interval[0] = intervals[i-1][0];
+                // interval[1] = Math.max(intervals[i-1][1],intervals[i][1]);
+                pre[1] = Math.max(curr[1], pre[1]);
+                // res.add(interval);
+            } else {
+                res.add(curr);
+            }
+        }
+
+        return res.toArray(new int[0][0]);
     }
 }
