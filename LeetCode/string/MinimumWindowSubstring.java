@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class MinimumWindowSubstring {
     // 76 Minimum Window Substring
     // https://leetcode.com/problems/minimum-window-substring/
