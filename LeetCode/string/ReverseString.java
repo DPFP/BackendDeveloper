@@ -4,6 +4,7 @@ public class ReverseString {
     // the input array in-place with O(1) extra memory.
     public void reverseStringBF(char[] s) {
         char temp;
+        // the key is to s.length/2 --> make sure only do it until the middle;
         for (int i = 0; i < s.length / 2; i++) {
             temp = s[s.length - 1 - i];
             s[s.length - 1 - i] = s[i];
@@ -32,6 +33,8 @@ public class ReverseString {
         char[] t1 = { 'h', 'e', 'l', 'l', 'o' };
         char[] t2 = { 'H', 'a', 'n', 'n', 'a', 'h' };
         ReverseString sol = new ReverseString();
+
+        System.out.print(5 / 2);
 
         sol.reverseString(t1);
         sol.reverseString(t2);
