@@ -4,11 +4,20 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.PriorityQueue;
 
 public class JavaComparator {
 
     // https://www.baeldung.com/java-comparator-comparable
     // https://www.baeldung.com/java-8-comparator-comparing
+
+    public static int compareInt(int a, int b) {
+        return Integer.compare(a, b);
+    }
+
+    public static int comppareArry(String[] a, String[] b) {
+        return a[0].compareTo(b[0]);
+    }
 
     public static void main(String[] args) {
         List<Player> fbt = new ArrayList<>();
@@ -19,6 +28,8 @@ public class JavaComparator {
         fbt.addAll(Arrays.asList(p1, p2, p3));
 
         System.out.println("Before sorting: " + fbt);
+
+        PriorityQueue<Integer> q = new PriorityQueue<>((a, b) -> compareInt(b, a));
 
         PlayerRankingComparator playerComparator = new PlayerRankingComparator();
         PlayerAgeComparator playerAgeComparator = new PlayerAgeComparator();
