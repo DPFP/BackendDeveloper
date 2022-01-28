@@ -64,7 +64,7 @@ public class ProductofArrayExceptSelf {
         int len = nums.length;
         int[] res = new int[len];
 
-        int pre = 1;
+        int pre = 1; // probably should name this "fix" instead of pre, (it could be postFix)
         // res[0] = nums[0];
 
         // notice it start from 0

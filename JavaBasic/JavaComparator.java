@@ -11,6 +11,8 @@ public class JavaComparator {
     // https://www.baeldung.com/java-comparator-comparable
     // https://www.baeldung.com/java-8-comparator-comparing
 
+    // Also refer to EraseOverlapIntervals.java (LC 435)
+
     public static int compareInt(int a, int b) {
         return Integer.compare(a, b);
     }
