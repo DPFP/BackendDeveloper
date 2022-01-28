@@ -30,6 +30,8 @@ public class EraseOverlapIntervals {
         // Arrays.sort(intvs, Comparator.comparingInt(i -> i[1]));
         // Arrays.sort(intvs, (a, b)-> a[1]-b[1]);
 
+        // Arrays.sort() vs. Collections.sort()
+
         // at least one interval don't overlapping
         int count = 1;
 
