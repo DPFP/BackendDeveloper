@@ -34,9 +34,11 @@ public class ScratchPad {
         l1.add(9);
         l1.add(11);
 
+        System.out.println("--------Sort---Test");
         l1.forEach(x -> System.out.print(x + " "));
         System.out.println("--------Sort---Test");
         Collections.sort(l1);
+        Collections.reverse(l1);
         l1.forEach(x -> System.out.print(x + " "));
     }
 }

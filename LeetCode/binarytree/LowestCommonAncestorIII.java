@@ -35,6 +35,7 @@ public class LowestCommonAncestorIII {
 
     // Correct version -- look/compare the val instead of the actual node
     // O(h) time and space where h is the height of the given binary tree.
+    // Easier to understand
     public Node lowestCommonAncestor2(Node p, Node q) {
         Set<Integer> seen = new HashSet<>();
         // Walk upwards from p and mark nodes as seen.
