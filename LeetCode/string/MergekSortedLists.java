@@ -46,7 +46,7 @@ public class MergekSortedLists {
         }
 
         // do this to prevent the empty listNode
-        ListNode head = new ListNode(0);
+        ListNode head = new ListNode(0); // be very careful here !!!
         ListNode root = head;
 
         while (!q.isEmpty()) {
