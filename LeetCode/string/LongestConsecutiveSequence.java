@@ -57,10 +57,18 @@ public class LongestConsecutiveSequence {
             // element is in the Set
             // if is, that means, there is a sequence. (kind like sliding window, expanding
             // the window)
+
+            // pick a random seed value
             Integer seed = set.iterator().next();
-            int count = 0, left = seed - 1, right = seed;
+
+            // put the left & right as next starting point.
+            int count = 0, left = seed - 1, right = seed; // notice right = seed (without + 1)
+
+            // keep going left
             while (set.remove(left--))
                 count++;
+
+            // keep going right
             while (set.remove(right++))
                 count++;
             max = Math.max(count, max);
