@@ -13,7 +13,7 @@ public class Singleton {
     private static Singleton instance;
 
     // public static method that returns the instance of the class
-    public static Singleton getInstance() {
+    public synchronized static Singleton getInstance() {
         if (instance == null) {
             instance = new Singleton();
         }
