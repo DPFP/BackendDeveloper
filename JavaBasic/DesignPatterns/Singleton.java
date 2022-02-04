@@ -15,7 +15,11 @@ public class Singleton {
     // public static method that returns the instance of the class
     public synchronized static Singleton getInstance() {
         if (instance == null) {
-            instance = new Singleton();
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
         }
         return instance;
     }
