@@ -54,6 +54,7 @@ public class MergeIntervals {
             // if the start of current is smaller than end of last;
             if (curr[0] <= last[1]) {
                 // find which end is bigger; e.g. [1,5] & [2,4] or [1,3] & [3,5]
+                // here is the key step
                 last[1] = Math.max(last[1], curr[1]);
                 // notice here didn't add new int[] to the list (as curr already been merged to
                 // pre/last)
@@ -103,7 +104,7 @@ public class MergeIntervals {
         // missing
 
         // for(int i=1; i<intervals.length; i++){
-        for (int i = 0; i < intervals.length; i++) {
+        for (int i = 0; i < intervals.length; i++) { // i = 1 also works
             int[] curr = intervals[i];
             // initial intervals[0]
             int[] pre = res.getLast();
@@ -113,7 +114,7 @@ public class MergeIntervals {
                 // int[] interval = new int[2];
                 // interval[0] = intervals[i-1][0];
                 // interval[1] = Math.max(intervals[i-1][1],intervals[i][1]);
-                pre[1] = Math.max(curr[1], pre[1]);
+                pre[1] = Math.max(curr[1], pre[1]); // key step to merge the value
                 // res.add(interval);
             } else {
                 res.add(curr);
