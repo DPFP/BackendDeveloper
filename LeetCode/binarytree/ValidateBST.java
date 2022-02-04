@@ -70,15 +70,17 @@ public class ValidateBST {
             return true;
         }
 
+        // check everything from left
         if (!inOrder(root.left)) {
             return false;
         }
 
+        // inOrder Traverse logic
         if (prev != null && root.val <= prev) {
             return false;
         }
-
-        prev = root.val;
+        prev = root.val; // for next round of comparsion
+        // -----core logic
 
         return inOrder(root.right);
     }

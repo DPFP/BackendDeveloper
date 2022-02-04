@@ -26,12 +26,10 @@ public class EraseOverlapIntervals {
             }
         });
 
-        // Or the following short-cut
+        // Or the following short-cut 6, 7, 9 , 10
         // Arrays.sort(intvs, Comparator.comparingInt(i -> i[1]));
         // Arrays.sort(intvs, (a, b)-> a[1]-b[1]);
-
         // Arrays.sort() vs. Collections.sort()
-
         // at least one interval don't overlapping
         int count = 1;
 

@@ -22,9 +22,12 @@ public class TopKFrequent {
         PriorityQueue<Integer> pq = new PriorityQueue<>(k, (a, b) -> Integer.compare(map.get(a), map.get(b)));
         // vs below , should be identical ? The following not gonna work , because it
         // wasn't compare the map !!! 1/15
-        PriorityQueue<Integer> pq2 = new PriorityQueue<>(k, (a, b) -> Integer.compare(a, b));
+        // PriorityQueue<Integer> pq2 = new PriorityQueue<>(k, (a, b) ->
+        // Integer.compare(a, b));
 
         for (Integer key : map.keySet()) {
+            // here is the part that Heap/PQ will do it job, it will add value based on the
+            // map.value()
             pq.add(key);
             // here is the key to the problem. poll the smaller one out;
             if (pq.size() > k) {
