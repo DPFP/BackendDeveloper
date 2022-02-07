@@ -32,7 +32,7 @@ public class MedianStream {
     }
 
     // 2nd try worked
-    int[] findMedian(int[] arr) {
+    int[] findMedian2(int[] arr) {
         // Write your code here
         int len = arr.length;
         int[] res = new int[len];
