@@ -70,5 +70,9 @@ public class ScratchPad {
         int a = '1';
         char b = (char) a;
         System.out.println(b);
+
+        int[] arr = new int[10];
+        List<Integer> arl = new ArrayList<>();
+        arl.toArray(new int[0]);
     }
 }
