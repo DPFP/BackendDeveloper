@@ -8,6 +8,8 @@ public class QueueRemovals {
 
     // This one is hard.
     // https://leetcode.com/discuss/interview-question/1039925/Facebook-Practice-question-or-Queue-Removals
+
+    // 1st try, didn't work :
     private static int[] findPositions(int[] arr, int x) {
         // Write your code here
         // hash Map keep track of element + original index ?
@@ -58,13 +60,58 @@ public class QueueRemovals {
             res[i] = maxIndex;
             counter++;
         }
-
         return res;
+    }
+
+    // Online LC discussion solution worked
+    // https://leetcode.com/discuss/interview-question/1039925/Facebook-Practice-question-or-Queue-Removals/849658
+    private static int[] findPositions2(int[] arr, int x) {
+        // Write your code here
+
+        x = Math.min(x, arr.length); // C: this is really a smart move;
+        int[] result = new int[x];
+
+        int max, maxPos = 0;
+        int start = 0;
+        int readCount;
+
+        for (int i = 0; i < x; i++) {
+            readCount = Math.min(x, arr.length - i);
+
+            maxPos = start; // noticed didn't reset start here for next iteration, reset on the %
+            max = arr[maxPos];
+
+            // this will do two things.
+            // decrease the value -1 and find the max & maxPos
+            while (readCount > 0) {
+                if (arr[start] != -1) { // if is not removed element
+                    if (max < arr[start]) {
+                        max = arr[start];
+                        maxPos = start;
+                    }
+                    if (arr[start] > 0) {
+                        arr[start] = arr[start] - 1;
+                    }
+                    readCount--;
+                }
+                start++;
+                start = start % arr.length; // this will ensure start will reset
+            }
+
+            // mark the maxPos as -1, means removed
+            // (not actually remove the value, but mark it as -1)
+            arr[maxPos] = -1;
+            // add the maxPos to result set -- which is the (largest element) one removed
+            // from the queue
+            result[i] = maxPos + 1; // have to +1 is because one-based index
+        }
+
+        return result;
     }
 
     public static void main(String[] args) {
         int[] t1 = { 1, 2, 2, 3, 4, 5 };
 
-        Arrays.stream(findPositions(t1, 5)).forEach(n -> System.out.println(n));
+        Arrays.stream(findPositions2(t1, 5)).forEach(n -> System.out.println(n));
     }
 }
