@@ -32,24 +32,26 @@ public class GasStation {
         int len = gas.length;
         int sum = 0;
 
-        // first pass
+        int tank = 0;
+        int start = 0;
+
+        // first pass -- check if it even possible
         for (int i = 0; i < len; i++) {
-            sum += gas[i] - cost[i];
+            sum += gas[i] - cost[i]; // the order doesn't matter here
         }
         if (sum < 0) {
             return -1;
         }
 
-        // 2nd pass
-        int tank = 0;
-        int start = 0;
+        // 2nd pass - at this point, we know there is possible to make it
         for (int i = 0; i < len; i++) {
+            // keep update the the tank status.
             tank += gas[i] - cost[i];
             // is it possible to next station ? If yes, keep going.
             // if not, pick a new starting point
             if (tank < 0) {
                 // 无法从 start 走到 i 所以站点 i + 1 应该是起点
-                tank = 0;
+                tank = 0; // reset tank
                 start = i + 1;
             }
         }

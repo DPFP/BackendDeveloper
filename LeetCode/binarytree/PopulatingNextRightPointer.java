@@ -19,9 +19,8 @@ public class PopulatingNextRightPointer {
         dfs(curr.right, curr.next == null ? null : curr.next.left);
     }
 
-    // LC official soultuion #1 with BFS
-    // Time: O(N)
-    // Space: O(N)
+    // LC official soultuion #1 with BFS. Time: O(N) Space: O(N)
+    // Re-tried on 2/11/2022
     public Node connect2(Node root) {
         // second approach, using the method from LC solution
         if (root == null) {
@@ -44,8 +43,8 @@ public class PopulatingNextRightPointer {
                 if (i < size - 1) {
                     node.next = q.peek(); // q.peek() return to null if empty;
                 }
+                // Above is the key !!!
 
-                // add everything for the next level;
                 if (node.left != null) {
                     q.add(node.left);
                 }
@@ -69,26 +68,21 @@ public class PopulatingNextRightPointer {
         }
 
         Node leftMost = root;
-
         while (leftMost.left != null) {
             // treat it like a linkedList
             Node head = leftMost;
-
             while (head != null) {
                 // connection 1 : share the same parents
                 head.left.next = head.right;
-
                 // connection 2: not-shared parent
                 if (head.next != null) { // MT: missing the check;
                     head.right.next = head.next.left;
                 }
                 head = head.next;
             }
-
             // move on to next level;
             leftMost = leftMost.left;
         }
-
         return root;
     }
 
@@ -109,13 +103,14 @@ public class PopulatingNextRightPointer {
 
     // Recurssive Solution from 2021/2/21 submission (similar to LC #2 appraoch
     // which is iterative solution)
-    // probably is the eaiest understand solution so far
+    // probably is the eaiest understand solution so far (labuladong solution)
     // (with combination of the tree graph)
     public Node connect3(Node root) {
         if (root == null) {
             return root;
         }
         connectTwoNode(root.left, root.right);
+
         return root;
     }
 
@@ -126,6 +121,7 @@ public class PopulatingNextRightPointer {
         }
 
         // set the Next value
+        // pre-order (from top-to-bottom appraoch)
         left.next = right;
 
         // share the same parent node (4,5) (6,7)
@@ -137,46 +133,6 @@ public class PopulatingNextRightPointer {
     }
 
     public static void main(String[] args) {
-        int[] input = { 1, 2, 3, 4, 5, 6, 7 };
 
-        int level = 0;
-        int nextBatch = 0;
-
-        // calculate the totl level
-        int sum = 0;
-        while (input.length - sum != 0) {
-            sum = (int) (sum + Math.pow(2, level));
-            level++;
-        }
-        System.out.println("batch:" + nextBatch + " level:" + level);
-
-        // print value for each level
-        int pre = 0;
-        for (int i = 0; i < level; i++) {
-            // 0 , 1-2, 3-4-5-6
-            int end = pre + (int) Math.pow(2, i);
-
-            if (pre > 0) {
-                for (int j = pre; j < end; j++) {
-                    System.out.print(input[j]);
-                    if (j == end - 1) {
-                        System.out.print("null");
-                    }
-                }
-            } else {
-                System.out.print(input[pre]);
-                System.out.print("null");
-            }
-
-            pre = end;
-            System.out.println("----");
-        }
-
-        // ???
-        for (int i = 0; i < input.length; i++) {
-            nextBatch = (int) Math.pow(2, level);
-            level++;
-            // System.out.println("batch:" + nextBatch + " level:" + level);
-        }
     }
 }
