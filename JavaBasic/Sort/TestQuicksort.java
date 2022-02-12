@@ -1,4 +1,4 @@
-package Sort;
+package JavaBasic.Sort;
 
 public class TestQuicksort {
     public static void main(String[] args) {
