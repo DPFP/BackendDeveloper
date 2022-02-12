@@ -1,4 +1,4 @@
-package DesignPatterns;
+package JavaBasic.DesignPatterns;
 
 import javax.management.RuntimeErrorException;
 

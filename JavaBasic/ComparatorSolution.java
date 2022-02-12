@@ -1,3 +1,5 @@
+package JavaBasic;
+
 /*
  * Click `Run` to execute the snippet below!
  */
