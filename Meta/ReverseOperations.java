@@ -1,3 +1,7 @@
+package Meta;
+
+import java.util.Stack;
+
 public class ReverseOperations {
   class Node {
     int data;
@@ -12,24 +16,25 @@ public class ReverseOperations {
   // Add any helper functions you may need here
 
   // first try, didn't go anywhere
-  Node reverse(Node head) {
-        // Write your code here
+  Node reverse4(Node head) {
+    // Write your code here
 
-        //teamp 
-        Node cur = head; 
-        
-        Node subPart = new Node(-1);
-        while(head != null){
-          if(head.data % 2 = 1){
-            cur.next = subPart; 
-            subPart.next = null; 
-          }else{
-            subPart.next = head; 
-          }
-          
-          head = head.next; 
-        }
+    // teamp
+    Node cur = head;
+
+    Node subPart = new Node(-1);
+    while (head != null) {
+      if (head.data % 2 == 1) {
+        cur.next = subPart;
+        subPart.next = null;
+      } else {
+        subPart.next = head;
       }
+
+      head = head.next;
+    }
+    return subPart;
+  }
 
   // Online LC high vote solution
   Node reverseOdds(Node head) {

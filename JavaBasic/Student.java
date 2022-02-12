@@ -1,3 +1,5 @@
+package JavaBasic;
+
 // Java Program to Demonstrate Working of
 // Comparator Interface Via More than One Field
 // https://www.geeksforgeeks.org/comparator-interface-java/

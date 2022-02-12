@@ -1,3 +1,5 @@
+package JavaBasic;
+
 import java.util.Arrays;
 
 public class BSPractice {

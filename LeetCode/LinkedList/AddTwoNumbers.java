@@ -1,4 +1,4 @@
-package JavaBasic.LinkedList;
+package LeetCode.LinkedList;
 
 public class AddTwoNumbers {
 

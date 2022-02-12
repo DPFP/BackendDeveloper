@@ -1,3 +1,5 @@
+package LeetCode.BinarySearch;
+
 public class FirstBadVersion {
 
     // 1st try TLE

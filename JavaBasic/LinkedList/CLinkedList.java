@@ -1,3 +1,5 @@
+package JavaBasic.LinkedList;
+
 public class CLinkedList {
     class Node {
         int data;

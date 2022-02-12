@@ -1,3 +1,5 @@
+package JavaBasic;
+
 public class Single {
     private Single() {
     }
