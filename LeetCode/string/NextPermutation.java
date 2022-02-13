@@ -1,3 +1,5 @@
+package LeetCode.string;
+
 public class NextPermutation {
 
     // The replacement must be in place and use only constant extra memory.
@@ -76,11 +78,13 @@ public class NextPermutation {
 
     // online solution
     public void nextPermutationSol(int[] A) {
-        if (A == null || A.length <= 1)
+        if (A == null || A.length <= 1) {
             return;
+        }
         int i = A.length - 2;
-        while (i >= 0 && A[i] >= A[i + 1])
+        while (i >= 0 && A[i] >= A[i + 1]) {
             i--; // Find 1st id i that breaks descending order
+        }
         if (i >= 0) { // If not entirely descending
             int j = A.length - 1; // Start from the end
             while (A[j] <= A[i])
@@ -90,17 +94,45 @@ public class NextPermutation {
         reverse(A, i + 1, A.length - 1); // Reverse the descending sequence
     }
 
-    public void swap(int[] A, int i, int j) {
+    // Tried again on 2/12/2022
+    // added more comment with help to understand the problem.
+    public void nextPermutation3(int[] nums) {
+        // find the next biggest element and then swap
+        if (nums == null || nums.length <= 1) {
+            return;
+        }
+        int i = nums.length - 2; // because index + 1, dont want overflow
+        // step 1: find the first descedning value;
+        while (i >= 0 && nums[i] >= nums[i + 1]) {
+            i--;
+        }
+
+        // Step 2: if not entire descending;
+        if (i >= 0) {
+            // start from right side/end
+            int j = nums.length - 1;
+            // find the one element that is greater to nums[i]
+            while (nums[j] <= nums[i]) {
+                j--; // keep moving left
+            }
+            swap(nums, i, j); // swap those two element
+        }
+
+        // Step 3: reverse the remaining array after i
+        reverse(nums, i + 1, nums.length - 1);
+    }
+
+    private void swap(int[] A, int i, int j) {
         int tmp = A[i];
         A[i] = A[j];
         A[j] = tmp;
     }
 
-    public void reverse(int[] A, int i, int j) {
-        while (i < j)
+    private void reverse(int[] A, int i, int j) {
+        while (i < j) {
             swap(A, i++, j--);
+        }
     }
-    // online solution
 
     public static void main(String[] args) {
         // 3, 1, 2 --> 3,2,1 ?
