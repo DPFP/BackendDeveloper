@@ -106,7 +106,7 @@ public class ThreeSum {
         int len = nums.length;
 
         // for(int i=0;i < len; i++){
-        for (int i = 0; i < len - 2; i++) { // notice len - 2
+        for (int i = 0; i < len - 2; i++) { // notice len - 2 --> max right -1 - 1;
             int first = nums[i];
 
             // skip the currently round
@@ -115,7 +115,8 @@ public class ThreeSum {
                 continue;
             }
 
-            if (i == 0 || (i > 0 && first != nums[i - 1])) { //// skip the duplicatae element ?
+            // Have to remember this condition check !!!
+            if (i == 0 || (i > 0 && first != nums[i - 1])) { // skip the duplicatae element ? i > 0 because i-1
                 // int left = 0; //should this be i ? Yes
                 int left = i + 1; // grab next after i
                 int right = len - 1;

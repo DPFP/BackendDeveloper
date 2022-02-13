@@ -3,7 +3,10 @@ import java.util.Map;
 
 public class RomanToInteger {
 
-    // bf way;
+    //13. Roman to Integer
+    //https://leetcode.com/problems/roman-to-integer/
+
+    // brute force solution; 11/13/2020 21:59
     public int romanToIntBF(String s) {
         if (s.trim().length() < 1 && s.trim().length() > 15) {
             return 0;
@@ -46,12 +49,104 @@ public class RomanToInteger {
         return result;
     }
 
-    // second try
-    // Goal improve the performance
-    public int romanToInt(String s) {
-
-        return 0;
+    // second try , slightly different version of BF solution. 
+    //02/12/2022 12:55
+    public int romanToInt2(String s) {
+        //first create a map
+        
+        //key: Roman,  value: Integer
+        Map<Character,Integer> RoToIntMap = new HashMap<>(); 
+        
+        RoToIntMap.put('I', 1); // 4, 9 
+        RoToIntMap.put('V', 5);
+        RoToIntMap.put('X', 10); // 40, 90 
+        RoToIntMap.put('L', 50);
+        RoToIntMap.put('C', 100); // 400, 900 
+        RoToIntMap.put('D', 500);
+        RoToIntMap.put('M', 1000);
+        
+        int index = 0; 
+        int res = 0; 
+        int n = s.length();
+        
+        while(index < n){
+            char cur = s.charAt(index);
+            //M CD XL IV III 
+            if(cur == 'C'){
+                 if(((index+1) < n) && (s.charAt(index+1) == 'D')){
+                    res += 400;
+                    index++;
+                }else if(((index+1) < n) && (s.charAt(index+1) == 'M')){
+                    res += 900;
+                    index++;
+                }else{
+                    res += RoToIntMap.get(cur); //1000 + 400 +      
+                }
+            }else if(cur == 'X'){
+                 if( ((index+1) < n) && (s.charAt(index+1) == 'L')){
+                    res += 40;
+                    index++;
+                }else if(((index+1) < n) && (s.charAt(index+1) == 'C')){
+                    res += 90;
+                    index++;
+                }else{
+                    res += RoToIntMap.get(cur); //1000 + 400 +      
+                }
+            }else if(cur == 'I'){
+                 if(((index+1) < n)  && (s.charAt(index+1) == 'V')){
+                    res += 4;
+                    index++;
+                }else if(((index+1) < n) && (s.charAt(index+1) == 'X')){
+                    res += 9;
+                    index++;
+                }else{
+                    res += RoToIntMap.get(cur); //1000 + 400 +      
+                }
+            }else{
+                res += RoToIntMap.get(cur); //1000 + 400 +      
+            }
+            index++;
+        }
+        
+        return res; 
     }
+
+    //3rd try -- improved answer
+    public int romanToInt4(String s) {
+        //first create a map
+        
+        //key: Roman,  value: Integer
+        Map<Character,Integer> RoToIntMap = new HashMap<>(); 
+        
+        RoToIntMap.put('I', 1); // 4, 9 
+        RoToIntMap.put('V', 5);
+        RoToIntMap.put('X', 10); // 40, 90 
+        RoToIntMap.put('L', 50);
+        RoToIntMap.put('C', 100); // 400, 900 
+        RoToIntMap.put('D', 500);
+        RoToIntMap.put('M', 1000);
+        
+        int index = 0; 
+        int res = 0; 
+        int n = s.length();
+        
+        int prev = 0; 
+        
+        while(index < n){
+            int cur = RoToIntMap.get(s.charAt(index));
+            //The key is here !!! if prevsiou value is smaller than current, we need substrat it twice ! 
+            if(prev < cur){
+                res += cur - prev * 2;
+            }else{
+                res += cur; 
+            }
+            prev = cur; 
+            index++;
+        }
+        
+        return res; 
+    }
+    
 
 
     //added online solution 
@@ -89,6 +184,30 @@ public class RomanToInteger {
 
         }
         return ans;
+    }
+
+    //Another online solution
+    //the key is: The logic here is that, if a current character value is greater than that of the previous, we have to subtract it. 
+    // We subtract twice, because previously iteration had blindly added it. :) Hope this helps.
+    public int romanToInt(String str) {
+        int[] a = new int[26];
+        a['I' - 'A'] = 1;
+        a['V' - 'A'] = 5;
+        a['X' - 'A'] = 10;
+        a['L' - 'A'] = 50;
+        a['C' - 'A'] = 100;
+        a['D' - 'A'] = 500;
+        a['M' - 'A'] = 1000;
+        char prev = 'A';
+        int sum = 0;
+        for(char s : str.toCharArray()) {
+            if(a[s - 'A'] > a[prev - 'A']) {
+                sum = sum - 2 * a[prev - 'A'];
+            }
+            sum = sum + a[s - 'A'];
+            prev = s;
+        }
+        return sum;
     }
 
     public static void main(String[] args) {
