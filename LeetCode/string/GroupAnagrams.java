@@ -65,16 +65,21 @@ public class GroupAnagrams {
 
     // similar appraoch but more concise
     public List<List<String>> groupAnagrams3(String[] strs) {
-        if (strs == null || strs.length == 0)
+        if (strs == null || strs.length == 0) {
             return new ArrayList<>();
+        }
+
         Map<String, List<String>> map = new HashMap<>();
+
         for (String s : strs) {
             char[] ca = new char[26];
-            for (char c : s.toCharArray())
+            for (char c : s.toCharArray()) {
                 ca[c - 'a']++;
+            }
             String keyStr = String.valueOf(ca);
-            if (!map.containsKey(keyStr))
+            if (!map.containsKey(keyStr)) {
                 map.put(keyStr, new ArrayList<>());
+            }
             map.get(keyStr).add(s);
         }
         return new ArrayList<>(map.values());
@@ -127,5 +132,30 @@ public class GroupAnagrams {
         // return code.toString(); //can't do code.toString() --> hashCode must be
         // different in this case
         return new String(code);
+    }
+
+    // Retry on 2/13/2022
+    public List<List<String>> groupAnagrams6(String[] strs) {
+        // 1, i should start with Brute Force solution. (1, loop through every wored, 2,
+        // sort every word, check and add )
+        // 2, Tips from labuladong: Encoding is the key for this problem. arr[26] or
+        // String ?
+
+        Map<String, List<String>> checkMap = new HashMap<>();
+
+        for (String word : strs) {
+            char[] ca = new char[26];
+
+            // encoding here
+            for (char c : word.toCharArray()) {
+                ca[c - 'a']++;
+            }
+            String key = String.valueOf(ca);
+
+            checkMap.putIfAbsent(key, new LinkedList<>());
+            checkMap.get(key).add(word);
+        }
+
+        return new ArrayList<>(checkMap.values());
     }
 }

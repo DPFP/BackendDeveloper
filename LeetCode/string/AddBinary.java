@@ -1,6 +1,9 @@
 
 public class AddBinary {
 
+    // 67. Add binary
+    // https://leetcode.com/problems/add-binary/
+
     // refer to solution
     public String addBinarySol(String a, String b) {
         // 1 <= a.length, b.length <= 104
@@ -99,6 +102,36 @@ public class AddBinary {
             sb.append(sum % 2);
             carry = sum / 2;
         }
+        if (carry != 0) {
+            sb.append(carry);
+        }
+
+        return sb.reverse().toString();
+    }
+
+    // 3rd try 2/13/2022
+    public String addBinary3(String a, String b) {
+        // BF solution
+        StringBuilder sb = new StringBuilder();
+
+        int i = a.length() - 1;
+        int j = b.length() - 1;
+
+        int carry = 0;
+
+        while (i >= 0 || j >= 0) {
+            int sum = carry;
+            if (j >= 0) {
+                sum += b.charAt(j--) - '0';
+            }
+            if (i >= 0) {
+                sum += a.charAt(i--) - '0';
+            }
+            // current digit
+            sb.append(sum % 2);
+            carry = sum / 2;
+        }
+
         if (carry != 0) {
             sb.append(carry);
         }

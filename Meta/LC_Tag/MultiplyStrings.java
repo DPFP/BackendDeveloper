@@ -25,6 +25,7 @@ public class MultiplyStrings {
                 int p2 = i + j + 1;
 
                 int sum = mul + pos[p2]; // 15 + 0 = 15 --> 进位 carry Over
+
                 pos[p1] += sum / 10;
                 pos[p2] = sum % 10; // carry-over 进位
             }

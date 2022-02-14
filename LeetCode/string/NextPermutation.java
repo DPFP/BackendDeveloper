@@ -108,7 +108,7 @@ public class NextPermutation {
         }
 
         // Step 2: if not entire descending;
-        if (i >= 0) {
+        if (i >= 0) { // be careful here it is i >= 0
             // start from right side/end
             int j = nums.length - 1;
             // find the one element that is greater to nums[i]

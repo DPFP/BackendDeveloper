@@ -80,12 +80,14 @@ public class MyAtoi {
         // traverse through remaining char
         // C: great use of Character.isDigit here
         while (index < n && Character.isDigit(input.charAt(index))) {
-            int digit = input.charAt(index) - '0';
+            int digit = input.charAt(index) - '0'; // dont fogert minus '0' to get the actual number;
 
             // check overflow and underflow conditions
             // C: this is the critical part to check the edge cases
+            // 2147483647/10 = 214748364 < 214748365 (if 214748365 * 10 --> always overlow )
             if ((result > Integer.MAX_VALUE / 10)
                     || (result == Integer.MAX_VALUE / 10 && digit > Integer.MAX_VALUE % 10)) { // very tricky to think
+                // 2147483647/10 = 214748364 (if digt > 7, will be a problem);
                 // 2^31 - 1, or -2^31
                 return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
             }
@@ -100,5 +102,9 @@ public class MyAtoi {
     public static void main(String[] args) {
         MyAtoi sol = new MyAtoi();
         System.out.println(sol.myAtoi2("   -42"));
+
+        System.out.println(Integer.MAX_VALUE); // 2_147_483_647 -- 2 billion 2^31 - 1 (32-bit)
+        System.out.println(Integer.MAX_VALUE / 10); // 214748364
+        System.out.println(Integer.MIN_VALUE); // -2147483648 -- -2 billion -2^31 (32-bit)
     }
 }
