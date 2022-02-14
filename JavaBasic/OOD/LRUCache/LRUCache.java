@@ -2,11 +2,13 @@ package JavaBasic.OOD.LRUCache;
 
 import java.util.HashMap;
 
-public class LRUCache {
+public class LRUCache implements LRUCacheInterface {
+    // added the interface, so we can swap different implementation if necessary in
+    // the future;
+    // https://www.baeldung.com/java-lru-cache
+
     private HashMap<Integer, Node> map;
-
     private DoubleList cache;
-
     private int cap; // capacity
 
     public LRUCache(int capacity) {
@@ -45,8 +47,8 @@ public class LRUCache {
         map.remove(deletedKey);
     }
     // 上述方法就是简单的操作封装，调用这些函数可以避免直接操作 cache 链表和 map 哈希表
-    // abstract API methods
 
+    @Override
     public int get(int key) {
         if (!map.containsKey(key)) {
             return -1;
@@ -55,6 +57,7 @@ public class LRUCache {
         return map.get(key).val;
     }
 
+    @Override
     public void put(int key, int val) {
         if (map.containsKey(key)) {
             // missing this step
@@ -67,6 +70,11 @@ public class LRUCache {
         }
         // always make it most recently
         addRecently(key, val); // update
+    }
+
+    @Override
+    public int size() {
+        return this.cache.size();
     }
 
 }
