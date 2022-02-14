@@ -1,4 +1,4 @@
-package JavaBasic.Sort;
+package Sort;
 
 import java.util.Arrays;
 
@@ -30,19 +30,27 @@ public class QuickSort {
             // if smaller, move up the left pointer (i) and swap
             if (arr[j] <= pivot) {
                 i++;
-                int swapTemp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = swapTemp;
+                // int swapTemp = arr[i];
+                // arr[i] = arr[j];
+                // arr[j] = swapTemp;
+                swap(arr, i, j);
             }
         }
 
         // put the pivot value into the middle
-        int swapTemp = arr[i + 1];
-        arr[i + 1] = arr[end];
-        arr[end] = swapTemp;
+        // int swapTemp = arr[i + 1];
+        // arr[i + 1] = arr[end];
+        // arr[end] = swapTemp;
+        swap(arr, i + 1, end);
 
         // index of pivot
         return i + 1;
+    }
+
+    private static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 
     public static void main(String[] args) {
