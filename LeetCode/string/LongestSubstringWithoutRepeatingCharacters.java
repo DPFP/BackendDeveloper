@@ -53,4 +53,39 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
         return res;
     }
+
+    // solution based on the sliding window tempalte
+    // https://leetcode.com/problems/minimum-window-substring/discuss/26808/Here-is-a-10-line-template-that-can-solve-most-'substring'-problems
+    public int lengthOfLongestSubstring3(String s) {
+        int[] map = new int[128]; // ascii
+
+        int start = 0;
+        int end = 0;
+
+        int counter = 0;
+        int len = s.length();
+
+        int res = Integer.MIN_VALUE;
+
+        while (end < len) {
+            char c1 = s.charAt(end);
+            if (map[c1] > 0) { // not sure ?
+                counter++;
+            }
+            map[c1]++;
+            end++;
+
+            while (counter > 0) {
+                char c2 = s.charAt(start);
+                if (map[c2] > 1) {
+                    counter--;
+                }
+                map[c2]--;
+                start++;
+            }
+            res = Math.max(res, end - start);
+        }
+
+        return res == Integer.MIN_VALUE ? 0 : res;
+    }
 }
