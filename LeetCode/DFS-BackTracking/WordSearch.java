@@ -1,5 +1,9 @@
 public class WordSearch {
 
+    // 79. Word Search	
+    // https://leetcode.com/problems/word-search/
+    // PD: 10/07/21, 12/22/21,12/25/21, 2/14/22
+
     int row, col;
     boolean[][] visited;
     int[][] dirs = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } }; // right - down - left - up

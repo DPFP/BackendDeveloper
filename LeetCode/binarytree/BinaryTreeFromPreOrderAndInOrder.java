@@ -1,4 +1,39 @@
 public class BinaryTreeFromPreOrderAndInOrder {
+    // 105. Construct Binary Tree from Preorder and Inorder Traversal
+    // https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+
+    // From LC top discussion -- probably one of the cleanst and easier to
+    // understand;
+    // https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/discuss/34538/My-Accepted-Java-Solution
+    public TreeNode buildTree4(int[] preorder, int[] inorder) {
+        return helper(0, 0, inorder.length - 1, preorder, inorder);
+    }
+
+    // C: compare with labuladong, there is no "preEnd" parameter
+    public TreeNode helper(int preStart, int inStart, int inEnd, int[] preorder, int[] inorder) {
+        if (preStart > preorder.length - 1 || inStart > inEnd) {
+            return null;
+        }
+        TreeNode root = new TreeNode(preorder[preStart]);
+        int curRootIndex = 0; // Index of current root in inorder
+        // C: notice here is i<=inEnd, because the callee was using inorder.length - 1
+        for (int i = inStart; i <= inEnd; i++) {
+            if (inorder[i] == root.val) {
+                curRootIndex = i;
+            }
+        }
+
+        // C: figure out the parameters is the key;
+        // index -1 & index + 1 (split into two parts)
+        // moving from [left -> <- rootIndex - 1]
+        root.left = helper(preStart + 1, inStart, curRootIndex - 1, preorder, inorder);
+        // moving from [rootIndex + 1 -> <- right] C: basically, excluded all those
+        // element from left. (C: re-arrange the parameter make it a little easier to
+        // understand the differences between left & right) --
+        // Why " -inStart " ??? Because that is where the previous thread pointer at ?
+        root.right = helper(preStart + 1 + curRootIndex - inStart, curRootIndex + 1, inEnd, preorder, inorder);
+        return root;
+    }
 
     // Construct Binary Tree from Inorder and Preorder Traversal
     int pPreorder; // position preorderr
@@ -112,39 +147,6 @@ public class BinaryTreeFromPreOrderAndInOrder {
         // 递归构造左右子树
         root.left = build(preorder, preStart + 1, preStart + leftSize, inorder, inStart, index - 1);
         root.right = build(preorder, preStart + leftSize + 1, preEnd, inorder, index + 1, inEnd);
-        return root;
-    }
-
-    // From LC top discussion -- probably one of the cleanst and easier to
-    // understand;
-    // https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/discuss/34538/My-Accepted-Java-Solution
-    public TreeNode buildTree4(int[] preorder, int[] inorder) {
-        return helper(0, 0, inorder.length - 1, preorder, inorder);
-    }
-
-    // C: compare with labuladong, there is no "preEnd" parameter
-    public TreeNode helper(int preStart, int inStart, int inEnd, int[] preorder, int[] inorder) {
-        if (preStart > preorder.length - 1 || inStart > inEnd) {
-            return null;
-        }
-        TreeNode root = new TreeNode(preorder[preStart]);
-        int inIndex = 0; // Index of current root in inorder
-        // C: notice here is i<=inEnd, because the callee was using inorder.length - 1
-        for (int i = inStart; i <= inEnd; i++) {
-            if (inorder[i] == root.val) {
-                inIndex = i;
-            }
-        }
-
-        // C: figure out the parameters is the key;
-        // index -1 & index + 1 (split into two parts)
-        // moving from [left -> <- rootIndex - 1]
-        root.left = helper(preStart + 1, inStart, inIndex - 1, preorder, inorder);
-        // moving from [rootIndex + 1 -> <- right] C: basically, excluded all those
-        // element from left. (C: re-arrange the parameter make it a little easier to
-        // understand the differences between left & right) --
-        // Why " -inStart " ??? Because that is where the previous thread pointer at ?
-        root.right = helper(preStart + 1 + inIndex - inStart, inIndex + 1, inEnd, preorder, inorder);
         return root;
     }
 

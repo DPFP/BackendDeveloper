@@ -1,11 +1,38 @@
+package LeetCode.binarytree;
+
 public class CountUnivalSubtrees {
-    int count = 0;
+
+    // 250. Count Univalue Subtrees
+    // https://leetcode.com/problems/count-univalue-subtrees/solution/
+    // Practice date: 12/20/21, 2/14/22,
 
     // implemented solution from
     // https://algodaily.com/challenges/counting-univalued-subtrees
+    int count = 0;
+
     public int countUnivalSubtrees(TreeNode root) {
-        isUnivalSubTrees(root);
+        is_valid_part(root, root.val);
         return count;
+    }
+
+    // method #2 -- DFS + pass parents value
+    // probably is the best solution. Post-Order Traverse(bottom up)
+    boolean is_valid_part(TreeNode node, int val) {
+        // considered a valid subtree
+        if (node == null) {
+            return true;
+        }
+        // check if node.left and node.right are univalue subtrees of value node.val
+        // note that || short circuits but | does not - both sides of the or get
+        // evaluated with | so we explore all possible routes
+        if (!is_valid_part(node.left, node.val) | !is_valid_part(node.right, node.val)) {
+            return false;
+        }
+        // if it passed the last step then this a valid subtree - increment
+        count++;
+        // at this point we know that this node is a univalue subtree of value node.val
+        // pass a boolean indicating if this is a valid subtree for the parent node
+        return node.val == val;
     }
 
     // Method #1
@@ -82,30 +109,6 @@ public class CountUnivalSubtrees {
         }
         count++;
         return true;
-    }
-
-    // method #2 -- DFS + pass parents value
-    // TODO can't wrap my head around it 2021-12-20
-    boolean is_valid_part(TreeNode node, int val) {
-
-        // considered a valid subtree
-        if (node == null) {
-            return true;
-        }
-
-        // check if node.left and node.right are univalue subtrees of value node.val
-        // note that || short circuits but | does not - both sides of the or get
-        // evaluated with | so we explore all possible routes
-        if (!is_valid_part(node.left, node.val) | !is_valid_part(node.right, node.val)) {
-            return false;
-        }
-
-        // if it passed the last step then this a valid subtree - increment
-        count++;
-
-        // at this point we know that this node is a univalue subtree of value node.val
-        // pass a boolean indicating if this is a valid subtree for the parent node
-        return node.val == val;
     }
 
     // method #3 --

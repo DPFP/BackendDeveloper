@@ -1,7 +1,13 @@
+package LeetCode.binarytree;
+
 import java.util.HashMap;
 import java.util.Stack;
 
 public class BinaryTreeFromPostOrderAndInOrder {
+
+    // 106. Construct Binary Tree from Inorder and Postorder Traversal
+    // https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
+    // PD(Practice Date): 11/07/21, 2/14/22,
 
     // Construct Binary Tree from Inorder and Postorder Traversal
     // recursive method I
@@ -15,7 +21,7 @@ public class BinaryTreeFromPostOrderAndInOrder {
         return buildTree(inorder, postorder, null);
     }
 
-    // help method
+    // help method (hard to grasb)
     private TreeNode buildTree(int[] inorder, int[] postorder, TreeNode end) {
         if (pPostorder < 0) {
             return null;
@@ -50,6 +56,7 @@ public class BinaryTreeFromPostOrderAndInOrder {
         if (inorder == null || postorder == null || inorder.length != postorder.length) {
             return null;
         }
+        // key: node-value, value: index
         HashMap<Integer, Integer> hm = new HashMap<>();
         // keep track of index of inorder O(n)
         for (int i = 0; i < inorder.length; i++) {
@@ -65,16 +72,18 @@ public class BinaryTreeFromPostOrderAndInOrder {
         if (ps > pe || is > ie) {
             return null;
         }
+        //notice here the root value is from  "pe"
         TreeNode root = new TreeNode(postorder[pe]);
-        int ri = hm.get(postorder[pe]); // root index
+        int ri = hm.get(postorder[pe]); // root index within the InOrder (where need to split at ri ) left: ri-1, right: ri + 1;
+
         // left of subtree is from start...rootIndex,
-        root.left = buildTreePostIn(inorder, is, ri - 1, postorder, ps, ps + ri - is - 1, hm);
+        root.left = buildTreePostIn(inorder, is, ri - 1, postorder, ps, ps + ri - 1 - is, hm);
         // right of subtree is from rootIndex...end
-        root.right = buildTreePostIn(inorder, ri + 1, ie, postorder, ps + ri - is, pe - 1, hm);
+        root.right = buildTreePostIn(inorder, ri + 1, ie, postorder, ps + ri - is, pe - 1, hm);  //NOTICE here (pe - 1) , it could be pe-- (grab the next root value)
 
         return root;
     }
-    // Construct Binary Tree from Inorder and Postorder Traversal End
+    // Recursive End
 
     // iterative solution - begin
     // https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/discuss/34807/Java-iterative-solution-with-explanation
@@ -123,7 +132,7 @@ public class BinaryTreeFromPostOrderAndInOrder {
         int[] inorder = { 9, 3, 15, 20, 7 };
         int[] postorder = { 9, 15, 7, 20, 3 };
 
-        root.inorderTravers(sol.buildTree(inorder, postorder));
+        root.inorderTravers(sol.buildTreePostIn(inorder, postorder));
         System.out.println();
         // root.inorderTravers(sol.buildTreePostIn(inorder, postorder));
 

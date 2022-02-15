@@ -4,6 +4,39 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class PopulatingNextRightPointer {
+    // 116. Populating Next Right Pointers in Each Node
+    // https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+
+    // Recurssive Solution from 2021/2/21 submission (similar to LC #2 appraoch
+    // which is iterative solution)
+    // probably is the eaiest understand solution so far (labuladong solution)
+    // (with combination of the tree graph) 2/14/22
+    public Node connect3(Node root) {
+        if (root == null) {
+            return root;
+        }
+        connectTwoNode(root.left, root.right);
+
+        return root;
+    }
+
+    private void connectTwoNode(Node left, Node right) {
+        // e.g. 2, 3
+        if (left == null || right == null) {
+            return;
+        }
+
+        // set the Next value
+        // pre-order (from top-to-bottom appraoch)
+        left.next = right;
+
+        // share the same parent node (4,5) (6,7)
+        connectTwoNode(left.left, left.right);
+        connectTwoNode(right.left, right.right);
+
+        // not share the same parent node (5, 6) [key step]
+        connectTwoNode(left.right, right.left);
+    }
 
     // Amazaing simple recursive solution
     // https://leetcode.com/problems/populating-next-right-pointers-in-each-node/discuss/37472/A-simple-accepted-solution/265892
@@ -101,37 +134,6 @@ public class PopulatingNextRightPointer {
         }
         recur(root.left);
         recur(root.right);
-    }
-
-    // Recurssive Solution from 2021/2/21 submission (similar to LC #2 appraoch
-    // which is iterative solution)
-    // probably is the eaiest understand solution so far (labuladong solution)
-    // (with combination of the tree graph)
-    public Node connect3(Node root) {
-        if (root == null) {
-            return root;
-        }
-        connectTwoNode(root.left, root.right);
-
-        return root;
-    }
-
-    private void connectTwoNode(Node left, Node right) {
-        // e.g. 2, 3
-        if (left == null || right == null) {
-            return;
-        }
-
-        // set the Next value
-        // pre-order (from top-to-bottom appraoch)
-        left.next = right;
-
-        // share the same parent node (4,5) (6,7)
-        connectTwoNode(left.left, left.right);
-        connectTwoNode(right.left, right.right);
-
-        // not share the same parent node (5, 6) [key step]
-        connectTwoNode(left.right, right.left);
     }
 
     public static void main(String[] args) {
