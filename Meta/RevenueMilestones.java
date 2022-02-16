@@ -57,7 +57,6 @@ public class RevenueMilestones {
     }
 
     // 3rd try with Binary Search
-
     private static int[] getMilestoneDays3(int[] revenues, int[] milestones) {
         // Write your code here
         // use preFixSum

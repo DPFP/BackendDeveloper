@@ -21,9 +21,9 @@ public class EncryptedWords {
             middle = Character.toString(s.charAt((len / 2) - 1));
             // right = s.substring((len/2)+1,len);
         }
-        // faceboo won't work, because oo is duplicated.
-        int index = s.indexOf(middle);
+        // "facebook" won't work with split, because "oo" is duplicated.
         // String[] strs = s.split(middle);
+        int index = s.indexOf(middle);
 
         left = findEncryptedWord(s.substring(0, index));
         right = findEncryptedWord(s.substring(index + 1, len));

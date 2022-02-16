@@ -28,7 +28,6 @@ public class MatchingPairs {
                 if (!misMatchSet.add(s.charAt(i))) {
                     misMatchCount++;
                 }
-                ;
                 if (!misMatchSet.add(t.charAt(i))) {
                     misMatchCount++;
                 }

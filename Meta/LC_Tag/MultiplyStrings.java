@@ -18,14 +18,18 @@ public class MultiplyStrings {
 
         for (int i = m - 1; i >= 0; i--) {
             for (int j = n - 1; j >= 0; j--) {
+                // multiply
                 int mul = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
 
                 // TODO: Here is the Key !!!
+                // define the position
                 int p1 = i + j;
                 int p2 = i + j + 1;
 
+                // calculate the sum
                 int sum = mul + pos[p2]; // 15 + 0 = 15 --> 进位 carry Over
 
+                // update the arr
                 pos[p1] += sum / 10;
                 pos[p2] = sum % 10; // carry-over 进位
             }
@@ -33,7 +37,7 @@ public class MultiplyStrings {
 
         StringBuilder sb = new StringBuilder();
         for (int p : pos) {
-            // ignore all the leading zeros !
+            // ignore all the leading zeros ! and pull the element out
             if (!(sb.length() == 0 && p == 0)) {
                 sb.append(p);
             }

@@ -60,7 +60,8 @@ public class MyAtoi {
         int sign = 1;
         int result = 0;
 
-        int index = 0; // use one pointer to go through the string O(N) time. O(1) space
+        // use one pointer to go through the string O(N) time. O(1) space
+        int index = 0; 
         int n = input.length();
 
         // ignore any leading space;

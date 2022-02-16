@@ -32,6 +32,7 @@ public class RemoveDuplicatesInPlace {
 
         int fast = 0;
         int slow = 0;
+        
         int len = nums.length;
 
         while (fast < len) {

@@ -54,9 +54,12 @@ public class CountingTrangles {
         for (int i = 0; i < arr.size(); i++) {
             Sides sides = arr.get(i);
             int[] temp = { sides.a, sides.b, sides.c };
-            Arrays.sort(temp);
 
+            // key is to sort;
+            Arrays.sort(temp);
+            // and then encoding
             String triangle = Arrays.toString(temp);
+
             counterSet.add(triangle);
         }
 
