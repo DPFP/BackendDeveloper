@@ -64,7 +64,7 @@ public class ZigzagLevelOrder {
 
         Queue<TreeNode> q = new LinkedList<>();
         q.offer(root);
-        boolean turn = true;
+        boolean turn = true; // default turn=true, from left to right;
 
         while (!q.isEmpty()) {
             int size = q.size();
@@ -91,6 +91,45 @@ public class ZigzagLevelOrder {
 
             turn = !turn;
             res.add(curLevel);
+        }
+
+        return res;
+    }
+
+    // 3rd try
+    public List<List<Integer>> zigzagLevelOrder3(TreeNode root) {
+        List<List<Integer>> res = new LinkedList<>();
+
+        if (root == null) {
+            return res;
+        }
+
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        boolean turn = true;
+
+        while (!q.isEmpty()) {
+            int size = q.size();
+            LinkedList<Integer> curRes = new LinkedList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode cur = q.poll();
+                if (turn) {
+                    // curRes.addLast(cur.val); (no need to specify)
+                    curRes.add(cur.val); // default add to the end of queue;
+                } else {
+                    curRes.addFirst(cur.val); // opposite
+                }
+
+                if (cur.left != null) {
+                    q.offer(cur.left);
+                }
+
+                if (cur.right != null) {
+                    q.offer(cur.right);
+                }
+            }
+            turn = !turn;
+            res.add(curRes);
         }
 
         return res;

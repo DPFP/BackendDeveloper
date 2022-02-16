@@ -54,38 +54,9 @@ public class MaxPathSum {
         return Math.max(left, right) + sum;
     }
 
-    // Second try - close but still didn't work.
-    public int maxPathSum2(TreeNode root) {
-        int max = 0; // this seems be the problem ?
-        if (root == null) {
-            return max;
-        }
-        // Do I even need BFS or DFS is good enough ?
-        oneSideMax(root, max);
-
-        return max;
-    }
-
-    // why I can't pass the max like the following ?
-    // In Java, it is not possible to pass primitives by reference. To emulate this,
-    // you must pass a reference to an instance of a mutable wrapper class. (e.g.
-    // wrap it in array/list)
-    public int oneSideMax(TreeNode root, int max) {
-        if (root == null) {
-            return 0;
-        }
-
-        int leftMax = oneSideMax(root.left, max);
-        int rightMax = oneSideMax(root.right, max);
-
-        max = Math.max(max, leftMax + rightMax);
-
-        return Math.max(leftMax, rightMax) + root.val;
-    }
-
     // Solution from labuladong
     public int maxPathSum3(TreeNode root) {
-        max = Integer.MIN_VALUE;
+        max = Integer.MIN_VALUE; // this step is very important. don't forget !!!
 
         if (root == null) {
             return max;
@@ -121,4 +92,29 @@ public class MaxPathSum {
         return Math.max(leftMax, rightMax) + root.val;
     }
 
+    // Second try - close but still didn't work.
+    public int maxPathSum2(TreeNode root) {
+        int max = 0; // this seems be the problem ? This have to be Integer.MIN_VALUE
+        if (root == null) {
+            return max;
+        }
+        // Do I even need BFS or DFS is good enough ?
+        oneSideMax(root, max);
+
+        return max;
+    }
+
+    public int oneSideMax(TreeNode root, int max) {
+        if (root == null) {
+            return 0;
+        }
+
+        int leftMax = oneSideMax(root.left, max);
+        int rightMax = oneSideMax(root.right, max);
+
+        // Missing root.val for the pathSum (left + right + root.val)
+        max = Math.max(max, leftMax + rightMax);
+
+        return Math.max(leftMax, rightMax) + root.val;
+    }
 }

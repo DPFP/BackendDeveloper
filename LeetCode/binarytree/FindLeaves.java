@@ -5,6 +5,29 @@ public class FindLeaves {
     // 366. Find Leaves of Binary Tree
     // https://leetcode.com/problems/find-leaves-of-binary-tree/
 
+    // 3rd try (2/15/22)
+    public List<List<Integer>> findLeaves3(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        calculateLeaves(root, res);
+        return res;
+    }
+
+    private int calculateLeaves(TreeNode root, List<List<Integer>> res) {
+        if (root == null) {
+            return -1; // beyond leaves (null -1 )
+        }
+        int h = 1 + Math.max(calculateLeaves(root.left, res), calculateLeaves(root.right, res));
+        // post-order traverses (bottom up)
+        if (res.size() == h) {
+            res.add(new ArrayList<>());
+        }
+        res.get(h).add(root.val);
+        // reset/remove the leaves
+        root.left = root.right = null;
+
+        return h;
+    }
+
     // solution from labuladong suggestion
     public List<List<Integer>> findLeaves(TreeNode root) {
         // move the list from Global variable to local seems speed up the performance ?
@@ -37,7 +60,7 @@ public class FindLeaves {
     }
 
     // LeetCode Official Approach 2: DFS (Depth-First Search) without sorting
-    // notice the differences: I like this one better;
+    // notice the differences: I like this one better; a little bit more clear
     private List<List<Integer>> solution;
 
     public List<List<Integer>> findLeaves2(TreeNode root) {

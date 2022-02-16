@@ -16,12 +16,33 @@ public class DiameterOfBinaryTree {
         return Math.max(left, right) + 1;
     }
 
+    // WRONG Answer - 2nd try (2/15/22)
+    public int diameterOfBinaryTree3(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+
+        return depth(root, 0);
+    }
+
+    private int depth(TreeNode root, int d) {
+        if (root == null) {
+            return d;
+        }
+
+        int left = depth(root.left, d + 1);
+        int right = depth(root.right, d + 1);
+
+        return Math.max(left, right) + 1;
+    }
+
     // Correct Answer -- Noticed the differences !!!
     public int diameterOfBinaryTree(TreeNode root) {
         maxDepth(root);
         return max;
     }
 
+    // this still an post-order(bottom up -- from 0 + 1)
     private int maxDepth(TreeNode root) {
         if (root == null) { // means reached the leaf node -- bottom of the tree.
             return 0;
@@ -32,9 +53,11 @@ public class DiameterOfBinaryTree {
 
         // 后序遍历位置顺便计算最大直径 --
         // key point: have to count both left + right
+        // Step 2: update the state/value
         max = Math.max(max, left + right);
 
-        // why still need do this part ? This is the actual depth of each node
-        return Math.max(left, right) + 1;
+        // why still need do this part ? This is the actual depth of each level
+        // Step 3: make decision pick the branch.
+        return Math.max(left, right) + 1; // this is choice between left & right side for each call
     }
 }

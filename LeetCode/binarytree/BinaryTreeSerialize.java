@@ -16,8 +16,6 @@ public class BinaryTreeSerialize {
         }
         preOrder(root, sb);
 
-        // System.out.println(sb.toString());
-
         return sb.toString();
     }
 
@@ -55,7 +53,7 @@ public class BinaryTreeSerialize {
         // grab the first from the list -- which is the root
         // because we are doing pre-order traverse
         // 状态转化的是nodes - 每次使用都在减少.
-        String first = nodes.removeFirst();
+        String first = nodes.removeFirst(); // remove first for PreOrder Encode
 
         // Base Case - exit strategy
         // here need to make sure check both null and empty string
@@ -73,13 +71,12 @@ public class BinaryTreeSerialize {
     }
     /// End of Pre-order
 
-    // Begin Post-order
-    // Encodes a tree to a single string.
+    // Begin Post-order Method (Labuladong solution)
+    // Encodes a tree to a single string. (review: 1/14/22, 2/15/22)
     public String serialize2(TreeNode root) {
         // Now try post-order traverse
         StringBuilder sb = new StringBuilder();
-
-        encode(root, sb);
+        encode(root, sb); // notice it didn't return anything
 
         return sb.toString();
     }
@@ -103,6 +100,7 @@ public class BinaryTreeSerialize {
             return null;
         }
 
+        // Key part: convert the String to list of "nodes"
         LinkedList<String> nodes = new LinkedList<>();
         for (String s : data.split(SP)) {
             nodes.add(s);
@@ -116,14 +114,16 @@ public class BinaryTreeSerialize {
             return null;
         }
 
-        // i wasn't sure if there is such removeLast() method
-        String last = nodes.removeLast();
+        // This will consume the LinkedList like a queue from (right to left);
+        // removeLast() for postOrder encode
+        String last = nodes.removeLast(); // or use nodes.pollLast();
+
         if (last.equals(NULL) || last.isEmpty()) {
             return null;
         }
         TreeNode root = new TreeNode(Integer.parseInt(last));
 
-        // now is the tricky part, we have to start from right;
+        // now is the tricky part, we have to start from RIGHT;
         root.right = decode(nodes);
         root.left = decode(nodes);
 
