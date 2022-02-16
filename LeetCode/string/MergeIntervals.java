@@ -120,7 +120,27 @@ public class MergeIntervals {
                 res.add(curr);
             }
         }
-
         return res.toArray(new int[0][0]);
+    }
+
+    // re-did 2/16/22
+    public int[][] merge5(int[][] intervals) {
+        LinkedList<int[]> res = new LinkedList<>();
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+        res.add(intervals[0]);
+
+        for (int i = 1; i < intervals.length; i++) {
+            int[] curr = intervals[i];
+            int[] pre = res.getLast();
+
+            if (curr[0] <= pre[1]) {
+                pre[1] = Math.max(curr[1], pre[1]);
+            } else {
+                res.add(curr);
+            }
+        }
+
+        // return res.toArray(new int[0][0]);
+        return res.toArray(new int[res.size()][]);
     }
 }

@@ -69,13 +69,13 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
         while (end < len) {
             char c1 = s.charAt(end);
-            if (map[c1] > 0) { // not sure ?
+            if (map[c1] > 0) { // > 0 means there is repeating character.
                 counter++;
             }
             map[c1]++;
             end++;
 
-            while (counter > 0) {
+            while (counter > 0) { // if find any repeating character, move/shrink left pointer;
                 char c2 = s.charAt(start);
                 if (map[c2] > 1) {
                     counter--;
@@ -83,7 +83,8 @@ public class LongestSubstringWithoutRepeatingCharacters {
                 map[c2]--;
                 start++;
             }
-            res = Math.max(res, end - start);
+
+            res = Math.max(res, end - start); // update the result
         }
 
         return res == Integer.MIN_VALUE ? 0 : res;

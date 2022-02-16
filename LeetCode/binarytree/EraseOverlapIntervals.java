@@ -63,13 +63,13 @@ public class EraseOverlapIntervals {
         // sort the Interval by it ending asceding
         Arrays.sort(intervals, (a, b) -> Integer.compare(a[1], b[1]));
 
-        // start
+        // start 排序后，第一个区间就是 x
         x_end = intervals[0][1];
 
         for (int[] interval : intervals) {
-            if (x_end <= interval[0]) {
+            if (x_end <= interval[0]) { // 找到下一个选择的区间了
                 count++;
-                x_end = interval[1];
+                x_end = interval[1]; // update x_end
             }
         }
 

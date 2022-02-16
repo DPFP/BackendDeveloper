@@ -1,12 +1,16 @@
 public class LongestRepeatingCharacterReplacement {
-    // 424 Longest Repeating Character Replacement
+    // TODO 424 Longest Repeating Character Replacement
     // https://leetcode.com/problems/longest-repeating-character-replacement/
 
     // no idea yet; guess another two pointer ? Close, but using Sliding Window
     // what would human do ? Start from left to right, flip letter and then check
     // the length ?
 
-    // Solution from here
+    // Key info from problem:
+    // You can choose any character of the string and change it to any other
+    // uppercase English character.
+    // You can perform this operation at most k times.
+
     // https://leetcode.com/problems/longest-repeating-character-replacement/discuss/91271/Java-12-lines-O(n)-sliding-window-solution-with-explanation
     // sliding window
     public int characterReplacement(String s, int k) {

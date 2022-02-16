@@ -25,6 +25,7 @@ public class InvertTree {
 
         while (!q.isEmpty()) {
             TreeNode cur = q.poll();
+
             TreeNode temp = cur.left;
             cur.left = cur.right;
             cur.right = temp;

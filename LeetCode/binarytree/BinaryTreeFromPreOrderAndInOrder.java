@@ -112,7 +112,7 @@ public class BinaryTreeFromPreOrderAndInOrder {
     }
     // Construct Binary Tree from Inorder and Preorder Traversal End
 
-    // from labuladong
+    // from labuladong -- easier to understand
     /* 主函数 */
     TreeNode buildTree3(int[] preorder, int[] inorder) {
         return build(preorder, 0, preorder.length - 1,
@@ -140,6 +140,7 @@ public class BinaryTreeFromPreOrderAndInOrder {
             }
         }
 
+        // this is very important to understand the problem
         int leftSize = index - inStart;
 
         // 先构造出当前根节点
@@ -147,6 +148,7 @@ public class BinaryTreeFromPreOrderAndInOrder {
         // 递归构造左右子树
         root.left = build(preorder, preStart + 1, preStart + leftSize, inorder, inStart, index - 1);
         root.right = build(preorder, preStart + leftSize + 1, preEnd, inorder, index + 1, inEnd);
+
         return root;
     }
 

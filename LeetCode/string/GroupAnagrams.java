@@ -140,12 +140,9 @@ public class GroupAnagrams {
         // sort every word, check and add )
         // 2, Tips from labuladong: Encoding is the key for this problem. arr[26] or
         // String ?
-
         Map<String, List<String>> checkMap = new HashMap<>();
-
         for (String word : strs) {
             char[] ca = new char[26];
-
             // encoding here
             for (char c : word.toCharArray()) {
                 ca[c - 'a']++;

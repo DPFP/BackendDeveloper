@@ -31,14 +31,17 @@ public class ValidAnagram {
     // LC discussion solution
     public boolean isAnagram2(String s, String t) {
         int[] alphabet = new int[26];
+        // loop through s (increment)
         for (int i = 0; i < s.length(); i++) {
             alphabet[s.charAt(i) - 'a']++;
         }
 
+        // loop through t (decrement)
         for (int i = 0; i < t.length(); i++) {
             alphabet[t.charAt(i) - 'a']--;
         }
 
+        // check
         for (int i : alphabet) {
             if (i != 0) {
                 return false;

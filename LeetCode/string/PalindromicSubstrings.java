@@ -6,11 +6,9 @@ public class PalindromicSubstrings {
     public int countSubstrings(String s) {
         // BF - O(n^3) --> O(n^2) substring + O(n) determine palindromic
         int res = 0;
-
         for (int i = 0; i < s.length(); i++) {
             // check odd length palindrome
             res += count(i, i, s);
-
             // check even length palindrome
             res += count(i, i + 1, s);
         }

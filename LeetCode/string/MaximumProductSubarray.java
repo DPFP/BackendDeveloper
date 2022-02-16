@@ -5,11 +5,10 @@ public class MaximumProductSubarray {
     // solution from discussion, worked
     // https://leetcode.com/problems/maximum-product-subarray/discuss/48230/Possibly-simplest-solution-with-O(n)-time-complexity/248020
     public int maxProduct3(int[] nums) {
-        int prod = 1; // (pre/post)fix-product
         int res = Integer.MIN_VALUE;
-
         int len = nums.length;
 
+        int prod = 1; // (pre/post)fix-product
         for (int i = 0; i < len; i++) {
             prod = prod * nums[i];
             res = Math.max(res, prod); // compare self with (pre)FixProduct

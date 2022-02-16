@@ -29,7 +29,8 @@ public class TopKFrequent {
             // here is the part that Heap/PQ will do it job, it will add value based on the
             // map.value()
             pq.add(key);
-            // here is the key to the problem. poll the smaller one out;
+            // here is the key to the problem. poll the smaller one out;(because it is
+            // minHeap)
             if (pq.size() > k) {
                 pq.poll();
             }

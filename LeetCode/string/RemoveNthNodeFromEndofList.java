@@ -36,7 +36,7 @@ public class RemoveNthNodeFromEndofList {
             return head.next;
         }
 
-        // after fast ad the head start, then we let fast/slow walk together;
+        // after fast had the head start, then we let fast/slow walk together;
         // then fast will be n step before slow reach to the end.
         // and assume the fast take n step back from the "End" then it will where slow
         // will be
@@ -45,6 +45,7 @@ public class RemoveNthNodeFromEndofList {
             slow = slow.next;
         }
 
+        // here is the key, which is used to remove the nth node
         slow.next = slow.next.next;
 
         return head;

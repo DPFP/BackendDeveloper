@@ -64,7 +64,7 @@ public class ProductofArrayExceptSelf {
         int len = nums.length;
         int[] res = new int[len];
 
-        int pre = 1; // probably should name this "fix" instead of pre, (it could be postFix)
+        int fix = 1; // probably should name this "fix" instead of pre, (it could be postFix)
         // res[0] = nums[0];
 
         // notice it start from 0
@@ -72,15 +72,15 @@ public class ProductofArrayExceptSelf {
         for (int i = 0; i < len; i++) {
             // res[i] = pre * nums[i-1];
             // pre = res[i];
-            res[i] = pre; // pre default is 1 (index -1)
-            pre = pre * nums[i]; // calculate for next round;
+            res[i] = fix; // pre default is 1 (index -1)
+            fix = fix * nums[i]; // calculate for next round;
             // System.out.print(res[i] + " ");
         }
 
-        pre = 1; // index len
+        fix = 1; // index len
         for (int i = len - 1; i >= 0; i--) {
-            res[i] = res[i] * pre; // preFix * postFix ==> final result;
-            pre = pre * nums[i]; // postFix result for the previous value;
+            res[i] = res[i] * fix; // preFix * postFix ==> final result;
+            fix = fix * nums[i]; // postFix result for the previous value;
         }
 
         return res;

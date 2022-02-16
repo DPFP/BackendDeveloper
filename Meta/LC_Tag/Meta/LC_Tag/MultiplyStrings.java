@@ -47,7 +47,7 @@ public class MultiplyStrings {
 
     public static void main(String[] args) {
         MultiplyStrings sol = new MultiplyStrings();
-        System.out.println(sol.multiply("100", "100"));
+        System.out.println(sol.multiply("999", "999"));
 
     }
 }

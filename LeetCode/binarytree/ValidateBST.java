@@ -2,8 +2,51 @@ import java.util.Stack;
 
 public class ValidateBST {
 
-    // https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
+    // 98. Validate Binary Search Tree
+    // https://leetcode.com/problems/validate-binary-search-tree/
 
+    // Labuladong solution (easy to understand);
+    // use the BST property (left < root < right)
+    public boolean isValidBST(TreeNode root) {
+        return isValidBST(root, null, null);
+    }
+
+    // pre-order traverse
+    private boolean isValidBST(TreeNode root, TreeNode min, TreeNode max) {
+        if (root == null) {
+            return true;
+        }
+
+        if (min != null && root.val <= min.val) {
+            return false;
+        }
+
+        if (max != null && root.val >= max.val) {
+            return false;
+        }
+
+        return isValidBST(root.left, min, root) && isValidBST(root.right, root, max);
+    }
+
+    // Another Other procise solution;
+    public boolean isValidBST(TreeNode root) {
+        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    private boolean isValidBST(TreeNode root, long min, long max) {
+        if (root == null) {
+            return true;
+        }
+        if (root.val > min && root.val < max) {
+            // Key : noticed the parameters --> min, root.val, max (this is the essential
+            // part)
+            return isValidBST(root.left, min, root.val) && isValidBST(root.right, root.val, max);
+        } else {
+            return false;
+        }
+    }
+
+    // https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
     // WRONG version [2,2,2] (not looking at local max/min)
     public boolean isValidBST(TreeNode root) {
         if (root == null) {

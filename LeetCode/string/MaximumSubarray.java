@@ -8,7 +8,7 @@ public class MaximumSubarray {
     // utlized the "preFixSum" --> find Max
     public static int maxSubArray5(int[] nums) {
         int max = nums[0];
-        int localMax = nums[0]; // currentMax
+        int localMax = nums[0]; // currentMax // prefixSum
 
         // notice start i = 1;
         for (int i = 1; i < nums.length; i++) {
