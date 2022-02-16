@@ -2,8 +2,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
 
-public class Leetcode51 {
-    // N Queens
+public class NQueens {
+    // Leetcode51 N Queens
     // The n-queens puzzle is the problem of placing n queens on an n x n
     // chessboard such that no two queens attack each other.
 
@@ -88,7 +88,7 @@ public class Leetcode51 {
     }
 
     public static void main(String[] args) {
-        Leetcode51 sol = new Leetcode51();
+        NQueens sol = new NQueens();
         sol.solveNQueens(4);
     }
 }
