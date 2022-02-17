@@ -1,0 +1,5 @@
+package JavaBasic.OOD.ParkingLot.Vehicle;
+
+public class Car extends Vehicle {
+
+}
