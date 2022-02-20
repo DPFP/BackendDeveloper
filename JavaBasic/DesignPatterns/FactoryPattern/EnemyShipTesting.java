@@ -5,25 +5,24 @@ import java.util.Scanner;
 public class EnemyShipTesting {
 
     public static void main(String[] args) {
+        EnemyShipFactory enemyShipFactory = new EnemyShipFactory();
         EnemyShip theEnemy = null;
+
+        System.out.println("what type ? R U B");
 
         Scanner userInput = new Scanner(System.in);
 
-        String enemyShipOption = "";
-
-        System.out.println("What type of ship ? (U / R) ");
-
         if(userInput.hasNext()){
-            enemyShipOption = userInput.nextLine();
+            String typeOfShip = userInput.nextLine();
+
+            theEnemy = enemyShipFactory.makeEnemyShip(typeOfShip);
+        }
+        if(theEnemy != null){
+            doStuffEnemy(theEnemy);
+        }else{
+            throw new IllegalArgumentException("Enemy is null");
         }
 
-        if(enemyShipOption.equals("U")){
-            theEnemy = new UFOEnemyShip();
-        }else if(enemyShipOption.equals("R")){
-            theEnemy = new RocketEnemyShip();
-        }
-
-        doStuffEnemy(theEnemy);
     }
 
     private static void doStuffEnemy(EnemyShip enemyShip) {
