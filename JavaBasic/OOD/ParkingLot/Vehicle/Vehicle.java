@@ -4,10 +4,15 @@ import JavaBasic.OOD.ParkingLot.TicketProcess.ParkingTicket;
 
 public class Vehicle {
     private String licenseNumber; // plateNumber;
-    private VehicleType type;
+    private final VehicleType type; // need be final
     private ParkingTicket parkingTicket;
 
-    public void assignTicket() {
+    // misisng default constructor which used set the type
+    public Vehicle(VehicleType type) {
+        this.type = type;
+    }
 
+    public void assignTicket(ParkingTicket ticket) {
+        this.parkingTicket = ticket;
     }
 }

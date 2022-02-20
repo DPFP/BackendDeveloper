@@ -3,6 +3,7 @@ package JavaBasic.OOD.ParkingLot.User;
 import JavaBasic.OOD.ParkingLot.ParkingDisplayBoard;
 import JavaBasic.OOD.ParkingLot.ParkingFloor;
 import JavaBasic.OOD.ParkingLot.ParkingSpot.ParkingSpot;
+import JavaBasic.OOD.ParkingLot.TicketProcess.CustomerInfoPanel;
 import JavaBasic.OOD.ParkingLot.TicketProcess.EntrancePanel;
 import JavaBasic.OOD.ParkingLot.TicketProcess.ExitPanel;
 

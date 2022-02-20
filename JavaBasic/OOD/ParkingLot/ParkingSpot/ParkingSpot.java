@@ -8,27 +8,50 @@ public class ParkingSpot {
     private final ParkingSpotType type; // need be final, since it won't change forever
     private Vehicle vehicle;
 
-    public boolean isFree() {
-        return false;
-    }
-
-    // misisng from diagram
-
     // initial the final value at the constructor
     public ParkingSpot(ParkingSpotType type) {
         this.type = type;
     }
 
-    public boolean assignVehicle(Vehicle vehicle) {
+    public boolean IsFree() {
+        return false;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
-        free = false;
+    }
+
+    public ParkingSpotType getType() {
+        return type;
+    }
+
+    // misisng from diagram
+    public void setFree(boolean free) {
+        this.free = free;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public boolean assignVehicle(Vehicle vehicle) {
+        this.setVehicle(vehicle);
+        setFree(false);
 
         return true;
     }
 
     public boolean removeVehicle() {
-        this.vehicle = null;
-        free = true;
+        this.setVehicle(null);
+        setFree(true);
 
         return true;
     }
