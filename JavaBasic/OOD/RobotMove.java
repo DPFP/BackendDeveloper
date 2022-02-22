@@ -1,6 +1,6 @@
 package JavaBasic.OOD;
 
-class Robot {
+class RobotMove {
 
     enum Direction {
         North,
@@ -20,7 +20,7 @@ class Robot {
     // https://leetcode.com/problems/walking-robot-simulation-ii/
     // my discussion
     // https://leetcode.com/problems/walking-robot-simulation-ii/discuss/1764291/My-Brute-Force-Solution-Easy-to-understand
-    public Robot(int width, int height) {
+    public RobotMove(int width, int height) {
         // bottom-left (0,0). top-right (width-1, height-1);
         this.BOARD = new int[height][width]; // row,col (x,y)
         // this.DIRS = {{0,1}, {-1,0}, {0,-1}, {1,0}}; //north, west, south, east;
