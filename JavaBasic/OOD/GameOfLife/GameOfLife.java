@@ -46,15 +46,18 @@ public class GameOfLife {
         }
     }
 
-    public void calculateNextGeneration() {
+    public int calculateNextGeneration() {
+        int liveTotal = 0;
         Board nextBoard = copyBoard(board);
         for (int r = 0; r < ROW; r++) {
             for (int c = 0; c < COL; c++) {
                 int liveNeighbors = countliveNeighbors(r, c, board);
                 if (liveNeighbors == 3) {
                     nextBoard.setValue(r, c, 1);
+                    liveTotal++;
                 } else if (board.getValue(r, c) == 1 && liveNeighbors == 2) {
                     nextBoard.setValue(r, c, 1);
+                    liveTotal++;
                 } else {
                     nextBoard.setValue(r, c, 0);
                 }
@@ -62,6 +65,8 @@ public class GameOfLife {
             }
         }
         board = nextBoard;
+
+        return liveTotal;
     }
 
     private int countliveNeighbors(int row, int col, Board board) {

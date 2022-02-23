@@ -17,12 +17,21 @@ public class TestGameOfLife {
         gameOfLife.initialBoard();
         gameOfLife.displayBoard();
 
-        while (true){
-            gameOfLife.calculateNextGeneration();
+        boolean keepGoing = true;
+        int totalLife = 0;
+
+        while (keepGoing){
             System.out.println();
-            Thread.sleep(500);
+            totalLife = gameOfLife.calculateNextGeneration();
             gameOfLife.displayBoard();
+
+            if(totalLife == 0){
+                keepGoing = false;
+                System.out.println("All life were gone !");
+            }
+
             clearScreen();
+            Thread.sleep(500);
         }
 
     }
