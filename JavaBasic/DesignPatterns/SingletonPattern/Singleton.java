@@ -1,6 +1,4 @@
-package JavaBasic.DesignPatterns;
-
-import javax.management.RuntimeErrorException;
+package JavaBasic.DesignPatterns.SingletonPattern;
 
 public class Singleton {
 

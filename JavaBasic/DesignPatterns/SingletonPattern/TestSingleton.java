@@ -1,4 +1,4 @@
-package JavaBasic.DesignPatterns;
+package JavaBasic.DesignPatterns.SingletonPattern;
 
 public class TestSingleton {
     public static void main(String[] args) {
