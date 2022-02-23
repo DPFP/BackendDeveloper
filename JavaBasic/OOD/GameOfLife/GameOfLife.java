@@ -27,9 +27,9 @@ public class GameOfLife {
     public void displayBoard() {
         for (int r = 0; r < ROW; r++) {
             for (int c = 0; c < COL; c++) {
-                if(board.getValue(r,c) == 1){
+                if (board.getValue(r, c) == 1) {
                     System.out.print(ConsoleColors.GREEN_BACKGROUND + board.getValue(r, c) + " " + ConsoleColors.RESET);
-                }else{
+                } else {
                     System.out.print(ConsoleColors.RED_BACKGROUND + board.getValue(r, c) + " " + ConsoleColors.RESET);
                 }
 
@@ -43,21 +43,14 @@ public class GameOfLife {
         for (int r = 0; r < ROW; r++) {
             for (int c = 0; c < COL; c++) {
                 int liveNeighbors = countliveNeighbors(r, c, board);
-                if (board.getValue(r,c) == 0) {
-                    if (liveNeighbors == 3){
-                        nextBoard.setValue(r,c,1);
-                    }
-                } else if (board.getValue(r,c) == 1) {
-                    if(liveNeighbors < 2){
-                        nextBoard.setValue(r,c,0);
-                    }else if(liveNeighbors < 4){
-                        nextBoard.setValue(r,c,1);
-                    }else if(liveNeighbors > 3){
-                        nextBoard.setValue(r,c,0);
-                    }
-                } else {
-                    throw new IllegalStateException("value can only be 0 or 1");
+                if (liveNeighbors == 3) {
+                    nextBoard.setValue(r, c, 1);
+                }else if(board.getValue(r,c) == 1 && liveNeighbors == 2 ){
+                    nextBoard.setValue(r,c,1);
+                }else{
+                    nextBoard.setValue(r,c,0);
                 }
+
             }
         }
         board = nextBoard;

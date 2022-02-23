@@ -2,7 +2,7 @@ package JavaBasic.OOD.GameOfLife;
 
 public class ConsoleColors {
     //https://stackoverflow.com/a/45444716/3233111
-    
+
     // Reset
     public static final String RESET = "\033[0m";  // Text Reset
 
