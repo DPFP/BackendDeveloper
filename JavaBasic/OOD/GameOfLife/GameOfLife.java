@@ -5,18 +5,26 @@ public class GameOfLife {
     private int ROW;
     private int COL;
 
-    public GameOfLife(int row, int col) {
+    private static GameOfLife instance;
+
+    private GameOfLife(int row, int col) {
         this.ROW = row;
         this.COL = col;
         this.board = new Board(row, col);
+    }
+
+    public static GameOfLife getInstance(int row, int col) {
+        if (instance == null) {
+            instance = new GameOfLife(row, col);
+        }
+        return instance;
     }
 
     public void initialBoard() {
         //set random live with 1;
         for (int r = 0; r < ROW; r++) {
             for (int c = 0; c < COL; c++) {
-                int random = (int) (Math.random() * 3) + 1;
-                ; //  every 1/4 will be live
+                int random = (int) (Math.random() * 3) + 1; //  every 1/4 will be live cell
                 if (random == 3) {
                     board.setValue(r, c, 1);
                 }
@@ -45,10 +53,10 @@ public class GameOfLife {
                 int liveNeighbors = countliveNeighbors(r, c, board);
                 if (liveNeighbors == 3) {
                     nextBoard.setValue(r, c, 1);
-                }else if(board.getValue(r,c) == 1 && liveNeighbors == 2 ){
-                    nextBoard.setValue(r,c,1);
-                }else{
-                    nextBoard.setValue(r,c,0);
+                } else if (board.getValue(r, c) == 1 && liveNeighbors == 2) {
+                    nextBoard.setValue(r, c, 1);
+                } else {
+                    nextBoard.setValue(r, c, 0);
                 }
 
             }
@@ -78,10 +86,5 @@ public class GameOfLife {
             }
         }
         return newBoard;
-    }
-
-
-    private Board getBoard() {
-        return board;
     }
 }
