@@ -7,13 +7,15 @@ public class TestRobot {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Please specif how many row ?");
-        int row = scanner.nextInt();
+        int row = Integer.parseInt(scanner.nextLine());
 
         System.out.println("Please specif how many col ?");
-        int col = scanner.nextInt();
+        int col = Integer.parseInt(scanner.nextLine());
 
-        System.out.println("Please give Robot a name");
+        System.out.println("Please give Robot a name ! ");
         String roboName = scanner.nextLine();
+
+        System.out.println("hello " + roboName);
 
         Robot robot = new Robot(roboName);
         Board newBoard = new Board(row,col,robot);
