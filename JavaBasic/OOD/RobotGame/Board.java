@@ -1,19 +1,27 @@
 package JavaBasic.OOD.RobotGame;
 
+import JavaBasic.OOD.GameOfLife.ConsoleColors;
+
 public class Board {
-    private int row;
-    private int col;
+    private final int row;
+    private final int col;
     private int[][] board;
     private Robot robot;
+    private static Board instance;
 
-    //TODO
-    // Make this singleton class
 
-    public Board(int row, int col, Robot robot) {
+    private Board(int row, int col, Robot robot) {
         this.row = row;
         this.col = col;
         this.board = new int[row][col];
         this.robot = robot;
+    }
+
+    public static Board getInstance(int row, int col, Robot robot){
+        if(instance == null){
+            instance = new Board(row,col,robot);
+        }
+        return instance;
     }
 
     //Do we really need this ?
@@ -29,10 +37,10 @@ public class Board {
             for (int c = 0; c < col; c++) {
                 Position cur = this.robot.getPosition();
                 if (cur.getX() == r && cur.getY() == c) {
-                    System.out.print("R ");
+                    System.out.print(ConsoleColors.RED_BACKGROUND + "R " + ConsoleColors.RESET);
                 } else {
 //                    System.out.print(board[r][c] + "(" + r + "," + c + ") ");
-                    System.out.print(board[r][c] + " ");
+                    System.out.print(ConsoleColors.GREEN_BACKGROUND + board[r][c] + " " + ConsoleColors.RESET);
                 }
 
             }
@@ -40,21 +48,4 @@ public class Board {
             System.out.println();
         }
     }
-
-    public int getRow() {
-        return row;
-    }
-
-    public void setRow(int row) {
-        this.row = row;
-    }
-
-    public int getCol() {
-        return col;
-    }
-
-    public void setCol(int col) {
-        this.col = col;
-    }
-
 }

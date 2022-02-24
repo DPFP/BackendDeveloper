@@ -17,8 +17,8 @@ public class TestRobot {
 
         System.out.println("hello " + roboName);
 
-        Robot robot = new Robot(roboName);
-        Board newBoard = new Board(row,col,robot);
+        Robot robot = new Robot(roboName, row,col);
+        Board newBoard = Board.getInstance(row,col,robot);
 
         while(true){
             System.out.println("Please send move command U-up, D-down, L-left, R-right");
@@ -28,7 +28,7 @@ public class TestRobot {
                 throw new IllegalArgumentException("Only one character is allowed");
             }
 
-            robot.move(getDirFromUserInput(nextCommand), row,col);
+            robot.move(getDirFromUserInput(nextCommand));
             newBoard.status();
         }
     }
