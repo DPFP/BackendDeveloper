@@ -1,16 +1,15 @@
 
 /**
  * Write a description of class Life here.
- * 
- * @author (your name) 
+ *
+ * @author (your name)
  * @version (a version number or a date)
  */
 
-public class Life
-{
+public class Life {
     public static final int ROWS = 20;
     public static final int COLS = 80;
-    public static final int TIME_DELAY=500;
+    public static final int TIME_DELAY = 500;
 
     /**
      * The intializeBoard static method sets up the initial board with a 
@@ -18,8 +17,6 @@ public class Life
      * @param board a Board, typically empty
      */
 
-    
-    
 
     /**
      * The static displayBoard method displays the board on screen. A Board
@@ -29,7 +26,6 @@ public class Life
      * @param board the board to be displayed
      */
 
-    
 
     /**
      * The static calculateNextGeneration method takes the current board and 
@@ -39,13 +35,11 @@ public class Life
      * 2. existing cell lives if 2-3 neighbors ("these neighbors are JUST RIGHT!")
      * 3. existing cell dies if greater than 3 neighbors (overpopulation)
      * 4. empty cell becomes alive if exactly 3 neighbors (because...?)
-     * 
+     *
      * @param b the current board
      * @param nextB a board with the new generation on it
      */
 
-    
-    
 
     /**
      * The static method countNeighbors counts the eight cells around a given 
@@ -57,8 +51,7 @@ public class Life
      * @return the number of non-zero neighbors (minimum 0, maximum 8)
      */
 
-    
-    
+
     /**
      * The static method transferNextToCurrent takes the board with the 
      * next generation and copies it to the board for this generation so 
@@ -67,35 +60,27 @@ public class Life
      * @param nextBoard the next board containing a calculated new generation
      */
 
-    
-    
 
     /**
      * The clearConsole method attempts to clear the Terminal so that
      * successive generations of the board can be displayed
      */
-    private static void clearConsole()
-    {
+    private static void clearConsole() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
 
-    private static void slow(int TIME_DELAY)
-    {
+    private static void slow(int TIME_DELAY) {
         // Sleep for some amount of time to slow display down
-        try
-        {
+        try {
             Thread.sleep(TIME_DELAY);
             // TIME_DELAY is an integer in milliseconds
-        }
-        catch(InterruptedException ex)
-        {
+        } catch (InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
 
 
     }
