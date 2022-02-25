@@ -37,7 +37,7 @@ public class TestRobotController {
             }catch (IllegalArgumentException e){
                 System.out.println(e);
             }
-            
+
             newBoard.status();
         }
     }
@@ -69,6 +69,8 @@ public class TestRobotController {
             case "R":
                 moveRightButton.press();;
                 break;
+            case "Q":
+                System.exit(0);
             default:
                 throw new IllegalArgumentException("Invalid command , only U-u,D-d,L-l,R-r allowed");
         }

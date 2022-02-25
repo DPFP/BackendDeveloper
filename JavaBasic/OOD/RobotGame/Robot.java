@@ -7,6 +7,7 @@ public class Robot implements RobotDevice{
     private UUID uuid;
     private String name;
     private Position position;
+
     private int ROW;
     private int COL;
 
@@ -27,57 +28,59 @@ public class Robot implements RobotDevice{
     }
 
     //TODO I could pass the whole board to here, if there is obstacle
+    @Deprecated
     public void move(DIR dir) {
         switch (dir) {
             case UP:
                 //(-1,0)
-                this.position = getNextPosition(position, -1, 0);
+                setNextPosition(-1, 0);
                 break;
             case DOWN:
                 //(1,0)
-                this.position = getNextPosition(position, 1, 0);
+                 setNextPosition(1, 0);
                 break;
             case LEFT:
                 //(0,-1)
-                this.position = getNextPosition(position,0,-1);
+                 setNextPosition(0,-1);
                 break;
             case RIGHT:
                 //(0,1)
-                this.position = getNextPosition(position,0,1);
+                 setNextPosition(0,1);
                 break;
         }
         System.out.println(this.name + " moved "+ dir + " to new position " + position.getX() + "," + position.getY());
     }
 
-    private Position getNextPosition(Position cur, int rv, int cv) {
-        int x = cur.getX() + rv;
-        int y = cur.getY() + cv;
+    private void setNextPosition(int rv, int cv) {
+        int x = position.getX() + rv;
+        int y = position.getY() + cv;
+        //TODO also check if (x,y) === 1 (obstacle)
         if (x < 0 || x >= ROW || y < 0 || y >= COL) {
             //or this could throw some exception ?
             System.out.println("Exceed boundary -- not moving");
-            return cur;
         } else {
-            return new Position(x, y);
+            position.setX(x);
+            position.setY(y);
         }
     }
 
     @Override
     public void moveUp() {
-        this.position = getNextPosition(position, -1, 0);
+        setNextPosition(-1, 0);
     }
 
     @Override
     public void moveDown() {
-        this.position = getNextPosition(position, 1, 0);
+        setNextPosition( 1, 0);
     }
 
     @Override
     public void moveLeft() {
-        this.position = getNextPosition(position,0,-1);
+         setNextPosition(0,-1);
     }
 
     @Override
     public void moveRight() {
-        this.position = getNextPosition(position,0,1);
+         setNextPosition(0,1);
     }
 }

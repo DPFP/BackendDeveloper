@@ -7,8 +7,8 @@ public class Board {
     private final int col;
     private int[][] board;
     private Robot robot;
-    private static Board instance;
 
+    private static Board instance;
 
     private Board(int row, int col, Robot robot) {
         this.row = row;
@@ -17,9 +17,13 @@ public class Board {
         this.robot = robot;
     }
 
-    public static Board getInstance(int row, int col, Robot robot){
+    public synchronized static Board getInstance(int row, int col, Robot robot){
         if(instance == null){
-            instance = new Board(row,col,robot);
+            synchronized (Board.class){
+                if(instance == null){
+                    instance = new Board(row,col,robot);
+                }
+            }
         }
         return instance;
     }
