@@ -1,5 +1,7 @@
 package JavaBasic.OOD.GameOfLife;
 
+import JavaBasic.OOD.ConsoleColors;
+
 public class GameOfLife {
     private Board board;
     private int ROW;

@@ -1,6 +1,6 @@
 package JavaBasic.OOD.VIMEditor;
 
-import JavaBasic.OOD.GameOfLife.ConsoleColors;
+import JavaBasic.OOD.ConsoleColors;
 
 public class VIMOperator implements Operator{
     private int cursorIndex;

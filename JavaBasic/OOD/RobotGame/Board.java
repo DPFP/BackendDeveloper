@@ -1,6 +1,6 @@
 package JavaBasic.OOD.RobotGame;
 
-import JavaBasic.OOD.GameOfLife.ConsoleColors;
+import JavaBasic.OOD.ConsoleColors;
 
 public class Board {
     private final int row;

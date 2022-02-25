@@ -1,4 +1,4 @@
-package JavaBasic.OOD.GameOfLife;
+package JavaBasic.OOD;
 
 public class ConsoleColors {
     //https://stackoverflow.com/a/45444716/3233111
