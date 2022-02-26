@@ -1,100 +1,132 @@
-import java.io.*;
-import java.util.*;
+package LeetCode.graph;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class SecretSanta {
-    private String COMMA_DELIMITER = ",";
+    private final static String COMMA_DELIMITER = ",";
 
     private HashMap<String, String> pairPeople(String filePath) {
-        // Name:PairName, Name:PairName,Name:PairName
-        HashMap<String, String> res = new HashMap<>();
-
-        // read the input CSV file
+        // 1st, read the input CSV file
         List<List<String>> input = readCSVFile(filePath);
 
-        // Key: name, Value: List of disallowed name (don't want to receive gift form)
-        Map<String, List<String>> disallowedMap = new HashMap<>();
-        Set<String> recNameSet = new HashSet<>();
-        Set<String> giverNameSet = new HashSet<>();
+        // 2nd, Populate the nameSet
+        Set<String> nameSet = populatedNameSet(input);
 
-        // Populate the necessary data
-        populatedTheData(input, disallowedMap, recNameSet, giverNameSet);
+        // 3rd, build the graph: receiverName --> allowed giver name list
+        // Key: name, Value: Set of ALLOWED name (can receive gift from)
+        Map<String, Set<String>> graph = populatedGraph(input, nameSet);
 
-        // TODO Remove
-        System.out.println("-disallowed list-");
-        for (String name : disallowedMap.keySet()) {
-            System.out.println(name + ":" + disallowedMap.get(name));
-        }
+        // TODO remove -- show allowed list
+        graph.keySet().stream().forEach(k -> System.out.println(k + ":" + graph.get(k)));
         System.out.println("-----------");
 
-        // find the pair using iterator
-        Iterator<String> recNameIter = recNameSet.iterator();
-        Iterator<String> giverNameIter = giverNameSet.iterator();
+        // 4th, traverse the graph to find the possible matches
+        LinkedList<String> possibleFullMatch = findPairs(graph);
 
-        boolean firstRecFlag = true;
-        String firstRec = "";
-        String giverName = "";
-
-        while (recNameIter.hasNext()) {
-            String recName = recNameIter.next();
-            if (firstRecFlag) {
-                firstRec = recName;
-                firstRecFlag = false;
-            }
-            while (giverNameIter.hasNext()) {
-                giverName = giverNameIter.next();
-                // Rule #1, they can't give to self;
-                // Rule #3, filter by disallowed name;
-                if (!recName.equals(giverName) && isAllowedGiver(disallowedMap.get(recName), giverName)) {
-                    // Rule #2, remove from the iterator ensure each person can only give or receive
-                    // once;
-                    // Rule #4, two people can't exchange
-                    if (res.containsKey(giverName) && !res.get(giverName).equals(recName)) {
-                        res.putIfAbsent(recName, giverName);
-                        recNameIter.remove();
-                    } else {
-                        res.putIfAbsent(recName, giverName);
-                        recNameIter.remove();
-                        giverNameIter.remove();
-                        break;
-                    }
-                }
-            }
+        if (possibleFullMatch.size() == 0) {
+            System.out.println("Sorry, not able to match everyone ! ");
+            return new HashMap<>();
         }
 
-        // Here is to handle the special case of the first Receiver & last Giver
-        if (isAllowedGiver(disallowedMap.get(giverName), firstRec)) {
-            res.put(giverName, firstRec);
+        HashMap<String, String> res = new HashMap<>();
+
+        // special case, make sure match the first with last person
+        String first = possibleFullMatch.getFirst();
+        String last = possibleFullMatch.getLast();
+        res.put(last, first); // last --> lastGiver, first -->firstReceiver
+
+        for (int i = 1; i < possibleFullMatch.size(); i++) {
+            res.put(first, possibleFullMatch.get(i));
+            first = possibleFullMatch.get(i);
         }
 
         return res;
     }
 
-    private boolean isAllowedGiver(List<String> disallowedNames, String giverName) {
-        for (String disallowed : disallowedNames) {
-            if (disallowed.equals(giverName)) {
-                return false;
-            }
+    private LinkedList<String> findPairs(Map<String, Set<String>> graph) {
+        LinkedList<String> possibleFullPath = new LinkedList<>();
+
+        LinkedList<String> path = new LinkedList<>();
+        Set<String> visited = new HashSet<>();
+
+        // traverse through each name to see if there is possible full-cycle;
+        for (String recName : graph.keySet()) {
+            traverse(graph, recName, path, visited, possibleFullPath);
         }
-        return true;
+
+        return possibleFullPath;
     }
 
-    private void populatedTheData(List<List<String>> input,
-            Map<String, List<String>> disallowedList,
-            Set<String> recNameSet,
-            Set<String> giverNameSet) {
+    private void traverse(Map<String, Set<String>> graph,
+            String recName,
+            LinkedList<String> path,
+            Set<String> visited,
+            LinkedList<String> possiblePath) {
+
+        if (visited.contains(recName)) {
+            return;
+        }
+
+        visited.add(recName);
+
+        path.addLast(recName);
+        // if those two size equal, we know we have matched everyone
+        if (path.size() == graph.size()) {
+            System.out.println("We able to get everyone paired !!! ");
+            possiblePath.addAll(path);
+            return;
+        }
+
+        for (String giverName : graph.get(recName)) {
+            traverse(graph, giverName, path, visited, possiblePath);
+        }
+
+        path.removeLast();
+
+    }
+
+    private Set<String> populatedNameSet(List<List<String>> input) {
+        Set<String> nameSet = new HashSet<>();
         for (List<String> ls : input) {
-            int size = ls.size();
-            for (int i = 0; i < size; i++) {
-                if (i == 0) {
-                    recNameSet.add(ls.get(0));
-                    giverNameSet.add(ls.get(0));
-                    disallowedList.putIfAbsent(ls.get(0), new ArrayList<>());
-                }
-                if (i > 1) {
-                    disallowedList.get(ls.get(0)).add(ls.get(i));
+            nameSet.add(ls.get(0));
+        }
+        return nameSet;
+    }
+
+    private Map<String, Set<String>> populatedGraph(List<List<String>> input, Set<String> name) {
+        Map<String, Set<String>> graph = new HashMap<>();
+        for (List<String> ls : input) {
+            int len = ls.size();
+            String recName = ls.get(0);
+            graph.putIfAbsent(recName, new HashSet<>());
+
+            // shallow copy; addAll() for deep copy
+            Set<String> allowed = new HashSet<>(name);
+
+            // Rule #1, they can't give to self;
+            allowed.remove(ls.get(0));
+
+            // from CSV input: ls[0] = name, ls[1] = email, ls[>2] = disallowed Names
+            if (len > 2) { // if disallowed list is NOT empty --> remove those in the list
+                for (int i = 2; i < len; i++) {
+                    // Rule #3, filter by disallowed name;
+                    allowed.remove(ls.get(i));
                 }
             }
+            graph.put(recName, allowed);
         }
+
+        return graph;
     }
 
     private List<List<String>> readCSVFile(String filePath) {
@@ -122,7 +154,7 @@ public class SecretSanta {
             HashMap<String, String> res = secretSanta.pairPeople(group);
             // TODO remove -- display result
             for (String key : res.keySet()) {
-                System.out.println("(Key)Receiver:" + key + " <--- Giver(Value): " + res.get(key));
+                System.out.println("(Key)Receiver:" + key + " <--- (Value)Giver: " + res.get(key));
             }
         }
     }
