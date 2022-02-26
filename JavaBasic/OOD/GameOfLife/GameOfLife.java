@@ -42,7 +42,6 @@ public class GameOfLife {
                 } else {
                     System.out.print(ConsoleColors.RED_BACKGROUND + board.getValue(r, c) + " " + ConsoleColors.RESET);
                 }
-
             }
             System.out.println();
         }

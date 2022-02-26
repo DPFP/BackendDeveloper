@@ -14,9 +14,9 @@ public class VIMEditor {
         String command = "";
         while (true) {
             command = scanner.nextLine();
-            try{
+            try {
                 processCommand(operator, command);
-            }catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 System.out.println(e);
             }
         }
@@ -24,9 +24,10 @@ public class VIMEditor {
 
     private static void processCommand(VIMOperator operator, String command) {
         char charToUse = 0;
-        if(command.length() > 1){
+        if (command.length() > 1) {
             charToUse = command.charAt(1);
         }
+        //Character.isDigit()
 
         switch (command.charAt(0)) {
             case 'h':
