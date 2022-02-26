@@ -58,3 +58,4 @@ target/
 !.vscode/launch.json
 LeetCode/string/.vscode/launch.json
 LeetCode/string/.vscode/launch.json
+/out/
