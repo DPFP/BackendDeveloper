@@ -1,6 +1,10 @@
+package LeetCode.BinarySearch;
+
 public class SearchinRotatedSortedArray {
     // 33 Search in Rotated Sorted Array
     // https://leetcode.com/problems/search-in-rotated-sorted-array/
+    // when see the following requirements, you know it is binary search
+    // "You must write an algorithm with O(log n) runtime complexity."
 
     // first try -- 大开脑洞的答案.
     public int search(int[] nums, int target) {
@@ -74,9 +78,9 @@ public class SearchinRotatedSortedArray {
             return minIdx;
         }
 
-        int m = nums.length;
-        int start = (target <= nums[m - 1]) ? minIdx : 0;
-        int end = (target > nums[m - 1]) ? minIdx : m - 1;
+        int len = nums.length;
+        int start = (target <= nums[len - 1]) ? minIdx : 0;
+        int end = (target > nums[len - 1]) ? minIdx : len - 1;
 
         while (start <= end) {
             int mid = start + (end - start) / 2;
@@ -91,8 +95,11 @@ public class SearchinRotatedSortedArray {
         return -1;
     }
 
+    // O( log(n) )
     public int findMinIdx(int[] nums) {
-        int start = 0, end = nums.length - 1;
+        int start = 0;
+        int end = nums.length - 1;
+
         while (start < end) {
             int mid = start + (end - start) / 2;
             if (nums[mid] > nums[end])

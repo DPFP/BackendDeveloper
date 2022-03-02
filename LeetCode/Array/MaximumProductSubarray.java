@@ -1,9 +1,13 @@
+package LeetCode.Array;
+
 public class MaximumProductSubarray {
     // 152 Maximum Product Subarray
     // https://leetcode.com/problems/maximum-product-subarray/
 
     // solution from discussion, worked
     // https://leetcode.com/problems/maximum-product-subarray/discuss/48230/Possibly-simplest-solution-with-O(n)-time-complexity/248020
+    // Good explain
+    // https://leetcode.com/problems/maximum-product-subarray/discuss/48302/2-Passes-scan-beats-99
     public int maxProduct3(int[] nums) {
         int res = Integer.MIN_VALUE;
         int len = nums.length;
