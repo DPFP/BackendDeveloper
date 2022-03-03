@@ -1,3 +1,5 @@
+package LeetCode.binarySearch;
+
 import java.util.PriorityQueue;
 
 public class FindMinimuminRotatedSortedArray {
@@ -32,14 +34,17 @@ public class FindMinimuminRotatedSortedArray {
         return nums[0];
     }
 
-    // 1) If rotate, A[min] < A[min - 1]; 2) If not, A[0]. Therefore, we can use
-    // binary search: check the middle element, if it is less than previous one,
+    // 1) If rotate, A[min] < A[min - 1];
+    // 2) If not, A[0]. Therefore, we can use binary search: check the middle
+    // element, if it is less than previous one,
     // then it is minimum. If not, there are 2 conditions as well: If it is greater
     // than both left and right element, then minimum element should be on its
     // right, otherwise on its left.
 
     // binary search approach ;
     // https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/discuss/48484/A-concise-solution-with-proof-in-the-comment
+    // good explain (using python)
+    // https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/discuss/158940/Beat-100%3A-Very-Simple-(Python)-Very-Detailed-Explanation
     public int findMin3(int[] nums) {
         // try binary search ;
         int lo = 0;
@@ -47,6 +52,7 @@ public class FindMinimuminRotatedSortedArray {
 
         while (lo < hi) {
             int mid = lo + (hi - lo) / 2;
+            // notic here is compare nums[mid] < nums[hi]
             if (nums[mid] < nums[hi]) {
                 hi = mid;
             } else {
