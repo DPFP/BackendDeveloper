@@ -1,4 +1,4 @@
-public class SubtreeofAnotherTree {
+class SubtreeofAnotherTree {
 
     // 572. Subtree of Another Tree
     // https://leetcode.com/problems/subtree-of-another-tree/
