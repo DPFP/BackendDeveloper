@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Oct7thWordSearch {
+public class WordSearch {
 
     public boolean exist(char[][] board, String word) {
         boolean res = false;
@@ -83,7 +83,7 @@ public class Oct7thWordSearch {
     }
 
     public static void main(String[] args) {
-        Oct7thWordSearch sol = new Oct7thWordSearch();
+        WordSearch sol = new WordSearch();
         // Given input matrix
 
         char t1[][] = { { 'A', 'B', 'C', 'E' }, { 'S', 'F', 'C', 'S' }, { 'A', 'D', 'E', 'E' } };

@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Oct5thFindAllDuplicatesInAnArray {
+public class FindAllDuplicatesInAnArray {
 
     public List<Integer> findDuplicates(int[] nums) {
         Map<Integer, Integer> count = new HashMap<>();
@@ -35,7 +35,7 @@ public class Oct5thFindAllDuplicatesInAnArray {
     }
 
     public static void main(String[] args) {
-        Oct5thFindAllDuplicatesInAnArray sol = new Oct5thFindAllDuplicatesInAnArray();
+        FindAllDuplicatesInAnArray sol = new FindAllDuplicatesInAnArray();
         int[] nums = { 1, 1, 2 };
         for (int i : sol.findDuplicates(nums)) {
             System.out.print(i + " ");
