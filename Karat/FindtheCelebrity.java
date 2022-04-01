@@ -18,12 +18,14 @@ public class FindtheCelebrity {
     }
 
     private boolean isCeleb(int possible, int n) {
-        for (int i = 0; i < n; i++) {
-            if (possible == i) {
-                continue;
-            }
-
+        for (int i = 0; i < possible; i++) {
             if (knows(possible, i) || !knows(i, possible)) {
+                return false;
+            }
+        }
+
+        for (int i = possible + 1; i < n; i++) {
+            if (!knows(i, possible)) {
                 return false;
             }
         }
