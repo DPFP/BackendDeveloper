@@ -1,7 +1,10 @@
-public class Oct1stLongestCommonSubSequence {
+public class LongestCommonSubSequence {
 
+    // 1143. Longest Common Subsequence
+    // https://leetcode.com/problems/longest-common-subsequence/
+
+    // https://leetcode.com/problems/longest-common-subsequence/discuss/351689/JavaPython-3-Two-DP-codes-of-O(mn)-and-O(min(m-n))-spaces-w-picture-and-analysis
     public int longestCommonSubsequence(String text1, String text2) {
-        // https://leetcode.com/problems/longest-common-subsequence/discuss/351689/JavaPython-3-Two-DP-codes-of-O(mn)-and-O(min(m-n))-spaces-w-picture-and-analysis
         int m = text1.length(), n = text2.length();
 
         if (m < n) {
@@ -21,7 +24,7 @@ public class Oct1stLongestCommonSubSequence {
     }
 
     public static void main(String[] args) {
-        Oct1stLongestCommonSubSequence sol = new Oct1stLongestCommonSubSequence();
+        LongestCommonSubSequence sol = new LongestCommonSubSequence();
 
         String t1 = "baaaab";
         String t2 = "baab";
