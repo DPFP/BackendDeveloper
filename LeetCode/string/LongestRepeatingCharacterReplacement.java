@@ -7,9 +7,10 @@ public class LongestRepeatingCharacterReplacement {
     // the length ?
 
     // Key info from problem:
-    // You can choose any character of the string and change it to any other
-    // uppercase English character.
+    // You can choose ANY character of the string and change it to ANY other
+    // uppercase English character. (KEY Info --> Don't care how to swap)
     // You can perform this operation at most k times.
+    // Return the length of the longest SUBSTRING
 
     // https://leetcode.com/problems/longest-repeating-character-replacement/discuss/91271/Java-12-lines-O(n)-sliding-window-solution-with-explanation
     // sliding window
@@ -19,24 +20,23 @@ public class LongestRepeatingCharacterReplacement {
         int maxCount = 0; // largest count of a single, unique character in the current window
         int maxLength = 0;
 
-        int start = 0; // leftPointer --> keep moving right to decrease the window size
+        int start = 0; // leftPointer --> keep moving right will decrease the window size
         int len = s.length();
 
         // end ==> rightPointer, keep moving to the right to increase the window size
         for (int end = 0; end < len; end++) {
-            // increase the account for "cur character"
-            maxCount = Math.max(maxCount, ++count[s.charAt(end) - 'A']); // ++count vs count++ ?
-
+            // increase the account for "cur character" and always ensure grab the largest
+            maxCount = Math.max(maxCount, ++count[s.charAt(end) - 'A']); // count current max
+            // e.g. s = "ABAB", k = 2
             // sliding window -- windo is not valid, move the leftPointer to right &
             // decrease count. Shrink the window size.
             // Validated windowSize - maxFre <= k ==> valid window otherwise shrink like the
-            // following
-            // (end-start+1) = size of the current window
+            // following (end-start+1) = size of the current window
             if (end - start + 1 - maxCount > k) { // ==> (end - start ) => (k + maxCount)
                 count[s.charAt(start) - 'A']--;
                 start++;
             }
-
+            // Recall: find the max --> after the "while/if" loop
             maxLength = Math.max(maxLength, end - start + 1);
         }
 
