@@ -5,7 +5,8 @@ import java.util.List;
 
 public class MergeIntervals {
 
-    // 56 Merge Intervals https://leetcode.com/problems/merge-intervals/
+    // 56 Merge Intervals
+    // https://leetcode.com/problems/merge-intervals/
 
     // Didn't work on this approach
     public int[][] merge(int[][] intervals) {
@@ -130,13 +131,13 @@ public class MergeIntervals {
         res.add(intervals[0]);
 
         for (int i = 1; i < intervals.length; i++) {
-            int[] curr = intervals[i];
             int[] pre = res.getLast();
+            int[] curr = intervals[i];
 
             if (curr[0] <= pre[1]) {
-                pre[1] = Math.max(curr[1], pre[1]);
+                pre[1] = Math.max(curr[1], pre[1]); // update res.getLast();
             } else {
-                res.add(curr);
+                res.add(curr); // add to res.Last()
             }
         }
 

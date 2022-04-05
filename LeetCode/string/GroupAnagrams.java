@@ -8,7 +8,8 @@ import java.util.Map;
 import java.util.Set;
 
 public class GroupAnagrams {
-    // 49 Group Anagrams https://leetcode.com/problems/group-anagrams/
+    // 49 Group Anagrams
+    // https://leetcode.com/problems/group-anagrams/
 
     // shit cant figure it out
     public List<List<String>> groupAnagrams(String[] strs) {
