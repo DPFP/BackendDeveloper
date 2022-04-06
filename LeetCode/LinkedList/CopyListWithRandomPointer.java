@@ -2,7 +2,8 @@ public class CopyListWithRandomPointer {
     // 138. Copy List with Random Pointer
     // https://leetcode.com/problems/copy-list-with-random-pointer/
 
-    // Video solution: https://www.youtube.com/watch?v=EHpS2TBfWQg&t=3s
+    // 1st Video solution: https://www.youtube.com/watch?v=EHpS2TBfWQg&t=3s
+    // Needcode video https://youtu.be/5Y2EiZST97Y
 
     // solution from
     // https://leetcode.com/problems/copy-list-with-random-pointer/discuss/43491/A-solution-with-constant-space-complexity-O(1)-and-linear-time-complexity-O(N)/42652
