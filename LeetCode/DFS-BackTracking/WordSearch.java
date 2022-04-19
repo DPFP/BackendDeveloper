@@ -64,7 +64,7 @@ public class WordSearch {
     }
 
     public static void main(String[] args) {
-        WordSearch sol = new WordSearch();
+        WordSearch2 sol = new WordSearch2();
         sol.exist(null, null);
     }
 }
