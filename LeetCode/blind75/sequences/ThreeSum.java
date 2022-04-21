@@ -1,3 +1,4 @@
+package sequences;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -100,7 +101,7 @@ public class ThreeSum {
         }
         // one + TwoSum
 
-        // first sort the array
+        // first sort the array O(log(N))
         Arrays.sort(nums);
 
         List<List<Integer>> res = new LinkedList<>();
@@ -125,15 +126,16 @@ public class ThreeSum {
                 // twoSum target
                 int twoSum = 0 - first;
 
+                // binary search approach
                 while (left < right) {
                     if (nums[left] + nums[right] < twoSum) {
                         left++;
                     } else if (nums[left] + nums[right] > twoSum) {
                         right--;
-                    } else { // found twoSum
-                             // get one result;
-                             // res.add(List.of(i, numsleft, right)); need get the actual value, not just the
-                             // index
+                    } else {
+                        // found twoSum get one result;
+                        // res.add(List.of(i, numsleft, right)); need get the actual
+                        // value, not just the index
                         res.add(List.of(first, nums[left], nums[right]));
 
                         // missing the following parts

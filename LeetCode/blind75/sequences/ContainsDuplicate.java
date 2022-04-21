@@ -1,7 +1,10 @@
+package sequences;
 import java.util.HashSet;
 import java.util.Set;
 
 public class ContainsDuplicate {
+
+    // https://leetcode.com/problems/contains-duplicate/
 
     // okay solution
     public boolean containsDuplicate2(int[] nums) {

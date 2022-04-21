@@ -1,3 +1,4 @@
+package sequences;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -131,11 +132,11 @@ public class MergeIntervals {
         res.add(intervals[0]);
 
         for (int i = 1; i < intervals.length; i++) {
-            int[] pre = res.getLast();
+            int[] pre = res.getLast(); // key --> pointer
             int[] curr = intervals[i];
 
             if (curr[0] <= pre[1]) {
-                pre[1] = Math.max(curr[1], pre[1]); // update res.getLast();
+                pre[1] = Math.max(curr[1], pre[1]); // update the value from res.getLast();
             } else {
                 res.add(curr); // add to res.Last()
             }

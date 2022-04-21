@@ -1,3 +1,4 @@
+package sequences;
 public class ProductofArrayExceptSelf {
     // 238 Product of Array Except Self
     // https://leetcode.com/problems/product-of-array-except-self/
@@ -86,7 +87,7 @@ public class ProductofArrayExceptSelf {
         return res;
     }
 
-    // more concise version
+    // more concise version --> easy to find the pattern
     public int[] productExceptSelf3(int[] nums) {
         int[] result = new int[nums.length];
         for (int i = 0, tmp = 1; i < nums.length; i++) {

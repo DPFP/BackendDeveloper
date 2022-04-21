@@ -1,8 +1,9 @@
+package sequences;
 public class MaximumSubarray {
     // 53 Maximum Subarray
     // https://leetcode.com/problems/maximum-subarray/
 
-    // great solution with explain (Similar to buy sell stock)
+    // Great solution with explain (Similar to buy sell stock)
     // Kadane's algorithm
     // https://leetcode.com/problems/maximum-subarray/discuss/20211/Accepted-O(n)-solution-in-java
     // utlized the "preFixSum" --> find Max

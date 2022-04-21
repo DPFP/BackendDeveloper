@@ -1,6 +1,7 @@
-package LeetCode.DP;
-
+package sequences;
 public class BestTimetoBuyandSellStock {
+
+    // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
     // solution from LC discussion
     public int maxProfit(int[] prices) {
@@ -25,6 +26,7 @@ public class BestTimetoBuyandSellStock {
     }
 
     // somehow my improved solution on 1/22/2022 (Cut memory usage to hafl)
+    // still use kadane's algorithm
     public int maxProfit2(int[] prices) {
         // key is to keep track of the lowest in the past and do the calculation
         int max = 0;

@@ -1,7 +1,9 @@
+package sequences;
 import java.util.HashMap;
 import java.util.Map;
 
 public class TwoSum {
+    // https://leetcode.com/problems/two-sum/
 
     // solution from discussion
     public int[] twoSum(int[] nums, int target) {

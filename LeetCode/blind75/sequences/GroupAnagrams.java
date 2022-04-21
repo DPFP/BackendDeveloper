@@ -1,3 +1,4 @@
+package sequences;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -119,6 +120,7 @@ public class GroupAnagrams {
         for (String key : map.keySet()) {
             res.add(map.get(key));
         }
+        // can be replaced by --> new ArrayList<>(checkMap.values());
 
         return res;
     }
@@ -132,10 +134,10 @@ public class GroupAnagrams {
 
         // return code.toString(); //can't do code.toString() --> hashCode must be
         // different in this case
-        return new String(code);
+        return new String(code); // or String.valueOf()
     }
 
-    // Retry on 2/13/2022
+    // Retry on 2/13/2022, 4/20/2022
     public List<List<String>> groupAnagrams6(String[] strs) {
         // 1, i should start with Brute Force solution. (1, loop through every wored, 2,
         // sort every word, check and add )
@@ -144,7 +146,8 @@ public class GroupAnagrams {
         Map<String, List<String>> checkMap = new HashMap<>();
         for (String word : strs) {
             char[] ca = new char[26];
-            // encoding here
+
+            // Key: encoding here
             for (char c : word.toCharArray()) {
                 ca[c - 'a']++;
             }

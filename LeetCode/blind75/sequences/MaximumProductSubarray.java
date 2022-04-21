@@ -1,4 +1,4 @@
-package LeetCode.Array;
+package sequences;
 
 public class MaximumProductSubarray {
     // 152 Maximum Product Subarray
