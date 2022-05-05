@@ -15,10 +15,9 @@ public class AddStrings {
             int x1 = p1 >= 0 ? num1.charAt(p1) - '0' : 0;
             int x2 = p2 >= 0 ? num2.charAt(p2) - '0' : 0;
 
-            int value = (x1 + x2 + carry) % 10; // digit
-            carry = (x1 + x2 + carry) / 10;
-
-            sb.append(value);
+            int sum = x1 + x2 + carry;
+            sb.append(sum % 10); // digit (reverse order)
+            carry = (sum) / 10; // carry for next round
 
             p1--;
             p2--;
@@ -28,7 +27,10 @@ public class AddStrings {
             sb.append(carry);
         }
 
-        return sb.reverse().toString();
+        // added the fromat comma --> this still require convert to integer!
+        System.out.println(String.format("%,d", Integer.parseInt(sb.reverse().toString())));
+
+        return sb.toString();
     }
 
     // You must not use any built-in BigInteger library or convert the inputs to
@@ -40,9 +42,6 @@ public class AddStrings {
         } else {
             num1 = appendZero(num1, num2.length() - num1.length());
         }
-
-        // System.out.println(num1);
-        // System.out.println(num2);
 
         StringBuilder sb = new StringBuilder();
         int remainder = 0;
@@ -66,7 +65,7 @@ public class AddStrings {
         }
         sb.reverse();
 
-        System.out.println(sb.toString());
+        System.out.println(sb);
 
         return sb.toString();
     }
@@ -89,5 +88,7 @@ public class AddStrings {
         assert sol.addStrings("111", "222").equalsIgnoreCase("333") : "T2 Failed";
         assert sol.addStrings("111", "222222").equalsIgnoreCase("222333") : "T3 Failed";
         assert sol.addStrings("111", "999").equalsIgnoreCase("1110") : "T4 Failed";
+        assert sol.addStrings("1", "999").equalsIgnoreCase("1000") : "T5 Failed";
+        assert sol.addStrings("1", "999999").equalsIgnoreCase("1000000") : "T5 Failed";
     }
 }
