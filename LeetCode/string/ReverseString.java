@@ -36,8 +36,8 @@ public class ReverseString {
 
         System.out.print(5 / 2);
 
-        sol.reverseString(t1);
-        sol.reverseString(t2);
+        sol.reverseString(t1.toString());
+        sol.reverseString(t2.toString());
 
         // assert sol.reverseString(t1) == {'o','l','l','e','h'}: 'T1 Failed';
     }
