@@ -28,13 +28,14 @@ public class AddStrings {
             // 1 000000 -- 7
             // 1 000,000 -- 8 (carry)
             // 1 ,000,000 -- 9
-            if (cc == 3) {
+            if (cc == 3 && !(p1 <= 0 && p2 <= 0)) {
                 sb.append(",");
                 cc = 0;
             }
         }
 
         if (carry != 0) {
+            sb.append(',');
             sb.append(carry);
         }
         System.out.println(sb.toString() + " - " + sb.reverse().toString());
@@ -50,6 +51,8 @@ public class AddStrings {
         AddStrings sol = new AddStrings();
 
         sol.addStrings("101", "202000");
+        sol.addStrings("111", "222222");
+        sol.addStrings("922222", "222222");
         sol.addStrings("1", "999");
         sol.addStrings("1", "999999");
         sol.addStrings("1", "9999999");
