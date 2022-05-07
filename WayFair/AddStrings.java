@@ -1,16 +1,22 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class AddStrings {
 
     // 415. Add Strings
     // https://leetcode.com/problems/add-strings/
 
     // LC official solution -- most precise solution
-    public String addStrings(String num1, String num2) {
+    private String addStrings(String num1, String num2) {
         StringBuilder sb = new StringBuilder();
 
         int carry = 0;
+
+        num1 = num1.replace(",", "");
+        num2 = num2.replace(",", "");
+
         int p1 = num1.length() - 1;
         int p2 = num2.length() - 1;
-
         int cc = 0;
 
         while (p1 >= 0 || p2 >= 0) {
@@ -38,26 +44,49 @@ public class AddStrings {
             sb.append(',');
             sb.append(carry);
         }
-        System.out.println(sb.toString() + " - " + sb.reverse().toString());
+        sb.reverse();
+
+        // System.out.println(sb.toString() + " - " + sb.toString());
 
         // added the fromat comma --> this still require convert to integer!
-        // System.out.println(String.format("%,d",
-        // Integer.parseInt(sb.reverse().toString())));
+        // System.out.println(String.format("%,d", Integer.parseInt(sb.toString())));
 
         return sb.toString();
+    }
+
+    private Map<Integer, String> fibMap = new HashMap<>();
+
+    private String getFib(int n) {
+        if (n == 1) {
+            return "0";
+        }
+
+        if (n < 4) {
+            return "1";
+        }
+
+        if (fibMap.get(n) != null) {
+            return fibMap.get(n);
+        } else {
+            fibMap.put(n, addStrings(getFib(n - 2), getFib(n - 1)));
+        }
+
+        return fibMap.get(n);
     }
 
     public static void main(String[] args) {
         AddStrings sol = new AddStrings();
 
-        sol.addStrings("101", "202000");
-        sol.addStrings("111", "222222");
-        sol.addStrings("922222", "222222");
+        System.out.println(sol.getFib(19));
+
+        sol.addStrings("101", "202,000");
+        sol.addStrings("111", "222,222");
+        sol.addStrings("922222", "222,222");
         sol.addStrings("1", "999");
-        sol.addStrings("1", "999999");
-        sol.addStrings("1", "9999999");
-        sol.addStrings("1", "99999999");
-        sol.addStrings("1", "999999999");
+        sol.addStrings("1", "999,999");
+        sol.addStrings("1", "9,999,999");
+        sol.addStrings("1", "99,999,999");
+        sol.addStrings("1", "999,999,999");
 
         assert sol.addStrings("101", "202000").equalsIgnoreCase("202101") : "T1 Failed";
         assert sol.addStrings("111", "222").equalsIgnoreCase("333") : "T2 Failed";
