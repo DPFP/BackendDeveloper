@@ -7,7 +7,7 @@ public class ValidPalindrome {
         StringBuilder sb = new StringBuilder();
         
         //clear string
-        for(char c : s.toLowerCase().toCharArray()){
+        for(char c : s.toCharArray()){
             if(Character.isAlphabetic(c) || Character.isDigit(c)){
                 sb.append(c);
             }
